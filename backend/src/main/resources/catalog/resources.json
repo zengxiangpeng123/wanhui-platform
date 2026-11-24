@@ -1,0 +1,2631 @@
+{
+  "version": "1.0.0",
+  "resources": [
+    {
+      "key": "res-001",
+      "name": "Figma",
+      "description": "基于浏览器的协作设计工具，支持实时协作和原型设计，是团队协作的理想选择。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://www.figma.com/",
+      "icon": "website_image/images_of_sub_websites/design_resources/01_design_tools/Figma.png",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-002",
+      "name": "Sketch",
+      "description": "专为UI/UX设计师打造的矢量绘图应用，拥有丰富的插件生态系统和简洁的界面。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://www.sketch.com/",
+      "icon": "./website_image/images_of_sub_websites/design_resources/01_design_tools/Sketch.png",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-003",
+      "name": "Adobe Photoshop",
+      "description": "行业标准的图像编辑软件，具有强大的图像处理、合成和编辑功能。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://www.adobe.com/products/photoshop.html",
+      "icon": "./website_image/images_of_sub_websites/design_resources/01_design_tools/Adobe Photoshop.png",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-004",
+      "name": "Canva",
+      "description": "简单易用的在线设计平台，提供大量模板和设计元素，适合快速制作社交媒体图片和演示文稿。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://www.canva.com/",
+      "icon": "./website_image/images_of_sub_websites/design_resources/01_design_tools/Canva.png",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-005",
+      "name": "Adobe Illustrator",
+      "description": "专业矢量图形设计软件，用于创建图标、插图、徽标和其他矢量艺术作品，提供精确控制和丰富创意工具。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://www.adobe.com/products/illustrator.html",
+      "icon": "./website_image/images_of_sub_websites/design_resources/01_design_tools/Adobe Illustrator.png",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-006",
+      "name": "Adobe XD",
+      "description": "用户体验设计工具，支持UI/UX设计、原型制作和设计规范，便于团队协作和设计交付。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://www.adobe.com/products/xd.html",
+      "icon": "./website_image/images_of_sub_websites/design_resources/01_design_tools/Adobe XD.png",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-007",
+      "name": "draw.io",
+      "description": "免费的在线图表制作工具，支持流程图、组织结构图、网络拓扑图等多种图表类型，方便导出和集成。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://app.diagrams.net/",
+      "icon": "https://app.diagrams.net/favicon.ico",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-008",
+      "name": "CorelDRAW",
+      "description": "专业矢量插图和页面布局软件，提供全面的设计工具，适用于品牌设计、印刷和数字媒体创作。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://www.coreldraw.com/",
+      "icon": "./website_image/images_of_sub_websites/design_resources/01_design_tools/CorelDRAW.png",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-009",
+      "name": "Krita",
+      "description": "开源专业绘画软件，提供丰富的绘图和插图工具，支持各种画笔、图层和颜色管理，适合数字艺术家使用。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://krita.org/",
+      "icon": "./website_image/images_of_sub_websites/design_resources/02_design_inspiration/Krita.png",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-010",
+      "name": "Inkscape",
+      "description": "开源矢量图形编辑器，支持SVG格式，提供丰富的绘图工具，适合创建插图、图标和网页设计元素。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://inkscape.org/",
+      "icon": "https://inkscape.org/favicon.ico",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-011",
+      "name": "Blender",
+      "description": "开源3D创作软件，支持建模、动画、渲染、视频编辑等功能，适合创建3D设计、动画和视觉效果。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://www.blender.org/",
+      "icon": "https://www.blender.org/favicon.ico",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-012",
+      "name": "GIMP",
+      "description": "开源图像编辑程序，提供丰富的图像处理和编辑功能，是Photoshop的免费替代品，支持多种插件和扩展。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://www.gimp.org/",
+      "icon": "./website_image/images_of_sub_websites/design_resources/01_design_tools/GIMP.png",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-013",
+      "name": "Affinity Designer",
+      "description": "专业矢量图形设计软件，具有流畅的性能和精确的设计工具，一次性购买不需订阅，适合专业设计师使用。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://affinity.serif.com/designer/",
+      "icon": "https://affinity.serif.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-014",
+      "name": "Looka",
+      "description": "AI驱动的品牌设计平台，可以帮助用户快速创建专业级别的Logo和品牌标识设计。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://looka.com/",
+      "icon": "https://looka.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-015",
+      "name": "美间",
+      "description": "中文在线设计工具，提供丰富的模板和中文字体，特别适合中国用户使用的平面设计平台。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://www.meijian.com/",
+      "icon": "./website_image/images_of_sub_websites/design_resources/01_design_tools/美间.png",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-016",
+      "name": "千图设计室",
+      "description": "提供海量设计素材和模板，包括图片、插画、背景等资源，支持在线编辑设计。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://www.58pic.com/",
+      "icon": "https://www.58pic.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-017",
+      "name": "BoomAi",
+      "description": "AI设计工具，利用人工智能技术帮助用户生成创意设计和图像，提高设计效率。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://boomai.com/",
+      "icon": "./website_image/images_of_sub_websites/design_resources/01_design_tools/BoomAi.png",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-018",
+      "name": "百度智能云",
+      "description": "提供AI设计和创意生成服务，集成多种智能设计工具，支持图像识别、自然语言处理等功能。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://ai.baidu.com/",
+      "icon": "https://ai.baidu.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-019",
+      "name": "10Web",
+      "description": "AI驱动的网站构建平台，提供自动化设计和开发工具，帮助用户快速创建专业网站。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://10web.io/",
+      "icon": "./website_image/images_of_sub_websites/design_resources/01_design_tools/10Web.png",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-020",
+      "name": "海螺AI",
+      "description": "中文AI设计工具，提供智能图像生成和编辑功能，支持多种创意设计需求。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://www.hailuoai.com/",
+      "icon": "./website_image/images_of_sub_websites/design_resources/01_design_tools/海螺AI.png",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-021",
+      "name": "绘蛙",
+      "description": "专业的在线绘画和设计工具，提供丰富的绘画功能和素材库，适合插画师和设计师使用。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://www.ihuiwa.com/",
+      "icon": "./website_image/images_of_sub_websites/design_resources/01_design_tools/绘蛙.png",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-022",
+      "name": "稿定AI",
+      "description": "AI驱动的设计平台，提供智能抠图、智能排版、一键生成等功能，提高设计效率。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://www.gaoding.com/ai",
+      "icon": "./website_image/images_of_sub_websites/design_resources/01_design_tools/稿定AI.png",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-023",
+      "name": "Recraft AI",
+      "description": "AI设计创作工具，可以生成和编辑矢量图形，帮助设计师快速实现创意概念。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://www.recraft.ai/",
+      "icon": "./website_image/images_of_sub_websites/design_resources/01_design_tools/Recraft AI.png",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-024",
+      "name": "居然设计家",
+      "description": "家居设计平台，提供3D设计工具和设计素材，帮助用户进行家装设计和效果图制作。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://www.shejijia.com/",
+      "icon": "https://www.shejijia.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-025",
+      "name": "鹿班",
+      "description": "阿里巴巴旗下的AI设计平台，提供智能生成电商图片、海报等设计内容的服务。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "http://luban.taobao.com",
+      "icon": "./website_image/images_of_sub_websites/design_resources/01_design_tools/鹿班.png",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-026",
+      "name": "简单设计",
+      "description": "易用的在线设计工具，适合非专业设计人员使用，提供模板和简单的设计功能。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://www.laoque.com/tools/515",
+      "icon": "https://www.laoque.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-027",
+      "name": "笔格设计",
+      "description": "专业设计工具，提供丰富的设计模板和功能，帮助用户创建高质量的设计作品。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://bigesj.com",
+      "icon": "https://bigesj.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-028",
+      "name": "豆绘设计",
+      "description": "AI辅助设计平台，提供智能绘图和设计功能，让设计变得更加简单高效。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://www.douhuiai.com/",
+      "icon": "https://www.douhuiai.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-029",
+      "name": "匠紫",
+      "description": "智能设计工具，整合AI技术提供创意生成和设计辅助功能，提高设计效率。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://jiangziai.com/",
+      "icon": "./website_image/images_of_sub_websites/design_resources/01_design_tools/匠紫.png",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-030",
+      "name": "易可图",
+      "description": "在线图像处理工具，提供图片编辑、美化和设计功能，操作简单易用。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://www.yiketu.com/",
+      "icon": "./website_image/images_of_sub_websites/design_resources/01_design_tools/易可图.png",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-031",
+      "name": "Kittl",
+      "description": "数字设计平台，专注于复古和手工风格设计，提供强大的编辑工具和丰富的模板。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://www.kittl.com/",
+      "icon": "https://www.kittl.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-032",
+      "name": "Pic Coplit",
+      "description": "AI图像编辑和创作工具，提供智能图像处理和设计辅助功能，适合各种设计需求。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://www.piccopilot.com/home/zh",
+      "icon": "https://www.piccopilot.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-033",
+      "name": "创客贴AI",
+      "description": "智能设计平台，提供海报、名片、PPT等多种设计模板，利用AI技术辅助设计创作。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://m.chuangkit.com/pages/aieditor/matrix",
+      "icon": "https://m.chuangkit.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-034",
+      "name": "蚂上有创意",
+      "description": "阿里推出的设计平台，提供丰富的设计工具和资源，支持多种创意设计场景。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://idesign.alipay.com/home",
+      "icon": "./website_image/images_of_sub_websites/design_resources/01_design_tools/蚂上有创意.png",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-035",
+      "name": "爱设计",
+      "description": "在线设计工具平台，提供丰富的模板和设计素材，适合各类用户使用。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://isheji.com",
+      "icon": "./website_image/images_of_sub_websites/design_resources/01_design_tools/爱设计.png",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-036",
+      "name": "魔力工作室",
+      "description": "Canva推出的AI辅助设计功能，提供智能创意生成和设计辅助工具，提升设计效率。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://www.canva.cn/magic/",
+      "icon": "https://www.canva.cn/favicon.ico",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-037",
+      "name": "Onlook",
+      "description": "现代设计工具，提供简洁直观的用户界面和丰富的设计功能，帮助用户实现专业设计。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://onlook.com/",
+      "icon": "./website_image/images_of_sub_websites/design_resources/02_design_inspiration/Onlook.png",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-038",
+      "name": "DOAJ (Directory of Open Access Journals)",
+      "description": "收录高质量开放获取期刊的在线目录，提供多学科领域的开放获取学术研究内容。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://doaj.org",
+      "icon": "./website_image/images_of_sub_websites/design_resources/01_design_tools/DOAJ (Directory of Open Access Journals).png",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-039",
+      "name": "Library Genesis",
+      "description": "影子图书馆，提供免费下载学术书籍、教材和学术文章的资源平台。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "http://gen.lib.rus.ec",
+      "icon": "http://gen.lib.rus.ec/favicon.ico",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-040",
+      "name": "Project Gutenberg",
+      "description": "提供免费电子书的数字图书馆，主要收录已进入公共版权领域的书籍电子版。",
+      "category": "design",
+      "subcategory": "design-tools",
+      "url": "https://www.gutenberg.org",
+      "icon": "https://www.gutenberg.org/favicon.ico",
+      "tags": [
+        "design",
+        "design-tools"
+      ]
+    },
+    {
+      "key": "res-041",
+      "name": "Dribbble",
+      "description": "设计师分享作品的社区平台，展示UI、插图、动画等优秀设计作品，是寻找灵感的绝佳来源。",
+      "category": "design",
+      "subcategory": "design-inspiration",
+      "url": "https://dribbble.com/",
+      "icon": "./website_image/images_of_sub_websites/design_resources/02_design_inspiration/Dribbble.png",
+      "tags": [
+        "design",
+        "design-inspiration"
+      ]
+    },
+    {
+      "key": "res-042",
+      "name": "Behance",
+      "description": "Adobe旗下的创意作品展示平台，汇集平面设计、摄影、插画等多领域的高质量项目。",
+      "category": "design",
+      "subcategory": "design-inspiration",
+      "url": "https://www.behance.net/",
+      "icon": "./website_image/images_of_sub_websites/design_resources/02_design_inspiration/Behance.png",
+      "tags": [
+        "design",
+        "design-inspiration"
+      ]
+    },
+    {
+      "key": "res-043",
+      "name": "Awwwards",
+      "description": "网站设计奖项和灵感平台，展示最佳网页设计和交互设计案例，为设计师提供灵感和创意参考。",
+      "category": "design",
+      "subcategory": "design-inspiration",
+      "url": "https://www.awwwards.com/",
+      "icon": "https://www.awwwards.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-inspiration"
+      ]
+    },
+    {
+      "key": "res-044",
+      "name": "Pinterest",
+      "description": "视觉内容发现与收藏平台，用户可以保存和分享图片和视频，是设计师寻找灵感和收集参考的热门工具。",
+      "category": "design",
+      "subcategory": "design-inspiration",
+      "url": "https://www.pinterest.com/",
+      "icon": "./website_image/images_of_sub_websites/design_resources/01_design_tools/Pinterest.png",
+      "tags": [
+        "design",
+        "design-inspiration"
+      ]
+    },
+    {
+      "key": "res-045",
+      "name": "Designspiration",
+      "description": "设计灵感图片集合网站，提供海量高质量设计图片，支持按颜色和关键词搜索，帮助设计师找到创意灵感。",
+      "category": "design",
+      "subcategory": "design-inspiration",
+      "url": "https://www.designspiration.com/",
+      "icon": "https://www.designspiration.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-inspiration"
+      ]
+    },
+    {
+      "key": "res-046",
+      "name": "SiteInspire",
+      "description": "精选网站设计作品集，展示最佳网页设计实例，按风格、类型和平台分类，帮助设计师发现新的设计趋势。",
+      "category": "design",
+      "subcategory": "design-inspiration",
+      "url": "https://www.siteinspire.com/",
+      "icon": "./website_image/images_of_sub_websites/design_resources/02_design_inspiration/SiteInspire.png",
+      "tags": [
+        "design",
+        "design-inspiration"
+      ]
+    },
+    {
+      "key": "res-047",
+      "name": "Typewolf",
+      "description": "网页字体资源网站，展示优秀网站的字体运用案例，提供字体推荐、配对指南和排版趋势，帮助设计师选择合适的字体。",
+      "category": "design",
+      "subcategory": "design-inspiration",
+      "url": "https://www.typewolf.com/",
+      "icon": "https://www.typewolf.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-inspiration"
+      ]
+    },
+    {
+      "key": "res-048",
+      "name": "Lapa Ninja",
+      "description": "着重于展示优秀的登陆页设计集合，按行业和风格分类，帮助设计师了解最新的登陆页设计趋势和创意实现。",
+      "category": "design",
+      "subcategory": "design-inspiration",
+      "url": "https://www.lapa.ninja/",
+      "icon": "https://www.lapa.ninja/favicon.ico",
+      "tags": [
+        "design",
+        "design-inspiration"
+      ]
+    },
+    {
+      "key": "res-049",
+      "name": "Land-book",
+      "description": "登陆页设计画廊，收集最佳网站设计实例，重点展示产品登陆页，帮助设计师找到转化率优化和视觉表达的灵感。",
+      "category": "design",
+      "subcategory": "design-inspiration",
+      "url": "https://land-book.com/",
+      "icon": "https://land-book.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-inspiration"
+      ]
+    },
+    {
+      "key": "res-050",
+      "name": "CSS Design Awards",
+      "description": "国际性网页设计和开发奖项平台，展示和奖励杰出的网站设计，提供丰富的设计灵感和创意参考。",
+      "category": "design",
+      "subcategory": "design-inspiration",
+      "url": "https://www.cssdesignawards.com/",
+      "icon": "https://www.cssdesignawards.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-inspiration"
+      ]
+    },
+    {
+      "key": "res-051",
+      "name": "Communication Arts",
+      "description": "视觉传达领域权威杂志网站，展示平面设计、广告、插画等领域的优秀作品，举办年度设计比赛，是创意灵感的宝库。",
+      "category": "design",
+      "subcategory": "design-inspiration",
+      "url": "https://www.commarts.com/",
+      "icon": "./website_image/images_of_sub_websites/design_resources/02_design_inspiration/Communication Arts.png",
+      "tags": [
+        "design",
+        "design-inspiration"
+      ]
+    },
+    {
+      "key": "res-052",
+      "name": "Midjourney",
+      "description": "顶级AI图像生成工具，通过文字描述创建高质量艺术作品，为设计师提供无限创意可能和视觉灵感。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://www.midjourney.com/explore?tab=top",
+      "icon": "./website_image/images_of_sub_websites/ai_website/02ai_image_generation/Midjourney.png",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-053",
+      "name": "Adobe Firefly",
+      "description": "Adobe推出的AI创意工具，能生成图像、文本效果和颜色矢量，特别适合Adobe生态系统用户，提供商业可用的安全AI创意内容。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://firefly.adobe.com/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/02ai_image_generation/Adobe Firefly.png",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-054",
+      "name": "Uizard",
+      "description": "AI驱动的设计工具，可以将草图转换为UI设计，加速原型设计过程，帮助快速将创意转化为可视化界面原型。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://uizard.io/",
+      "icon": "https://uizard.io/favicon.ico",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-055",
+      "name": "美简",
+      "description": "在线电商设计工具，提供丰富模板和多场景电商设计解决方案，帮助卖家快速制作高转化率的产品图和宣传图。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://www.meijian.com/e-commerce",
+      "icon": "./website_image/images_of_sub_websites/ai_website/02ai_image_generation/美简.png",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-056",
+      "name": "Khroma",
+      "description": "AI色彩工具，通过学习用户喜好生成个性化配色方案，提供无限调色板和灵感，帮助设计师解决配色难题。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://www.khroma.co/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/02ai_image_generation/Khroma.png",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-057",
+      "name": "Stable Diffusion Web",
+      "description": "开源AI图像生成工具的网页版，支持文本生成图像、图像修改和风格迁移，为设计师提供创意辅助和灵感来源。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://stablediffusionweb.com/zh-cn",
+      "icon": "./website_image/images_of_sub_websites/ai_website/02ai_image_generation/StableDiffusion web.png",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-058",
+      "name": "Designs.ai",
+      "description": "一站式AI设计平台，提供标志设计、视频制作、社交媒体图片生成等功能，帮助非专业人士快速创建专业设计作品。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://designs.ai/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/02ai_image_generation/Designs.ai.png",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-059",
+      "name": "即梦AI",
+      "description": "剪映团队推出的AI图像和创意工具，提供智能抠图、图像生成和视频创意辅助，支持多场景创作需求。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://jimeng.jianying.com/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/02ai_image_generation/即梦.png",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-060",
+      "name": "LiblibAI",
+      "description": "国内AI绘画社区，支持多种AI模型创作，用户可以分享作品、学习提示词技巧，探索不同风格的AI艺术创作。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://www.liblib.art/",
+      "icon": "https://www.liblib.art/favicon.ico",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-061",
+      "name": "堆友",
+      "description": "面向设计师的创意协作平台，提供设计资源分享、灵感收集和团队协作功能，帮助设计师高效管理创意和设计项目。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://d.design/",
+      "icon": "https://d.design/favicon.ico",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-062",
+      "name": "Stable Diffusion",
+      "description": "强大的开源AI图像生成模型，支持多种创作方式和风格迁移，成为AI艺术领域的重要基础工具。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://stability.ai",
+      "icon": "https://stability.ai/favicon.ico",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-063",
+      "name": "DALL·E3",
+      "description": "OpenAI的最新图像生成模型，具有极高的细节精度和创意理解能力，可从复杂文本描述生成精确图像。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://openai.com/dall-e-3/",
+      "icon": "https://openai.com/favicon.ico",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-064",
+      "name": "AI创作家",
+      "description": "国内AI绘画工具，支持中文提示词，操作简单直观，适合各类创意设计和艺术创作需求。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://ai.chiyingapp.com/aihuihua/",
+      "icon": "https://ai.chiyingapp.com/favicon.ico",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-065",
+      "name": "文心一格",
+      "description": "百度AI推出的创意设计平台，基于文心大模型，提供丰富多样的艺术风格和中文友好的交互体验。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://yige.baidu.com/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/02ai_image_generation/文心一格.png",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-066",
+      "name": "6pen Art",
+      "description": "设计师友好的AI绘画工具，提供多种预设和风格，帮助快速生成创意灵感和设计素材。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://6pen.art/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/02ai_image_generation/6pen Art.png",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-067",
+      "name": "PicSo",
+      "description": "用户友好的AI艺术生成平台，支持多种风格和滤镜，适合初学者使用的图像创作工具。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://picso.ai/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/02ai_image_generation/PicSo.png",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-068",
+      "name": "Draft",
+      "description": "专业设计师的AI辅助创作工具，提供从概念到成品的快速转化，显著提升设计效率。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://draft.com/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/02ai_image_generation/draft.png",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-069",
+      "name": "DeepAI",
+      "description": "多功能AI工具平台，提供简单API接口的文本到图像生成服务，支持多种创作需求。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://deepai.org/machine-learning-model/text2img",
+      "icon": "./website_image/images_of_sub_websites/ai_website/02ai_image_generation/DeepAI.png",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-070",
+      "name": "Crypko.ai",
+      "description": "专注于动漫风格AI生成的平台，可创建独特角色和头像，支持风格混合和特性调整。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://crypko.ai/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/02ai_image_generation/Crypko.ai.png",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-071",
+      "name": "Vega AI",
+      "description": "国内AI图像生成平台，专注于商业使用场景，提供高质量图像生成和编辑功能，支持各种设计需求和商业创意。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://vegaai.cn/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/02ai_image_generation/Vega AI.png",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-072",
+      "name": "笔魂AI",
+      "description": "中文AI绘画工具，专注于为创作者提供便捷的AI创作体验，支持多种艺术风格和创作模式，适合国内用户使用。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://bihuai.com/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/02ai_image_generation/笔魂.png",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-073",
+      "name": "通义万相",
+      "description": "阿里云推出的AI绘画和创意工具，基于通义大模型，支持多种创作风格，能理解复杂的中文提示词，为设计师提供创意支持。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://tongyi.aliyun.com/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/02ai_image_generation/通义万相.png",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-074",
+      "name": "Dreamina",
+      "description": "AI艺术生成工具，致力于创造梦幻和超现实风格的图像，简单易用的界面让用户快速生成创意视觉作品。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://dreamina.net/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/02ai_image_generation/Dreamina.png",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-075",
+      "name": "Nijijourney",
+      "description": "专注于日本动漫风格的AI图像生成工具，由Midjourney团队开发，为动漫、插画和游戏设计师提供特化的创作解决方案。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://nijijourney.com/zh/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/02ai_image_generation/Nijijourney.png",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-076",
+      "name": "Novel AI",
+      "description": "专注于故事创作和插画生成的AI工具，最初设计用于辅助小说创作，现在也提供高质量的图像生成功能，特别适合动漫风格。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://novelai.net",
+      "icon": "./website_image/images_of_sub_websites/ai_website/02ai_image_generation/Novel AI.png",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-077",
+      "name": "NightCafe Creator",
+      "description": "用户友好的AI艺术生成平台，支持多种算法和风格，提供简单的界面让普通用户也能创建复杂的AI艺术作品和设计素材。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://creator.nightcafe.studio/",
+      "icon": "https://creator.nightcafe.studio/favicon.ico",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-078",
+      "name": "Deep Dream Generator",
+      "description": "基于谷歌DeepDream技术的创意图像生成平台，可以创建梦幻般的超现实主义图像，支持风格迁移和创意混合效果。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://deepdreamgenerator.com/",
+      "icon": "https://deepdreamgenerator.com/favicon.ico",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-079",
+      "name": "Disco Diffusion",
+      "description": "开源AI图像生成项目，在Google Colab上运行，特别擅长创建梦幻和抽象风格的图像，提供高度自定义选项，适合技术用户。",
+      "category": "ai",
+      "subcategory": "ai-image",
+      "url": "https://github.com/alembics/disco-diffusion",
+      "icon": "https://github.com/favicon.ico",
+      "tags": [
+        "ai",
+        "ai-image"
+      ]
+    },
+    {
+      "key": "res-080",
+      "name": "ChatGPT",
+      "description": "OpenAI开发的先进聊天机器人，能够理解和生成人类语言，回答问题、提供建议和协助创作内容。",
+      "category": "ai",
+      "subcategory": "ai-chatbots",
+      "url": "https://chat.openai.com/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/01_intelligent_chatbot/ChatGPT（聊天机器人）.png",
+      "tags": [
+        "ai",
+        "ai-chatbots"
+      ]
+    },
+    {
+      "key": "res-081",
+      "name": "Claude",
+      "description": "Anthropic公司开发的AI助手，以其周到、有用和无害的对话能力而闻名，支持更长的上下文理解。",
+      "category": "ai",
+      "subcategory": "ai-chatbots",
+      "url": "https://claude.ai/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/01_intelligent_chatbot/claude.png",
+      "tags": [
+        "ai",
+        "ai-chatbots"
+      ]
+    },
+    {
+      "key": "res-082",
+      "name": "Google Gemini",
+      "description": "谷歌开发的AI聊天助手，前身为Bard，能回答问题、生成内容，并提供Google搜索集成功能，帮助获取准确信息。",
+      "category": "ai",
+      "subcategory": "ai-chatbots",
+      "url": "https://gemini.google.com/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/01_intelligent_chatbot/Google Gemini.png",
+      "tags": [
+        "ai",
+        "ai-chatbots"
+      ]
+    },
+    {
+      "key": "res-083",
+      "name": "Microsoft Copilot",
+      "description": "微软与OpenAI合作推出的AI聊天助手，整合在Bing搜索引擎中，提供搜索集成，支持图像理解和创作功能。",
+      "category": "ai",
+      "subcategory": "ai-chatbots",
+      "url": "https://copilot.microsoft.com/",
+      "icon": "https://www.bing.com/favicon.ico",
+      "tags": [
+        "ai",
+        "ai-chatbots"
+      ]
+    },
+    {
+      "key": "res-084",
+      "name": "Character.AI",
+      "description": "创建和与AI角色交流的平台，可以创建定制角色或与各种预设角色交谈，包括历史人物、虚构角色或自定义助手。",
+      "category": "ai",
+      "subcategory": "ai-chatbots",
+      "url": "https://character.ai/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/01_intelligent_chatbot/Character.AI.png",
+      "tags": [
+        "ai",
+        "ai-chatbots"
+      ]
+    },
+    {
+      "key": "res-085",
+      "name": "Perplexity AI",
+      "description": "以信息搜索为核心的AI助手，能够回答问题并提供引用来源，帮助用户快速找到准确信息，适合研究和学习。",
+      "category": "ai",
+      "subcategory": "ai-chatbots",
+      "url": "https://perplexity.ai/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/01_intelligent_chatbot/Perplexity AI.png",
+      "tags": [
+        "ai",
+        "ai-chatbots"
+      ]
+    },
+    {
+      "key": "res-086",
+      "name": "HuggingChat",
+      "description": "Hugging Face开发的开源AI聊天工具，使用开源大语言模型，提供代码编写、文本生成和知识问答等功能。",
+      "category": "ai",
+      "subcategory": "ai-chatbots",
+      "url": "https://huggingface.co/chat/",
+      "icon": "https://huggingface.co/favicon.ico",
+      "tags": [
+        "ai",
+        "ai-chatbots"
+      ]
+    },
+    {
+      "key": "res-087",
+      "name": "Replika",
+      "description": "个人AI伴侣应用，通过对话学习和适应用户的个性和兴趣，提供情感支持和友谊，注重隐私和个性化体验。",
+      "category": "ai",
+      "subcategory": "ai-chatbots",
+      "url": "https://replika.com/",
+      "icon": "https://replika.com/favicon.ico",
+      "tags": [
+        "ai",
+        "ai-chatbots"
+      ]
+    },
+    {
+      "key": "res-088",
+      "name": "Poe",
+      "description": "Quora开发的AI聊天平台，集成多种AI模型，包括ChatGPT、Claude等，用户可以选择不同模型并进行比较。",
+      "category": "ai",
+      "subcategory": "ai-chatbots",
+      "url": "https://poe.com/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/01_intelligent_chatbot/Poe.png",
+      "tags": [
+        "ai",
+        "ai-chatbots"
+      ]
+    },
+    {
+      "key": "res-089",
+      "name": "ChatGPT Plugin",
+      "description": "OpenAI的ChatGPT插件系统，允许ChatGPT访问第三方服务，如Wolfram Alpha、Expedia和Zapier等，扩展其功能范围。",
+      "category": "ai",
+      "subcategory": "ai-chatbots",
+      "url": "https://chat.openai.com/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/01_intelligent_chatbot/ChatGPT Plugin.png",
+      "tags": [
+        "ai",
+        "ai-chatbots"
+      ]
+    },
+    {
+      "key": "res-090",
+      "name": "Pi",
+      "description": "个人AI助手，专注于提供有思考深度的对话，可以讨论哲学、科学和个人成长等话题，注重知识探索和深度交流。",
+      "category": "ai",
+      "subcategory": "ai-chatbots",
+      "url": "https://pi.ai/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/01_intelligent_chatbot/pi.png",
+      "tags": [
+        "ai",
+        "ai-chatbots"
+      ]
+    },
+    {
+      "key": "res-091",
+      "name": "ScienceDirect",
+      "description": "爱思唯尔旗下的全文数据库，提供超过2,500种期刊和39,000多本电子书的访问。",
+      "category": "academic",
+      "subcategory": "academic-journals",
+      "url": "https://www.sciencedirect.com/",
+      "icon": "./website_image/images_of_sub_websites/academic_resources/01_Academic_journal/sciencedirect.png",
+      "tags": [
+        "academic",
+        "academic-journals"
+      ]
+    },
+    {
+      "key": "res-092",
+      "name": "Web of Science",
+      "description": "全球领先的学术文献引文数据库，收录了全球顶尖期刊、会议录和书籍。",
+      "category": "academic",
+      "subcategory": "academic-journals",
+      "url": "https://www.webofscience.com/",
+      "icon": "./website_image/images_of_sub_websites/academic_resources/01_Academic_journal/WebofScience.png",
+      "tags": [
+        "academic",
+        "academic-journals"
+      ]
+    },
+    {
+      "key": "res-093",
+      "name": "Springer",
+      "description": "全球最大的科学、技术和医学出版商之一，提供期刊、图书和数字媒体等优质内容。",
+      "category": "academic",
+      "subcategory": "academic-journals",
+      "url": "https://www.springer.com/",
+      "icon": "./website_image/images_of_sub_websites/academic_resources/01_Academic_journal/Springer.png",
+      "tags": [
+        "academic",
+        "academic-journals"
+      ]
+    },
+    {
+      "key": "res-094",
+      "name": "Nature",
+      "description": "全球最具影响力的科学期刊之一，发表高质量的研究成果，涵盖各个科学领域。",
+      "category": "academic",
+      "subcategory": "academic-journals",
+      "url": "https://www.nature.com/",
+      "icon": "./website_image/images_of_sub_websites/academic_resources/01_Academic_journal/Nature.png",
+      "tags": [
+        "academic",
+        "academic-journals"
+      ]
+    },
+    {
+      "key": "res-095",
+      "name": "Science",
+      "description": "美国科学促进会出版的顶级学术期刊，发表原创性科学研究和重大科学突破。",
+      "category": "academic",
+      "subcategory": "academic-journals",
+      "url": "https://www.science.org/",
+      "icon": "./website_image/images_of_sub_websites/academic_resources/01_Academic_journal/Science.png",
+      "tags": [
+        "academic",
+        "academic-journals"
+      ]
+    },
+    {
+      "key": "res-096",
+      "name": "JSTOR",
+      "description": "数字图书馆，提供学术书籍、期刊和原始资料，涵盖人文、社会科学和自然科学等多个学科。",
+      "category": "academic",
+      "subcategory": "academic-journals",
+      "url": "https://www.jstor.org/",
+      "icon": "./website_image/images_of_sub_websites/academic_resources/01_Academic_journal/JSTOR.png",
+      "tags": [
+        "academic",
+        "academic-journals"
+      ]
+    },
+    {
+      "key": "res-097",
+      "name": "Taylor & Francis Online",
+      "description": "提供超过2,700种同行评审期刊，内容涵盖人文、社会科学、行为科学、科学技术和医学等领域。",
+      "category": "academic",
+      "subcategory": "academic-journals",
+      "url": "https://www.tandfonline.com/",
+      "icon": "./website_image/images_of_sub_websites/academic_resources/01_Academic_journal/Taylor.png",
+      "tags": [
+        "academic",
+        "academic-journals"
+      ]
+    },
+    {
+      "key": "res-098",
+      "name": "Wiley Online Library",
+      "description": "提供跨学科研究资源，包括1,700多种期刊和22,000多本在线图书，涵盖科学、技术、医学等领域。",
+      "category": "academic",
+      "subcategory": "academic-journals",
+      "url": "https://onlinelibrary.wiley.com/",
+      "icon": "./website_image/images_of_sub_websites/academic_resources/01_Academic_journal/Wiley.png",
+      "tags": [
+        "academic",
+        "academic-journals"
+      ]
+    },
+    {
+      "key": "res-099",
+      "name": "PubMed",
+      "description": "美国国立医学图书馆提供的免费数据库，包含生物医学文献引文和摘要，涵盖医学、护理、药学等领域。",
+      "category": "academic",
+      "subcategory": "academic-journals",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/",
+      "icon": "https://www.ncbi.nlm.nih.gov/favicon.ico",
+      "tags": [
+        "academic",
+        "academic-journals"
+      ]
+    },
+    {
+      "key": "res-100",
+      "name": "IEEE Xplore",
+      "description": "电气电子工程师学会的数字图书馆，提供计算机科学、电子电气工程等领域的高质量技术文献。",
+      "category": "academic",
+      "subcategory": "academic-journals",
+      "url": "https://xplorestaging.ieee.org/Xplore/home.jsp",
+      "icon": "./website_image/images_of_sub_websites/academic_resources/01_Academic_journal/IEEE.png",
+      "tags": [
+        "academic",
+        "academic-journals"
+      ]
+    },
+    {
+      "key": "res-101",
+      "name": "TV Maze",
+      "description": "全面的电视节目跟踪网站，提供剧集播出时间表、演员阵容、剧情简介和各集详细信息，包含API供开发者使用。",
+      "category": "media",
+      "subcategory": "media-series",
+      "url": "https://www.tvmaze.com/",
+      "icon": "./website_image/images_of_sub_websites/movie_resources/01_movie_resources/TV Maze.png",
+      "tags": [
+        "media",
+        "media-series"
+      ]
+    },
+    {
+      "key": "res-102",
+      "name": "Episodate",
+      "description": "电视剧集追踪平台，提供节目播出日程、剧集计数器和提醒功能，帮助用户追踪喜爱的连续剧最新动态。",
+      "category": "media",
+      "subcategory": "media-series",
+      "url": "https://www.episodate.com/",
+      "icon": "https://www.episodate.com/favicon.ico",
+      "tags": [
+        "media",
+        "media-series"
+      ]
+    },
+    {
+      "key": "res-103",
+      "name": "Next Episode",
+      "description": "电视节目跟踪工具，帮助用户管理观看进度，提供节目播出日期、季数统计和个性化推荐，适合连续剧爱好者。",
+      "category": "media",
+      "subcategory": "media-series",
+      "url": "https://next-episode.net/",
+      "icon": "https://next-episode.net/favicon.ico",
+      "tags": [
+        "media",
+        "media-series"
+      ]
+    },
+    {
+      "key": "res-104",
+      "name": "Trakt",
+      "description": "全能型影视追踪平台，自动记录观看历史，提供个性化推荐和社交分享功能，支持与多种媒体播放器和应用程序集成。",
+      "category": "media",
+      "subcategory": "media-series",
+      "url": "https://trakt.tv/",
+      "icon": "./website_image/images_of_sub_websites/movie_resources/01_movie_resources/Trakt.png",
+      "tags": [
+        "media",
+        "media-series"
+      ]
+    },
+    {
+      "key": "res-105",
+      "name": "TV Time",
+      "description": "电视和电影追踪应用，记录观看进度，提供个性化推荐和社区讨论，帮助用户发现新节目并与全球观众互动。",
+      "category": "media",
+      "subcategory": "media-series",
+      "url": "https://www.tvtime.com/",
+      "icon": "https://www.tvtime.com/favicon.ico",
+      "tags": [
+        "media",
+        "media-series"
+      ]
+    },
+    {
+      "key": "res-106",
+      "name": "TMDB (The Movie Database)",
+      "description": "提供全球电视剧元数据（剧情、演员、海报等），支持API接入，是电影和电视内容的综合数据库。",
+      "category": "media",
+      "subcategory": "media-movies",
+      "url": "https://www.themoviedb.org/",
+      "icon": "./website_image/images_of_sub_websites/movie_resources/01_movie_resources/TMDB (The Movie Database).png",
+      "tags": [
+        "media",
+        "media-movies"
+      ]
+    },
+    {
+      "key": "res-107",
+      "name": "JustWatch",
+      "description": "聚合各大流媒体的实时播放信息，可查询某部剧在哪些平台可观看，帮助用户轻松找到合法观看渠道。",
+      "category": "media",
+      "subcategory": "media-movies",
+      "url": "https://www.justwatch.com/",
+      "icon": "https://www.justwatch.com/favicon.ico",
+      "tags": [
+        "media",
+        "media-movies"
+      ]
+    },
+    {
+      "key": "res-108",
+      "name": "AnimeGarden（动画花园）",
+      "description": "提供动漫资源搜索、订阅、下载等功能，支持高级搜索、收藏夹、RSS订阅等。",
+      "category": "media",
+      "subcategory": "media-anime",
+      "url": "https://animespace.onekuma.cn/animegarden/",
+      "icon": "./website_image/images_of_sub_websites/movie_resources/03_anime_resources/AnimeGarden（动画花园）.png",
+      "tags": [
+        "media",
+        "media-anime"
+      ]
+    },
+    {
+      "key": "res-109",
+      "name": "OmoFun（俗称O站）",
+      "description": "资源丰富，更新及时，支持多种设备，是动漫爱好者的重要资源平台。",
+      "category": "media",
+      "subcategory": "media-anime",
+      "url": "https://omofuns.xyz/",
+      "icon": "./website_image/images_of_sub_websites/movie_resources/03_anime_resources/o站.png",
+      "tags": [
+        "media",
+        "media-anime"
+      ]
+    },
+    {
+      "key": "res-110",
+      "name": "咕咕番",
+      "description": "专注于收集整理海量高质量动漫资源，涵盖国产动漫、日漫、韩漫和欧美动漫。",
+      "category": "media",
+      "subcategory": "media-anime",
+      "url": "https://gugufan.com/",
+      "icon": "./website_image/images_of_sub_websites/movie_resources/03_anime_resources/咕咕番.png",
+      "tags": [
+        "media",
+        "media-anime"
+      ]
+    },
+    {
+      "key": "res-111",
+      "name": "次元小镇",
+      "description": "动漫爱好者分享社区，提供动漫资源、资讯、美图壁纸、音乐和cosplay。",
+      "category": "media",
+      "subcategory": "media-anime",
+      "url": "https://www.cyxz.com/",
+      "icon": "./website_image/images_of_sub_websites/movie_resources/03_anime_resources/次元小镇.png",
+      "tags": [
+        "media",
+        "media-anime"
+      ]
+    },
+    {
+      "key": "res-112",
+      "name": "AcFun 弹幕视频网",
+      "description": "国内首家弹幕视频网站，提供全网独家动漫新番，弹幕氛围友好。",
+      "category": "media",
+      "subcategory": "media-anime",
+      "url": "https://www.acfun.cn/",
+      "icon": "https://www.acfun.cn/favicon.ico",
+      "tags": [
+        "media",
+        "media-anime"
+      ]
+    },
+    {
+      "key": "res-113",
+      "name": "GiriGiri 动漫",
+      "description": "免费的动漫追番门户网站，拥有日番、美番以及剧场版的分类，资源更新快。",
+      "category": "media",
+      "subcategory": "media-anime",
+      "url": "https://anime.girigirilove.com/",
+      "icon": "./website_image/images_of_sub_websites/movie_resources/03_anime_resources/GiriGiri 动漫.png",
+      "tags": [
+        "media",
+        "media-anime"
+      ]
+    },
+    {
+      "key": "res-114",
+      "name": "央视频",
+      "description": "国家级5G新媒体平台，纪录片资源丰富，画质清晰，无广告。",
+      "category": "media",
+      "subcategory": "media-documentary",
+      "url": "https://yangshipin.com",
+      "icon": "https://yangshipin.cn/favicon.ico",
+      "tags": [
+        "media",
+        "media-documentary"
+      ]
+    },
+    {
+      "key": "res-115",
+      "name": "CCTV官网",
+      "description": "央视纪录片库，提供大量高质量经典纪录片，支持分类搜索和在线观看。",
+      "category": "media",
+      "subcategory": "media-documentary",
+      "url": "https://tv.cctv.com",
+      "icon": "https://tv.cctv.com/favicon.ico",
+      "tags": [
+        "media",
+        "media-documentary"
+      ]
+    },
+    {
+      "key": "res-116",
+      "name": "纪录片部落",
+      "description": "每日更新，提供丰富且免费的纪录片资源，支持下载。",
+      "category": "media",
+      "subcategory": "media-documentary",
+      "url": "https://xitongle.com",
+      "icon": "https://xitongle.com/favicon.ico",
+      "tags": [
+        "media",
+        "media-documentary"
+      ]
+    },
+    {
+      "key": "res-117",
+      "name": "QQ音乐",
+      "description": "提供丰富的正版音乐资源，支持在线播放和下载，部分歌曲需开通会员。",
+      "category": "media",
+      "subcategory": "media-music",
+      "url": "https://y.qq.com",
+      "icon": "https://y.qq.com/favicon.ico",
+      "tags": [
+        "media",
+        "media-music"
+      ]
+    },
+    {
+      "key": "res-118",
+      "name": "网易云音乐",
+      "description": "拥有海量正版音乐，支持个性化推荐和歌单分享，部分歌曲需会员。",
+      "category": "media",
+      "subcategory": "media-music",
+      "url": "https://music.163.com",
+      "icon": "./website_image/images_of_sub_websites/movie_resources/05_music_resources/网易云音乐.png",
+      "tags": [
+        "media",
+        "media-music"
+      ]
+    },
+    {
+      "key": "res-119",
+      "name": "咪咕音乐",
+      "description": "提供高品质的正版音乐，支持多种音质选择，部分歌曲需会员。",
+      "category": "media",
+      "subcategory": "media-music",
+      "url": "https://music.migu.cn",
+      "icon": "./website_image/images_of_sub_websites/movie_resources/05_music_resources/咪咕音乐.png",
+      "tags": [
+        "media",
+        "media-music"
+      ]
+    },
+    {
+      "key": "res-120",
+      "name": "酷狗音乐",
+      "description": "提供丰富的正版音乐资源，支持在线播放和下载，部分歌曲需会员。",
+      "category": "media",
+      "subcategory": "media-music",
+      "url": "https://www.kugou.com",
+      "icon": "https://www.kugou.com/favicon.ico",
+      "tags": [
+        "media",
+        "media-music"
+      ]
+    },
+    {
+      "key": "res-121",
+      "name": "Free Music Archive",
+      "description": "提供基于Creative Commons授权的免费音乐，适合视频制作、广告等用途。",
+      "category": "media",
+      "subcategory": "media-music",
+      "url": "https://freemusicarchive.org",
+      "icon": "./website_image/images_of_sub_websites/movie_resources/05_music_resources/Free Music Archive.png",
+      "tags": [
+        "media",
+        "media-music"
+      ]
+    },
+    {
+      "key": "res-122",
+      "name": "Jamendo",
+      "description": "提供独立艺术家创作的免费音乐，个人使用免费，商业用途需遵守相关条例。",
+      "category": "media",
+      "subcategory": "media-music",
+      "url": "https://www.jamendo.com",
+      "icon": "https://www.jamendo.com/favicon.ico",
+      "tags": [
+        "media",
+        "media-music"
+      ]
+    },
+    {
+      "key": "res-123",
+      "name": "蜜蜂剪辑",
+      "description": "适合剪辑小白，支持语音转文字、智能配音、关键帧操作等功能，自带丰富素材库和免费教程。",
+      "category": "media",
+      "subcategory": "media-editing",
+      "url": "https://beecut.cn",
+      "icon": "./website_image/images_of_sub_websites/movie_resources/06_film_and_television_editing_tools/蜜蜂剪辑.png",
+      "tags": [
+        "media",
+        "media-editing"
+      ]
+    },
+    {
+      "key": "res-124",
+      "name": "爱拍剪辑",
+      "description": "简单易用，功能强大，支持字幕素材库、音频处理、视频去水印、绿幕抠图等功能。",
+      "category": "media",
+      "subcategory": "media-editing",
+      "url": "https://www.aipai.com",
+      "icon": "https://www.aipai.com/favicon.ico",
+      "tags": [
+        "media",
+        "media-editing"
+      ]
+    },
+    {
+      "key": "res-125",
+      "name": "中国新闻网",
+      "description": "提供中外新闻资讯，实时性强，涵盖时政、国际、财经、体育、文化等多个领域。",
+      "category": "media",
+      "subcategory": "media-news",
+      "url": "https://www.chinanews.com",
+      "icon": "https://www.chinanews.com/favicon.ico",
+      "tags": [
+        "media",
+        "media-news"
+      ]
+    },
+    {
+      "key": "res-126",
+      "name": "澎湃新闻",
+      "description": "专注于时政与思想的互联网平台，以原创新闻和思想分析为特色，报道全面。",
+      "category": "media",
+      "subcategory": "media-news",
+      "url": "https://www.thepaper.cn",
+      "icon": "https://www.thepaper.cn/favicon.ico",
+      "tags": [
+        "media",
+        "media-news"
+      ]
+    },
+    {
+      "key": "res-127",
+      "name": "网易新闻",
+      "description": "提供时政、国内、国际、社会等多领域新闻资讯，内容丰富，形式多样。",
+      "category": "media",
+      "subcategory": "media-news",
+      "url": "https://news.163.com",
+      "icon": "https://news.163.com/favicon.ico",
+      "tags": [
+        "media",
+        "media-news"
+      ]
+    },
+    {
+      "key": "res-128",
+      "name": "腾讯新闻",
+      "description": "腾讯旗下的综合新闻平台，提供国内外新闻、财经、体育、娱乐等多领域资讯。",
+      "category": "media",
+      "subcategory": "media-news",
+      "url": "https://news.qq.com",
+      "icon": "https://news.qq.com/favicon.ico",
+      "tags": [
+        "media",
+        "media-news"
+      ]
+    },
+    {
+      "key": "res-129",
+      "name": "新华网",
+      "description": "新华社全媒体新闻信息产品的主要传播平台，拥有多种语言频道，日均发稿量大，重大新闻首发率和转载率高。",
+      "category": "media",
+      "subcategory": "media-news",
+      "url": "https://www.xinhuanet.com",
+      "icon": "https://www.xinhuanet.com/favicon.ico",
+      "tags": [
+        "media",
+        "media-news"
+      ]
+    },
+    {
+      "key": "res-130",
+      "name": "Google Scholar",
+      "description": "由Google提供的免费学术搜索引擎，索引了大多数同行评审期刊和论文。",
+      "category": "academic",
+      "subcategory": "academic-search",
+      "url": "https://scholar.google.com/",
+      "icon": "./website_image/images_of_sub_websites/academic_resources/02_academic_search/Google Scholar.png",
+      "tags": [
+        "academic",
+        "academic-search"
+      ]
+    },
+    {
+      "key": "res-131",
+      "name": "Microsoft Academic",
+      "description": "由微软提供的学术搜索引擎，提供超过2.5亿篇发表文章的信息及其引用关系。",
+      "category": "academic",
+      "subcategory": "academic-search",
+      "url": "https://academic.microsoft.com/",
+      "icon": "./website_image/images_of_sub_websites/academic_resources/02_academic_search/Microsoft Academic.png",
+      "tags": [
+        "academic",
+        "academic-search"
+      ]
+    },
+    {
+      "key": "res-132",
+      "name": "Semantic Scholar",
+      "description": "由Allen人工智能研究所开发的学术搜索引擎，使用AI技术快速筛选最相关的论文。",
+      "category": "academic",
+      "subcategory": "academic-search",
+      "url": "https://www.semanticscholar.org/",
+      "icon": "./website_image/images_of_sub_websites/academic_resources/02_academic_search/Semantic Scholar.png",
+      "tags": [
+        "academic",
+        "academic-search"
+      ]
+    },
+    {
+      "key": "res-133",
+      "name": "BASE",
+      "description": "比勒费尔德学术搜索引擎，是全球最大的开放获取学术资源搜索引擎之一。",
+      "category": "academic",
+      "subcategory": "academic-search",
+      "url": "https://www.base-search.net/",
+      "icon": "./website_image/images_of_sub_websites/academic_resources/02_academic_search/BASE.png",
+      "tags": [
+        "academic",
+        "academic-search"
+      ]
+    },
+    {
+      "key": "res-134",
+      "name": "CORE",
+      "description": "全球最大的开放获取论文集合，汇集了来自数千个开放获取存储库的研究论文。",
+      "category": "academic",
+      "subcategory": "academic-search",
+      "url": "https://core.ac.uk/",
+      "icon": "./website_image/images_of_sub_websites/academic_resources/02_academic_search/CORE.png",
+      "tags": [
+        "academic",
+        "academic-search"
+      ]
+    },
+    {
+      "key": "res-135",
+      "name": "Dimensions",
+      "description": "包含超过1亿篇学术文章的数据库，提供资助、专利、临床试验等多维度信息。",
+      "category": "academic",
+      "subcategory": "academic-search",
+      "url": "https://app.dimensions.ai/",
+      "icon": "./website_image/images_of_sub_websites/academic_resources/02_academic_search/Dimensions.png",
+      "tags": [
+        "academic",
+        "academic-search"
+      ]
+    },
+    {
+      "key": "res-136",
+      "name": "Lens",
+      "description": "免费的开放专利和学术研究搜索平台，提供科研成果与专利之间的关联分析。",
+      "category": "academic",
+      "subcategory": "academic-search",
+      "url": "https://www.lens.org/",
+      "icon": "./website_image/images_of_sub_websites/academic_resources/02_academic_search/Lens.png",
+      "tags": [
+        "academic",
+        "academic-search"
+      ]
+    },
+    {
+      "key": "res-137",
+      "name": "Scilit",
+      "description": "由MDPI开发的免费学术数据库和搜索引擎，追踪学术出版物和预印本文章。",
+      "category": "academic",
+      "subcategory": "academic-search",
+      "url": "https://www.scilit.net/",
+      "icon": "./website_image/images_of_sub_websites/academic_resources/02_academic_search/Scilit.png",
+      "tags": [
+        "academic",
+        "academic-search"
+      ]
+    },
+    {
+      "key": "res-138",
+      "name": "Paperity",
+      "description": "开放获取期刊和论文的聚合平台，提供超过750万篇开放获取论文。",
+      "category": "academic",
+      "subcategory": "academic-search",
+      "url": "https://paperity.org/",
+      "icon": "./website_image/images_of_sub_websites/academic_resources/02_academic_search/Paperity.png",
+      "tags": [
+        "academic",
+        "academic-search"
+      ]
+    },
+    {
+      "key": "res-139",
+      "name": "Refseek",
+      "description": "专为学生和研究人员设计的学术搜索引擎，索引超过10亿份学术文档、书籍和期刊。",
+      "category": "academic",
+      "subcategory": "academic-search",
+      "url": "https://www.refseek.com/",
+      "icon": "./website_image/images_of_sub_websites/academic_resources/02_academic_search/Refseek.png",
+      "tags": [
+        "academic",
+        "academic-search"
+      ]
+    },
+    {
+      "key": "res-140",
+      "name": "DOAJ",
+      "description": "开放获取期刊目录，提供超过16,000种开放获取期刊的访问权限。",
+      "category": "academic",
+      "subcategory": "open-access",
+      "url": "https://doaj.org/",
+      "icon": "https://doaj.org/static/favicon/favicon-32x32.png",
+      "tags": [
+        "academic",
+        "open-access"
+      ]
+    },
+    {
+      "key": "res-141",
+      "name": "arXiv",
+      "description": "由康奈尔大学维护的开放获取论文预印本存储库，涵盖物理、数学、计算机科学等领域。",
+      "category": "academic",
+      "subcategory": "open-access",
+      "url": "https://arxiv.org/",
+      "icon": "https://arxiv.org/favicon.ico",
+      "tags": [
+        "academic",
+        "open-access"
+      ]
+    },
+    {
+      "key": "res-142",
+      "name": "PubMed Central",
+      "description": "美国国立医学图书馆的免费全文存档，提供生物医学和生命科学研究论文。",
+      "category": "academic",
+      "subcategory": "open-access",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/",
+      "icon": "https://www.ncbi.nlm.nih.gov/favicon.ico",
+      "tags": [
+        "academic",
+        "open-access"
+      ]
+    },
+    {
+      "key": "res-143",
+      "name": "SciELO",
+      "description": "拉丁美洲、西班牙、葡萄牙和南非的电子科学图书馆，提供开放获取期刊文章。",
+      "category": "academic",
+      "subcategory": "open-access",
+      "url": "https://scielo.org/",
+      "icon": "https://scielo.org/static/favicon.ico",
+      "tags": [
+        "academic",
+        "open-access"
+      ]
+    },
+    {
+      "key": "res-144",
+      "name": "PLOS",
+      "description": "公共科学图书馆，非营利性开放获取出版商，专注于科学和医学领域的高质量研究。",
+      "category": "academic",
+      "subcategory": "open-access",
+      "url": "https://plos.org/",
+      "icon": "https://plos.org/wp-content/themes/plos/favicon.ico",
+      "tags": [
+        "academic",
+        "open-access"
+      ]
+    },
+    {
+      "key": "res-145",
+      "name": "MDPI",
+      "description": "多学科数字出版研究所，提供200多种同行评审的开放获取期刊。",
+      "category": "academic",
+      "subcategory": "open-access",
+      "url": "https://www.mdpi.com/",
+      "icon": "https://www.mdpi.com/img/favicon-32x32.png",
+      "tags": [
+        "academic",
+        "open-access"
+      ]
+    },
+    {
+      "key": "res-146",
+      "name": "Hindawi",
+      "description": "开放获取出版商，出版超过200种科学、技术和医学期刊。",
+      "category": "academic",
+      "subcategory": "open-access",
+      "url": "https://www.hindawi.com/",
+      "icon": "https://www.hindawi.com/favicon.ico",
+      "tags": [
+        "academic",
+        "open-access"
+      ]
+    },
+    {
+      "key": "res-147",
+      "name": "Frontiers",
+      "description": "领先的开放获取出版商，提供多个学科领域的高质量同行评审研究。",
+      "category": "academic",
+      "subcategory": "open-access",
+      "url": "https://www.frontiersin.org/",
+      "icon": "https://www.frontiersin.org/favicon.ico",
+      "tags": [
+        "academic",
+        "open-access"
+      ]
+    },
+    {
+      "key": "res-148",
+      "name": "bioRxiv",
+      "description": "生物学研究预印本服务器，允许研究人员在同行评审前分享论文。",
+      "category": "academic",
+      "subcategory": "open-access",
+      "url": "https://www.biorxiv.org/",
+      "icon": "https://www.biorxiv.org/favicon.ico",
+      "tags": [
+        "academic",
+        "open-access"
+      ]
+    },
+    {
+      "key": "res-149",
+      "name": "ERIC",
+      "description": "教育资源信息中心，提供超过160万份教育领域研究和信息资源的免费访问。",
+      "category": "academic",
+      "subcategory": "open-access",
+      "url": "https://eric.ed.gov/",
+      "icon": "https://eric.ed.gov/favicon.ico",
+      "tags": [
+        "academic",
+        "open-access"
+      ]
+    },
+    {
+      "key": "res-150",
+      "name": "ScienceOpen",
+      "description": "提供开放获取论文的检索和社交功能，支持论文评论、推荐和个人学术档案管理。",
+      "category": "academic",
+      "subcategory": "academic-papers",
+      "url": "https://www.scienceopen.com",
+      "icon": "./website_image/images_of_sub_websites/academic_resources/03_paper_management_tool/ScienceOpen.png",
+      "tags": [
+        "academic",
+        "academic-papers"
+      ]
+    },
+    {
+      "key": "res-151",
+      "name": "GitHub",
+      "description": "开源代码托管平台，许多学术论文附带的代码和数据集托管在此，方便研究者复现和扩展研究成果。",
+      "category": "academic",
+      "subcategory": "academic-papers",
+      "url": "https://github.com",
+      "icon": "./website_image/images_of_sub_websites/academic_resources/03_paper_management_tool/GitHub.png",
+      "tags": [
+        "academic",
+        "academic-papers"
+      ]
+    },
+    {
+      "key": "res-152",
+      "name": "Mendeley",
+      "description": "免费的参考文献管理工具和学术社交网络平台，支持PDF标注、文献引用和研究人员社区互动。",
+      "category": "academic",
+      "subcategory": "academic-papers",
+      "url": "https://www.mendeley.com",
+      "icon": "./website_image/images_of_sub_websites/academic_resources/03_paper_management_tool/Mendeley.png",
+      "tags": [
+        "academic",
+        "academic-papers"
+      ]
+    },
+    {
+      "key": "res-153",
+      "name": "Zotero",
+      "description": "免费开源的文献管理工具，可以帮助收集、组织、引用和分享研究资料，支持浏览器插件快速保存文献。",
+      "category": "academic",
+      "subcategory": "academic-papers",
+      "url": "https://www.zotero.org",
+      "icon": "./website_image/images_of_sub_websites/academic_resources/03_paper_management_tool/Zotero.png",
+      "tags": [
+        "academic",
+        "academic-papers"
+      ]
+    },
+    {
+      "key": "res-154",
+      "name": "Figshare",
+      "description": "共享研究数据、图表、代码等的开放存储库，提供DOI引用标识符，方便学术成果的分享和引用。",
+      "category": "academic",
+      "subcategory": "academic-reference",
+      "url": "https://figshare.com",
+      "icon": "./website_image/images_of_sub_websites/academic_resources/04_references_and_reference_tools/Figshare.png",
+      "tags": [
+        "academic",
+        "academic-reference"
+      ]
+    },
+    {
+      "key": "res-155",
+      "name": "Cite This For Me",
+      "description": "免费的引用生成工具，支持多种引用格式，可以帮助快速创建参考文献列表和引用。",
+      "category": "academic",
+      "subcategory": "academic-reference",
+      "url": "https://www.citethisforme.com",
+      "icon": "./website_image/images_of_sub_websites/academic_resources/04_references_and_reference_tools/Cite This For Me.png",
+      "tags": [
+        "academic",
+        "academic-reference"
+      ]
+    },
+    {
+      "key": "res-156",
+      "name": "PubMed Central (PMC)",
+      "description": "生物医学领域的免费全文库，提供大量医学、生命科学领域的开放获取研究文献。",
+      "category": "academic",
+      "subcategory": "academic-openaccess",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc",
+      "icon": "https://www.ncbi.nlm.nih.gov/favicon.ico",
+      "tags": [
+        "academic",
+        "academic-openaccess"
+      ]
+    },
+    {
+      "key": "res-157",
+      "name": "arXiv",
+      "description": "物理、数学、计算机等领域的预印本平台，提供最新研究成果的快速访问和下载。",
+      "category": "academic",
+      "subcategory": "academic-openaccess",
+      "url": "https://arxiv.org",
+      "icon": "https://arxiv.org/favicon.ico",
+      "tags": [
+        "academic",
+        "academic-openaccess"
+      ]
+    },
+    {
+      "key": "res-158",
+      "name": "Zenodo",
+      "description": "多学科开放获取数据集、论文、代码等的存储库，支持各类研究成果的发布和共享。",
+      "category": "academic",
+      "subcategory": "academic-openaccess",
+      "url": "https://zenodo.org",
+      "icon": "./website_image/images_of_sub_websites/academic_resources/05_open_access_to_resources/Zenodo.png",
+      "tags": [
+        "academic",
+        "academic-openaccess"
+      ]
+    },
+    {
+      "key": "res-159",
+      "name": "Kaggle",
+      "description": "数据科学竞赛平台，提供开放数据集、机器学习模型和数据分析项目，支持数据科学学习和研究。",
+      "category": "academic",
+      "subcategory": "academic-openaccess",
+      "url": "https://www.kaggle.com/datasets",
+      "icon": "https://www.kaggle.com/favicon.ico",
+      "tags": [
+        "academic",
+        "academic-openaccess"
+      ]
+    },
+    {
+      "key": "res-160",
+      "name": "UCI Machine Learning Repository",
+      "description": "经典的机器学习数据集存储库，提供多种领域的数据集，适合机器学习研究和教学使用。",
+      "category": "academic",
+      "subcategory": "academic-openaccess",
+      "url": "https://archive.ics.uci.edu",
+      "icon": "https://archive.ics.uci.edu/favicon.ico",
+      "tags": [
+        "academic",
+        "academic-openaccess"
+      ]
+    },
+    {
+      "key": "res-161",
+      "name": "Google Scholar",
+      "description": "检索学术文献，追踪引用情况，获取全文（部分免费），支持文献管理和学术档案创建。",
+      "category": "academic",
+      "subcategory": "academic-writing",
+      "url": "https://scholar.google.com",
+      "icon": "https://scholar.google.com/favicon.ico",
+      "tags": [
+        "academic",
+        "academic-writing"
+      ]
+    },
+    {
+      "key": "res-162",
+      "name": "ResearchGate",
+      "description": "学者社交网络，可请求全文，分享研究成果，与其他研究人员交流，提高学术影响力。",
+      "category": "academic",
+      "subcategory": "academic-writing",
+      "url": "https://www.researchgate.net",
+      "icon": "https://www.researchgate.net/favicon.ico",
+      "tags": [
+        "academic",
+        "academic-writing"
+      ]
+    },
+    {
+      "key": "res-163",
+      "name": "Overleaf",
+      "description": "在线LaTeX编辑器，适合编写学术论文、数学公式和科技文档，支持协作编辑和模板使用。",
+      "category": "academic",
+      "subcategory": "academic-writing",
+      "url": "https://www.overleaf.com",
+      "icon": "https://www.overleaf.com/favicon.ico",
+      "tags": [
+        "academic",
+        "academic-writing"
+      ]
+    },
+    {
+      "key": "res-164",
+      "name": "火山写作（字节跳动）",
+      "description": "中英文双语润色，语法纠错，AI续写，支持论文，新媒体文案优化。",
+      "category": "ai",
+      "subcategory": "ai-writing",
+      "url": "https://www.writingo.net",
+      "icon": "./website_image/images_of_sub_websites/ai_website/03ai_writing_assistant/火山写作（字节跳动.png",
+      "tags": [
+        "ai",
+        "ai-writing"
+      ]
+    },
+    {
+      "key": "res-165",
+      "name": "笔神作文",
+      "description": "作文素材，AI评分，范文推荐，覆盖小初高题材。针对学生，提供考试作文技巧。",
+      "category": "ai",
+      "subcategory": "ai-writing",
+      "url": "https://www.zuowen.com",
+      "icon": "https://www.zuowen.com/favicon.ico",
+      "tags": [
+        "ai",
+        "ai-writing"
+      ]
+    },
+    {
+      "key": "res-166",
+      "name": "智谱清言（清华团队）",
+      "description": "多轮对话写作，结构化内容生成。学术开发，逻辑性强，支持代码辅助。",
+      "category": "ai",
+      "subcategory": "ai-writing",
+      "url": "https://chatglm.cn",
+      "icon": "https://chatglm.cn/favicon.ico",
+      "tags": [
+        "ai",
+        "ai-writing"
+      ]
+    },
+    {
+      "key": "res-167",
+      "name": "Grammarly",
+      "description": "AI驱动的写作助手，提供语法校对、拼写检查、风格建议，提升写作质量和效率。",
+      "category": "ai",
+      "subcategory": "ai-writing",
+      "url": "https://www.grammarly.com/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/03ai_writing_assistant/Grammarly.png",
+      "tags": [
+        "ai",
+        "ai-writing"
+      ]
+    },
+    {
+      "key": "res-168",
+      "name": "CodeGeeX",
+      "description": "免费的AI编程工具，支持代码生成与补全等功能，适配多种主流IDE平台，支持100多编程语言，还能自动添加注释、进行代码翻译和智能问答。",
+      "category": "ai",
+      "subcategory": "ai-code",
+      "url": "https://codegeex.cn/zh-CN/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/04_code_generation_tool/CodeGeeX.png",
+      "tags": [
+        "ai",
+        "ai-code"
+      ]
+    },
+    {
+      "key": "res-169",
+      "name": "Replit",
+      "description": "在线编程平台，允许用户在浏览器中编写、运行和分享代码，提供AI驱动的自动补全功能。",
+      "category": "ai",
+      "subcategory": "ai-code",
+      "url": "https://replit.com/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/04_code_generation_tool/Replit.png",
+      "tags": [
+        "ai",
+        "ai-code"
+      ]
+    },
+    {
+      "key": "res-170",
+      "name": "GitHub Copilot",
+      "description": "由OpenAI和GitHub合作开发的AI编程助手，能够根据注释和上下文自动生成代码建议。",
+      "category": "ai",
+      "subcategory": "ai-code",
+      "url": "https://github.com/features/copilot",
+      "icon": "https://github.com/favicon.ico",
+      "tags": [
+        "ai",
+        "ai-code"
+      ]
+    },
+    {
+      "key": "res-171",
+      "name": "讯飞开放平台",
+      "description": "提供100多个发音人，支持37个语种、11种方言和中英混合，可灵活配置音频参数，能深度定制个性化声线。",
+      "category": "ai",
+      "subcategory": "ai-voice",
+      "url": "https://www.xfyun.cn/services/online_tts",
+      "icon": "https://www.xfyun.cn/favicon.ico",
+      "tags": [
+        "ai",
+        "ai-voice"
+      ]
+    },
+    {
+      "key": "res-172",
+      "name": "火山引擎",
+      "description": "运用端到端合成方案，提供高保真、个性化音频，支持多语种、多方言，有几十种音色并支持定制，还具备实时变声能力。",
+      "category": "ai",
+      "subcategory": "ai-voice",
+      "url": "https://www.volcengine.com/product/Voice-conversion",
+      "icon": "./website_image/images_of_sub_websites/ai_website/04_code_generation_tool/火山引擎.png",
+      "tags": [
+        "ai",
+        "ai-voice"
+      ]
+    },
+    {
+      "key": "res-173",
+      "name": "标贝悦读",
+      "description": "AI合成语音快速且逼真,有丰富发音人角色，适应多种场景，支持插入停顿、局部变速等功能，可实现声音转换。",
+      "category": "ai",
+      "subcategory": "ai-voice",
+      "url": "https://yuedu.data-baker.com/",
+      "icon": "https://yuedu.data-baker.com/favicon.ico",
+      "tags": [
+        "ai",
+        "ai-voice"
+      ]
+    },
+    {
+      "key": "res-174",
+      "name": "Murf.AI",
+      "description": "提供120多种语音，支持20多种语言，声音库丰富。可调节音调、停顿和强调等，还能上传视频、音乐或图像进行多媒体集成。",
+      "category": "ai",
+      "subcategory": "ai-voice",
+      "url": "https://murf.ai/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/04_code_generation_tool/Murf.AI.png",
+      "tags": [
+        "ai",
+        "ai-voice"
+      ]
+    },
+    {
+      "key": "res-175",
+      "name": "腾讯智影",
+      "description": "腾讯出品的云端智能视频创作工具，无需下载，通过PC浏览器即可访问。提供视频剪辑、素材库、文本配音、数字人播报、自动字幕识别等功能。",
+      "category": "ai",
+      "subcategory": "ai-video",
+      "url": "https://zenvideo.qq.com/",
+      "icon": "https://zenvideo.qq.com/favicon.ico",
+      "tags": [
+        "ai",
+        "ai-video"
+      ]
+    },
+    {
+      "key": "res-176",
+      "name": "Lumen5",
+      "description": "由AI驱动，能将输入文字自动转化为视频，拥有丰富素材库，可智能匹配配图并一键添加配乐。用户几分钟内就能创建专业视频。",
+      "category": "ai",
+      "subcategory": "ai-video",
+      "url": "https://lumen5.com/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/05_speech_synthesis_and_conversion/Lumen5.png",
+      "tags": [
+        "ai",
+        "ai-video"
+      ]
+    },
+    {
+      "key": "res-177",
+      "name": "Genmo AI",
+      "description": "一站式文本转视频智能创作平台，基于自然语言处理，提供文本到视频、图像生成、3D建模等核心功能。用户输入描述性文本可生成完整视频。",
+      "category": "ai",
+      "subcategory": "ai-video",
+      "url": "https://genmo.ai/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/06ai_video_creation/Genmo AI.png",
+      "tags": [
+        "ai",
+        "ai-video"
+      ]
+    },
+    {
+      "key": "res-178",
+      "name": "Movio",
+      "description": "AI视频生成器，有80多种AI头像，支持20多种语言口型同步，提供200多个可自定义模板、背景音乐和1080P视频下载。",
+      "category": "ai",
+      "subcategory": "ai-video",
+      "url": "https://movio.ai/",
+      "icon": "./website_image/images_of_sub_websites/ai_website/06ai_video_creation/Movio.png",
+      "tags": [
+        "ai",
+        "ai-video"
+      ]
+    },
+    {
+      "key": "res-179",
+      "name": "Foter",
+      "description": "提供高质量图片和设计素材的平台，提供多种类型的图片，包括免费图片、付费图片以及创意设计素材。",
+      "category": "design",
+      "subcategory": "design-resources",
+      "url": "https://foter.com/",
+      "icon": "https://foter.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-resources"
+      ]
+    },
+    {
+      "key": "res-180",
+      "name": "Pixabay",
+      "description": "非常受欢迎的免费图片资源网站，提供大量的高清图片、矢量图、插画和视频素材。所有素材均可免费使用，无需署名。",
+      "category": "design",
+      "subcategory": "design-resources",
+      "url": "https://pixabay.com/",
+      "icon": "./website_image/images_of_sub_websites/design_resources/03_material_resources/Pixabay.png",
+      "tags": [
+        "design",
+        "design-resources"
+      ]
+    },
+    {
+      "key": "res-181",
+      "name": "摄图网",
+      "description": "提供正版高清图片和设计素材的平台，适合企业、设计师和广告从业者使用。部分资源免费，部分需要付费。",
+      "category": "design",
+      "subcategory": "design-resources",
+      "url": "https://699pic.com/?from=12",
+      "icon": "https://699pic.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-resources"
+      ]
+    },
+    {
+      "key": "res-182",
+      "name": "PixelSquid",
+      "description": "专注于3D内容的平台，为图形设计师和Photoshop用户提供高质量的3D对象和素材。用户可以通过订阅计划访问整个素材库。",
+      "category": "design",
+      "subcategory": "design-resources",
+      "url": "https://www.pixelsquid.com/",
+      "icon": "https://www.pixelsquid.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-resources"
+      ]
+    },
+    {
+      "key": "res-183",
+      "name": "Pond5",
+      "description": "全球最大的素材市场之一，提供视频、音频、图片和3D模型等多种创意素材，包含免费资源库。",
+      "category": "design",
+      "subcategory": "design-resources",
+      "url": "https://www.pond5.com/",
+      "icon": "https://www.pond5.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-resources"
+      ]
+    },
+    {
+      "key": "res-184",
+      "name": "FreebiesBug",
+      "description": "设计师资源集合站，提供高质量免费PSD文件、图标、UI设计素材、网站模板和设计工具等。",
+      "category": "design",
+      "subcategory": "design-resources",
+      "url": "https://freebiesbug.com/",
+      "icon": "https://freebiesbug.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-resources"
+      ]
+    },
+    {
+      "key": "res-185",
+      "name": "Depositphotos",
+      "description": "优质图片和矢量素材库，拥有超过2亿张素材，包括照片、矢量图、视频和编辑插图，提供每周免费素材。",
+      "category": "design",
+      "subcategory": "design-resources",
+      "url": "https://depositphotos.com/",
+      "icon": "https://depositphotos.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-resources"
+      ]
+    },
+    {
+      "key": "res-186",
+      "name": "Everypixel",
+      "description": "图片搜索引擎，使用AI技术搜索多个素材库的优质图片，帮助用户快速找到最适合的图片素材。",
+      "category": "design",
+      "subcategory": "design-resources",
+      "url": "https://everypixel.com/",
+      "icon": "./website_image/images_of_sub_websites/design_resources/02_design_inspiration/Everypixel.png",
+      "tags": [
+        "design",
+        "design-resources"
+      ]
+    },
+    {
+      "key": "res-187",
+      "name": "Pexels",
+      "description": "免费高质量图片和视频素材库，所有内容均可商用，不需要署名，提供多语言界面和强大搜索功能。",
+      "category": "design",
+      "subcategory": "design-resources",
+      "url": "https://www.pexels.com/",
+      "icon": "./website_image/images_of_sub_websites/design_resources/03_material_resources/Pexels.png",
+      "tags": [
+        "design",
+        "design-resources"
+      ]
+    },
+    {
+      "key": "res-188",
+      "name": "Unsplash",
+      "description": "高质量免费摄影图片资源网站，所有照片均可商用，质量精良，涵盖多个主题和风格，拥有活跃的摄影师社区。",
+      "category": "design",
+      "subcategory": "design-resources",
+      "url": "https://unsplash.com/",
+      "icon": "https://unsplash.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-resources"
+      ]
+    },
+    {
+      "key": "res-189",
+      "name": "包图网",
+      "description": "提供高质量视频素材的平台，专注于实拍视频的下载和商用授权，提供包图自产素材、全球精选素材和创意Pro素材。",
+      "category": "design",
+      "subcategory": "design-resources",
+      "url": "https://ibaotu.com/shipin/7-5026-0-0-0-1.html?spm=sjdrsp",
+      "icon": "https://ibaotu.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-resources"
+      ]
+    },
+    {
+      "key": "res-190",
+      "name": "旺影",
+      "description": "提供在线视频模板制作的平台，用户可以通过平台提供的模板快速制作视频，适合广告、宣传、社交媒体等应用场景。",
+      "category": "design",
+      "subcategory": "design-resources",
+      "url": "https://www.wangying.cn/template?sm=navigation?utm_source=sjdr&utm_campaign=%E5%AE%A3%E4%BC%A0%E7%89%87%E5%88%B6%E4%BD%9C",
+      "icon": "https://www.wangying.cn/favicon.ico",
+      "tags": [
+        "design",
+        "design-resources"
+      ]
+    },
+    {
+      "key": "res-191",
+      "name": "虎课网",
+      "description": "提供设计、办公软件视频教程的在线学习平台，涵盖多种职业路径课程，适合不同层次的学习者。",
+      "category": "design",
+      "subcategory": "design-resources",
+      "url": "https://huke88.com/?identity=77df548a500b",
+      "icon": "https://huke88.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-resources"
+      ]
+    },
+    {
+      "key": "res-192",
+      "name": "设计达人",
+      "description": "专注于设计资源分享的平台，提供优秀的设计案例、设计工具、字体资源等，适合设计师和设计学习者。",
+      "category": "design",
+      "subcategory": "design-resources",
+      "url": "https://www.shejidaren.com/category/design-resources",
+      "icon": "https://www.shejidaren.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-resources"
+      ]
+    },
+    {
+      "key": "res-193",
+      "name": "求字体网",
+      "description": "主要提供字体识别与搜索服务，支持中、英、日、韩等多国语言海量字体的识别与搜索，通过拖拽图片或截图来识别字体。",
+      "category": "design",
+      "subcategory": "design-resources",
+      "url": "https://www.qiuziti.com/?ref=shejidaren.com",
+      "icon": "./website_image/images_of_sub_websites/design_resources/02_design_inspiration/求字体网.png",
+      "tags": [
+        "design",
+        "design-resources"
+      ]
+    },
+    {
+      "key": "res-194",
+      "name": "花瓣设计达人",
+      "description": "精选优秀的中文字体设计作品，从花瓣、设计达人网、设计网站中精挑细选，展示了一系列高清好看的中文字体设计图片。",
+      "category": "design",
+      "subcategory": "design-resources",
+      "url": "https://huaban.com/boards/13553099?md=bdwzshejid",
+      "icon": "https://huaban.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-resources"
+      ]
+    },
+    {
+      "key": "res-195",
+      "name": "字体家",
+      "description": "提供免费字体下载、字体转换器等服务，有多种字体可供选择，包括具有特色的AI造字字体，如字体家AI造字文楷、町唐AI细黑等。",
+      "category": "design",
+      "subcategory": "design-resources",
+      "url": "https://www.zitijia.com/",
+      "icon": "./website_image/images_of_sub_websites/design_resources/03_material_resources/字体家.png",
+      "tags": [
+        "design",
+        "design-resources"
+      ]
+    },
+    {
+      "key": "res-196",
+      "name": "花瓣网",
+      "description": "设计灵感分享平台，提供设计配色相关专题内容，展示大量的设计配色案例，通过图片形式呈现各种色彩搭配的效果。",
+      "category": "design",
+      "subcategory": "design-resources",
+      "url": "https://huaban.com/explore/shejipeise?md=bdwzshejidaren",
+      "icon": "https://huaban.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-resources"
+      ]
+    },
+    {
+      "key": "res-197",
+      "name": "三色配色生成器",
+      "description": "专门用于帮助设计师快速生成三色配色方案，基于色彩理论中的三色配色规则（在色轮上呈120度分布的三种颜色）。",
+      "category": "design",
+      "subcategory": "design-resources",
+      "url": "https://www.toptal.com/designers/colourcode/triad-color-builder",
+      "icon": "./website_image/images_of_sub_websites/design_resources/03_material_resources/三色配色生成器.png",
+      "tags": [
+        "design",
+        "design-resources"
+      ]
+    },
+    {
+      "key": "res-198",
+      "name": "享设计",
+      "description": "设计作品共享交易平台，提供各种设计资源的交易和共享服务，包括UI/UX设计、平面设计、插画等，可上传自己的作品进行交易。",
+      "category": "design",
+      "subcategory": "design-resources",
+      "url": "https://www.design006.com/?inviteCode=PUQCK22Q&tn=shejidaren",
+      "icon": "./website_image/images_of_sub_websites/design_resources/03_material_resources/享设计.png",
+      "tags": [
+        "design",
+        "design-resources"
+      ]
+    },
+    {
+      "key": "res-199",
+      "name": "Free Figma Resources",
+      "description": "提供精选的免费Figma设计资源，包括UI套件、图标、模拟图和模板等，帮助设计师快速创建出色的设计作品，提高工作效率。",
+      "category": "design",
+      "subcategory": "design-resources",
+      "url": "https://www.figma.com/community",
+      "icon": "./website_image/images_of_sub_websites/design_resources/01_design_tools/Figma.png",
+      "tags": [
+        "design",
+        "design-resources"
+      ]
+    },
+    {
+      "key": "res-200",
+      "name": "Dribbble",
+      "description": "展示全球顶级设计师和创意专业人士作品的平台，可浏览各种设计作品，包括UI/UX设计、品牌设计、插画等。",
+      "category": "design",
+      "subcategory": "design-resources",
+      "url": "https://dribbble.com/",
+      "icon": "./website_image/images_of_sub_websites/design_resources/02_design_inspiration/Dribbble.png",
+      "tags": [
+        "design",
+        "design-resources"
+      ]
+    },
+    {
+      "key": "res-201",
+      "name": "Game UI Database",
+      "description": "提供游戏UI设计的数据库，可根据平台、类型、主题等筛选，包含各种游戏UI元素、样式、图案、材质和纹理等资源。",
+      "category": "design",
+      "subcategory": "design-resources",
+      "url": "https://www.gameuidatabase.com/",
+      "icon": "./website_image/images_of_sub_websites/design_resources/03_material_resources/Game UI Database.png",
+      "tags": [
+        "design",
+        "design-resources"
+      ]
+    },
+    {
+      "key": "res-202",
+      "name": "Iconfinder",
+      "description": "功能强大且资源丰富的图标和矢量图形库，适合各种设计和开发需求，提供免费资源和高质量的独家付费设计。",
+      "category": "design",
+      "subcategory": "design-resources",
+      "url": "https://www.iconfinder.com/",
+      "icon": "https://www.iconfinder.com/favicon.ico",
+      "tags": [
+        "design",
+        "design-resources"
+      ]
+    }
+  ]
+}
