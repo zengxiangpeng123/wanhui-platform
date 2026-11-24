@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useAuthStore } from '../stores/auth';
+import AppShell from '../layouts/AppShell.vue';
 
 const auth = useAuthStore();
 const route = useRoute();
@@ -39,6 +40,7 @@ async function submit() {
 </script>
 
 <template>
+  <AppShell>
   <section class="auth-shell">
     <div class="auth-card">
       <p class="eyebrow">WANHUI ACCOUNT</p>
@@ -83,6 +85,7 @@ async function submit() {
       <router-link class="back-link" to="/">返回首页</router-link>
     </div>
   </section>
+  </AppShell>
 </template>
 
 <style scoped>
