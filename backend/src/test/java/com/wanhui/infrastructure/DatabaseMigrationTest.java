@@ -29,25 +29,26 @@ class DatabaseMigrationTest {
 
         MigrateResult result = flyway.migrate();
 
-        assertThat(result.migrationsExecuted).isEqualTo(1);
+        assertThat(result.migrationsExecuted).isEqualTo(2);
         try (var connection = DriverManager.getConnection(
                 MYSQL.getJdbcUrl(),
                 MYSQL.getUsername(),
                 MYSQL.getPassword()
         )) {
             try (var history = connection.createStatement().executeQuery(
-                    "SELECT version, success FROM flyway_schema_history WHERE version = '1'"
+                    "SELECT COUNT(*) AS applied_count FROM flyway_schema_history "
+                            + "WHERE version IN ('1', '2') AND success = 1"
             )) {
                 assertThat(history.next()).isTrue();
-                assertThat(history.getString("version")).isEqualTo("1");
-                assertThat(history.getBoolean("success")).isTrue();
+                assertThat(history.getInt("applied_count")).isEqualTo(2);
             }
             try (var table = connection.createStatement().executeQuery(
                     "SELECT COUNT(*) FROM information_schema.tables "
-                            + "WHERE table_schema = DATABASE() AND table_name = 'platform_metadata'"
+                            + "WHERE table_schema = DATABASE() "
+                            + "AND table_name IN ('platform_metadata', 'users', 'roles', 'permissions', 'role_permissions', 'user_roles', 'SPRING_SESSION', 'SPRING_SESSION_ATTRIBUTES')"
             )) {
                 assertThat(table.next()).isTrue();
-                assertThat(table.getInt(1)).isEqualTo(1);
+                assertThat(table.getInt(1)).isEqualTo(8);
             }
         }
 
