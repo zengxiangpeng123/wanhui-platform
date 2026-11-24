@@ -31,6 +31,7 @@ class EncryptedUserLookupTest extends IdentityDatabaseTestSupport {
 
     @BeforeEach
     void cleanUsers() {
+        userMapper.deleteAllUserRoles();
         userMapper.delete(null);
     }
 
