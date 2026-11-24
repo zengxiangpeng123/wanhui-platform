@@ -68,6 +68,7 @@ public class SecurityConfig {
                                 "/error"
                         ).permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/v1/resources/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/v1/forum/**").permitAll()
                         .requestMatchers("/api/v1/**").authenticated()
                         .anyRequest().permitAll()
                 )

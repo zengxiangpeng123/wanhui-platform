@@ -2,6 +2,10 @@ package com.wanhui;
 
 import com.wanhui.identity.mapper.RoleMapper;
 import com.wanhui.identity.mapper.UserMapper;
+import com.wanhui.forum.mapper.PostCategoryMapper;
+import com.wanhui.forum.mapper.PostMapper;
+import com.wanhui.forum.mapper.PostTagMapper;
+import com.wanhui.forum.mapper.TagMapper;
 import com.wanhui.resource.mapper.RecentVisitMapper;
 import com.wanhui.resource.mapper.ResourceFavoriteMapper;
 import com.wanhui.resource.mapper.UserSiteMapper;
@@ -28,6 +32,18 @@ class WanhuiApplicationTest {
 
     @MockitoBean
     private UserSiteMapper userSiteMapper;
+
+    @MockitoBean
+    private PostMapper postMapper;
+
+    @MockitoBean
+    private PostCategoryMapper postCategoryMapper;
+
+    @MockitoBean
+    private TagMapper tagMapper;
+
+    @MockitoBean
+    private PostTagMapper postTagMapper;
 
     @Test
     void contextLoads() {
