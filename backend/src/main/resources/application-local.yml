@@ -9,3 +9,10 @@ spring:
       minimum-idle: 1
       connection-timeout: 5000
       validation-timeout: 3000
+
+wanhui:
+  security:
+    crypto:
+      key-version: ${FIELD_KEY_VERSION:1}
+      encryption-key: ${FIELD_ENCRYPTION_KEY:KJRYsRQEQB5K0Ts4HO5esrnrAKzwWILX9k00i/vsl+U=}
+      hmac-key: ${FIELD_HMAC_KEY:1i209Ai9K09b4CTGEGUFH9DLncSUYLpUcAusxLaMY/k=}

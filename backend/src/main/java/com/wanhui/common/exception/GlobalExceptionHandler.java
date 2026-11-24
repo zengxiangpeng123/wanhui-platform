@@ -24,6 +24,11 @@ import java.util.List;
 public class GlobalExceptionHandler {
     private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
+    @ExceptionHandler(BusinessException.class)
+    public ResponseEntity<ApiResponse<Void>> handleBusiness(BusinessException exception) {
+        return response(exception.status(), exception.code(), exception.getMessage(), exception.fieldErrors());
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ApiResponse<Void>> handleMethodArgumentNotValid(MethodArgumentNotValidException exception) {
         List<ApiError.FieldError> fieldErrors = exception.getBindingResult().getFieldErrors().stream()
@@ -91,4 +96,3 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(status).body(body);
     }
 }
-
