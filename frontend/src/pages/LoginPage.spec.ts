@@ -8,7 +8,7 @@ import HomePage from './HomePage.vue';
 import LoginPage from './LoginPage.vue';
 
 vi.mock('../api/auth', () => ({
-  loadMe: vi.fn(),
+  loadMe: vi.fn().mockResolvedValue(null),
   login: vi.fn(),
   register: vi.fn(),
   logout: vi.fn()
@@ -55,7 +55,7 @@ function setInput(root: HTMLElement, index: number, value: string) {
 }
 
 function clickButton(root: HTMLElement) {
-  const button = root.querySelector('button') as HTMLButtonElement;
+  const button = root.querySelector('[data-testid="login-submit"]') as HTMLButtonElement;
   button.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
 }
 

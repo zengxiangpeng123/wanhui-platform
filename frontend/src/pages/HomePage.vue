@@ -1,4 +1,9 @@
+<script setup lang="ts">
+import AppShell from '../layouts/AppShell.vue';
+</script>
+
 <template>
+  <AppShell>
   <section class="page-card">
     <p class="eyebrow">WANHUI PLATFORM</p>
     <h1>万汇网</h1>
@@ -8,6 +13,7 @@
       <router-link class="secondary-link" to="/login">已有账号，登录</router-link>
     </div>
   </section>
+  </AppShell>
 </template>
 
 <style scoped>

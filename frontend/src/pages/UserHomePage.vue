@@ -1,15 +1,18 @@
 <script setup lang="ts">
 import { useAuthStore } from '../stores/auth';
+import AppShell from '../layouts/AppShell.vue';
 const auth = useAuthStore();
 </script>
 
 <template>
+  <AppShell>
   <section class="page-card">
     <p class="eyebrow">ACCOUNT</p>
     <h1>个人中心</h1>
     <p class="lead">你好，{{ auth.user?.nickname || auth.user?.username }}。</p>
     <router-link class="secondary-link" to="/">返回首页</router-link>
   </section>
+  </AppShell>
 </template>
 
 <style scoped>

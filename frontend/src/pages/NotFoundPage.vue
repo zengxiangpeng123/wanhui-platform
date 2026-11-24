@@ -1,10 +1,16 @@
+<script setup lang="ts">
+import AppShell from '../layouts/AppShell.vue';
+</script>
+
 <template>
+  <AppShell>
   <section class="page-card">
     <p class="eyebrow">404</p>
     <h1>页面不存在</h1>
     <p class="lead">这个地址没有对应的页面。</p>
     <router-link class="secondary-link" to="/">返回首页</router-link>
   </section>
+  </AppShell>
 </template>
 
 <style scoped>
