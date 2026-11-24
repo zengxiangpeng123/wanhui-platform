@@ -2,6 +2,9 @@ package com.wanhui;
 
 import com.wanhui.identity.mapper.RoleMapper;
 import com.wanhui.identity.mapper.UserMapper;
+import com.wanhui.resource.mapper.RecentVisitMapper;
+import com.wanhui.resource.mapper.ResourceFavoriteMapper;
+import com.wanhui.resource.mapper.UserSiteMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
@@ -16,6 +19,15 @@ class WanhuiApplicationTest {
 
     @MockitoBean
     private RoleMapper roleMapper;
+
+    @MockitoBean
+    private ResourceFavoriteMapper resourceFavoriteMapper;
+
+    @MockitoBean
+    private RecentVisitMapper recentVisitMapper;
+
+    @MockitoBean
+    private UserSiteMapper userSiteMapper;
 
     @Test
     void contextLoads() {
