@@ -23,6 +23,7 @@ async function logout() {
     <router-link class="brand" to="/">万汇网</router-link>
     <nav class="app-nav" aria-label="主导航">
       <router-link to="/">资源</router-link>
+      <router-link to="/forum">论坛</router-link>
       <router-link v-if="auth.isAuthenticated" to="/user">个人中心</router-link>
     </nav>
     <div class="account-actions">
@@ -50,3 +51,4 @@ async function logout() {
 .register-link { padding: 8px 14px; border-radius: 8px; color: #fff; background: #4056ed; text-decoration: none; }
 @media (max-width: 560px) { .app-header { gap: 12px; } .app-nav { display: none; } .account-name { display: none; } }
 </style>
+
