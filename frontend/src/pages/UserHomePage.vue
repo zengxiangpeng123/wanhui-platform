@@ -11,6 +11,8 @@ const auth = useAuthStore();
     <h1>个人中心</h1>
     <p class="lead">你好，{{ auth.user?.nickname || auth.user?.username }}。</p>
     <nav class="user-links">
+      <router-link to="/user/profile">个人资料</router-link>
+      <router-link to="/user/settings">账号安全</router-link>
       <router-link to="/user/favorites">资源收藏</router-link>
       <router-link to="/user/recent-visits">最近访问</router-link>
       <router-link to="/user/sites">我的网站</router-link>
@@ -29,3 +31,4 @@ h1 { margin: 0; color: #172033; font-size: clamp(36px, 7vw, 60px); }
 .user-links a { padding: 9px 13px; border-radius: 8px; color: #4056ed; background: #eef1ff; text-decoration: none; font-weight: 700; }
 .secondary-link { display: inline-block; padding: 12px 18px; border-radius: 10px; color: #4056ed; background: #eef1ff; text-decoration: none; font-weight: 700; }
 </style>
+

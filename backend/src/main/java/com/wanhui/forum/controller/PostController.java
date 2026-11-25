@@ -46,8 +46,8 @@ public class PostController {
     }
 
     @GetMapping("/posts/{postId}")
-    public ApiResponse<PostDetailResponse> detail(@PathVariable Long postId) {
-        return ApiResponse.success(postService.detail(postId));
+    public ApiResponse<PostDetailResponse> detail(@PathVariable Long postId, Authentication authentication) {
+        return ApiResponse.success(postService.detail(postId, currentUserIdOrNull(authentication)));
     }
 
     @PostMapping("/posts")
@@ -76,9 +76,20 @@ public class PostController {
         }
     }
 
-    private boolean isAdmin(Authentication authentication) {
+
+    private Long currentUserIdOrNull(Authentication authentication) {
+        if (authentication == null || !authentication.isAuthenticated()) {
+            return null;
+        }
+        try {
+            return Long.valueOf(authentication.getName());
+        } catch (NumberFormatException exception) {
+            return null;
+        }
+    }    private boolean isAdmin(Authentication authentication) {
         return authentication != null && authentication.getAuthorities().stream()
                 .anyMatch(authority -> "ROLE_ADMIN".equals(authority.getAuthority())
                         || "POST_DELETE_ANY".equals(authority.getAuthority()));
     }
 }
+

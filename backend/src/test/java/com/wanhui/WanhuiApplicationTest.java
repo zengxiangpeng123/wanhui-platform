@@ -1,8 +1,12 @@
 package com.wanhui;
 
+import com.wanhui.admin.mapper.AuditLogMapper;
 import com.wanhui.identity.mapper.RoleMapper;
 import com.wanhui.identity.mapper.UserMapper;
 import com.wanhui.forum.mapper.PostCategoryMapper;
+import com.wanhui.forum.mapper.CommentMapper;
+import com.wanhui.forum.mapper.PostFavoriteMapper;
+import com.wanhui.forum.mapper.PostLikeMapper;
 import com.wanhui.forum.mapper.PostMapper;
 import com.wanhui.forum.mapper.PostTagMapper;
 import com.wanhui.forum.mapper.TagMapper;
@@ -17,6 +21,9 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
         "spring.autoconfigure.exclude=org.springframework.boot.jdbc.autoconfigure.DataSourceAutoConfiguration,com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration"
 })
 class WanhuiApplicationTest {
+
+    @MockitoBean
+    private AuditLogMapper auditLogMapper;
 
     @MockitoBean
     private UserMapper userMapper;
@@ -45,7 +52,18 @@ class WanhuiApplicationTest {
     @MockitoBean
     private PostTagMapper postTagMapper;
 
+    @MockitoBean
+    private CommentMapper commentMapper;
+
+    @MockitoBean
+    private PostLikeMapper postLikeMapper;
+
+    @MockitoBean
+    private PostFavoriteMapper postFavoriteMapper;
+
     @Test
     void contextLoads() {
     }
 }
+
+
