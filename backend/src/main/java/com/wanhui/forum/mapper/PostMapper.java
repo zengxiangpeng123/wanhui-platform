@@ -35,6 +35,17 @@ public interface PostMapper extends BaseMapper<Post> {
             """)
     long countPublished(@Param("categoryCode") String categoryCode);
 
+
+    @Select("""
+            SELECT p.* FROM posts p
+            WHERE p.status <> 'DELETED'
+            ORDER BY p.created_at DESC, p.id DESC
+            LIMIT #{offset}, #{size}
+            """)
+    List<Post> selectForAdmin(@Param("offset") int offset, @Param("size") int size);
+
+    @Select("SELECT COUNT(*) FROM posts p WHERE p.status <> 'DELETED'")
+    long countForAdmin();
     @Update("UPDATE posts SET like_count = like_count + 1 WHERE id = #{postId}")
     int incrementLikeCount(@Param("postId") Long postId);
 
@@ -50,3 +61,4 @@ public interface PostMapper extends BaseMapper<Post> {
     @Update("UPDATE posts SET comment_count = comment_count + 1 WHERE id = #{postId}")
     int incrementCommentCount(@Param("postId") Long postId);
 }
+
