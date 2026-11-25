@@ -9,6 +9,8 @@ import RecentVisitsPage from '../pages/RecentVisitsPage.vue';
 import MySitesPage from '../pages/MySitesPage.vue';
 import ForumPage from '../pages/ForumPage.vue';
 import PostDetailPage from '../pages/PostDetailPage.vue';
+import UserProfilePage from '../pages/UserProfilePage.vue';
+import UserSettingsPage from '../pages/UserSettingsPage.vue';
 import AdminContentPage from '../pages/AdminContentPage.vue';
 
 export const router = createRouter({
@@ -21,11 +23,14 @@ export const router = createRouter({
     { path: '/forum/post/:id', name: 'forum-post', component: PostDetailPage },
     { path: '/admin/content', name: 'admin-content', component: AdminContentPage, meta: { requiresAuth: true } },
     { path: '/user', name: 'user', component: UserHomePage, meta: { requiresAuth: true } },
+    { path: '/user/profile', name: 'user-profile', component: UserProfilePage, meta: { requiresAuth: true } },
+    { path: '/user/settings', name: 'user-settings', component: UserSettingsPage, meta: { requiresAuth: true } },
     { path: '/user/favorites', name: 'user-favorites', component: ResourceFavoritesPage, meta: { requiresAuth: true } },
     { path: '/user/recent-visits', name: 'user-recent-visits', component: RecentVisitsPage, meta: { requiresAuth: true } },
     { path: '/user/sites', name: 'user-sites', component: MySitesPage, meta: { requiresAuth: true } },
     { path: '/:pathMatch(.*)*', name: 'not-found', component: NotFoundPage }
   ]
 });
+
 
 
