@@ -11,6 +11,8 @@ import com.wanhui.forum.entity.Post;
 import com.wanhui.forum.entity.PostCategory;
 import com.wanhui.forum.entity.Tag;
 import com.wanhui.forum.mapper.PostCategoryMapper;
+import com.wanhui.forum.mapper.PostFavoriteMapper;
+import com.wanhui.forum.mapper.PostLikeMapper;
 import com.wanhui.forum.mapper.PostMapper;
 import com.wanhui.forum.mapper.PostTagMapper;
 import com.wanhui.forum.mapper.TagMapper;
@@ -32,6 +34,8 @@ public class PostService {
     private static final String DELETED = "DELETED";
 
     private final PostMapper postMapper;
+    private final PostLikeMapper postLikeMapper;
+    private final PostFavoriteMapper postFavoriteMapper;
     private final PostCategoryMapper categoryMapper;
     private final TagMapper tagMapper;
     private final PostTagMapper postTagMapper;
@@ -39,12 +43,16 @@ public class PostService {
 
     public PostService(
             PostMapper postMapper,
+            PostLikeMapper postLikeMapper,
+            PostFavoriteMapper postFavoriteMapper,
             PostCategoryMapper categoryMapper,
             TagMapper tagMapper,
             PostTagMapper postTagMapper,
             UserMapper userMapper
     ) {
         this.postMapper = postMapper;
+        this.postLikeMapper = postLikeMapper;
+        this.postFavoriteMapper = postFavoriteMapper;
         this.categoryMapper = categoryMapper;
         this.tagMapper = tagMapper;
         this.postTagMapper = postTagMapper;
@@ -71,7 +79,7 @@ public class PostService {
         return new PostPage(items, page, size, total, totalPages);
     }
 
-    public PostDetailResponse detail(Long postId) {
+    public PostDetailResponse detail(Long postId, Long viewerId) {
         Post post = postMapper.selectById(postId);
         if (post == null) {
             throw new BusinessException(HttpStatus.NOT_FOUND, "RESOURCE_NOT_FOUND", "帖子不存在");
@@ -82,7 +90,7 @@ public class PostService {
         if (!PUBLISHED.equals(post.getStatus())) {
             throw new BusinessException(HttpStatus.NOT_FOUND, "RESOURCE_NOT_FOUND", "帖子不存在");
         }
-        return detail(post);
+        return detail(post, viewerId);
     }
 
     @Transactional
@@ -107,7 +115,7 @@ public class PostService {
         postMapper.insert(post);
 
         associateTags(post.getId(), request.tags());
-        return detail(post);
+        return detail(post, null);
     }
 
     @Transactional
@@ -168,7 +176,7 @@ public class PostService {
         );
     }
 
-    private PostDetailResponse detail(Post post) {
+    private PostDetailResponse detail(Post post, Long viewerId) {
         User author = userMapper.selectById(post.getAuthorId());
         PostCategory category = categoryMapper.selectById(post.getCategoryId());
         return new PostDetailResponse(
@@ -182,10 +190,18 @@ public class PostService {
                 value(post.getCommentCount()),
                 value(post.getLikeCount()),
                 value(post.getFavoriteCount()),
-                false,
-                false,
+                liked(post, viewerId),
+                favorited(post, viewerId),
                 post.getCreatedAt()
         );
+    }
+
+    private boolean liked(Post post, Long viewerId) {
+        return viewerId != null && postLikeMapper.countByPostAndUser(post.getId(), viewerId) > 0;
+    }
+
+    private boolean favorited(Post post, Long viewerId) {
+        return viewerId != null && postFavoriteMapper.countByPostAndUser(post.getId(), viewerId) > 0;
     }
 
     private PostAuthorResponse author(User user) {
@@ -213,3 +229,5 @@ public class PostService {
                 : categoryCode.trim().toLowerCase(Locale.ROOT);
     }
 }
+
+

@@ -29,7 +29,7 @@ class DatabaseMigrationTest {
 
         MigrateResult result = flyway.migrate();
 
-        assertThat(result.migrationsExecuted).isEqualTo(4);
+        assertThat(result.migrationsExecuted).isEqualTo(5);
         try (var connection = DriverManager.getConnection(
                 MYSQL.getJdbcUrl(),
                 MYSQL.getUsername(),
@@ -37,18 +37,18 @@ class DatabaseMigrationTest {
         )) {
             try (var history = connection.createStatement().executeQuery(
                     "SELECT COUNT(*) AS applied_count FROM flyway_schema_history "
-                            + "WHERE version IN ('1', '2', '3', '4') AND success = 1"
+                            + "WHERE version IN ('1', '2', '3', '4', '5') AND success = 1"
             )) {
                 assertThat(history.next()).isTrue();
-                assertThat(history.getInt("applied_count")).isEqualTo(4);
+                assertThat(history.getInt("applied_count")).isEqualTo(5);
             }
             try (var table = connection.createStatement().executeQuery(
                     "SELECT COUNT(*) FROM information_schema.tables "
                             + "WHERE table_schema = DATABASE() "
-                            + "AND table_name IN ('platform_metadata', 'users', 'roles', 'permissions', 'role_permissions', 'user_roles', 'SPRING_SESSION', 'SPRING_SESSION_ATTRIBUTES', 'resource_favorites', 'recent_visits', 'user_sites', 'post_categories', 'tags', 'posts', 'post_tags')"
+                            + "AND table_name IN ('platform_metadata', 'users', 'roles', 'permissions', 'role_permissions', 'user_roles', 'SPRING_SESSION', 'SPRING_SESSION_ATTRIBUTES', 'resource_favorites', 'recent_visits', 'user_sites', 'post_categories', 'tags', 'posts', 'post_tags', 'post_likes', 'post_favorites', 'post_comments')"
             )) {
                 assertThat(table.next()).isTrue();
-                assertThat(table.getInt(1)).isEqualTo(15);
+                assertThat(table.getInt(1)).isEqualTo(18);
             }
         }
 
@@ -56,3 +56,4 @@ class DatabaseMigrationTest {
         assertThat(secondRun.migrationsExecuted).isZero();
     }
 }
+
