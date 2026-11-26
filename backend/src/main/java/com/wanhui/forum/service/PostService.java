@@ -79,6 +79,22 @@ public class PostService {
         return new PostPage(items, page, size, total, totalPages);
     }
 
+    public PostPage search(String keyword, int page, int size) {
+        if (page < 1 || size < 1 || size > MAX_PAGE_SIZE) {
+            throw new BusinessException(HttpStatus.BAD_REQUEST, "INVALID_ARGUMENT", "分页参数非法");
+        }
+        String q = keyword == null ? "" : keyword.trim();
+        if (q.isEmpty()) {
+            return new PostPage(List.of(), page, size, 0, 0);
+        }
+        long total = postMapper.countSearch(q);
+        int offset = (page - 1) * size;
+        List<PostSummaryResponse> items = postMapper.selectSearch(q, offset, size).stream()
+                .map(this::summary)
+                .toList();
+        int totalPages = total == 0 ? 0 : (int) Math.ceil((double) total / size);
+        return new PostPage(items, page, size, total, totalPages);
+    }
     public PostDetailResponse detail(Long postId, Long viewerId) {
         Post post = postMapper.selectById(postId);
         if (post == null) {
@@ -229,5 +245,6 @@ public class PostService {
                 : categoryCode.trim().toLowerCase(Locale.ROOT);
     }
 }
+
 
 

@@ -45,6 +45,14 @@ public class PostController {
         return ApiResponse.success(postService.list(category, page, size));
     }
 
+    @GetMapping("/posts/search")
+    public ApiResponse<PostPage> search(
+            @RequestParam(required = false) String q,
+            @RequestParam(defaultValue = "1") int page,
+            @RequestParam(defaultValue = "20") int size
+    ) {
+        return ApiResponse.success(postService.search(q, page, size));
+    }
     @GetMapping("/posts/{postId}")
     public ApiResponse<PostDetailResponse> detail(@PathVariable Long postId, Authentication authentication) {
         return ApiResponse.success(postService.detail(postId, currentUserIdOrNull(authentication)));
@@ -92,4 +100,5 @@ public class PostController {
                         || "POST_DELETE_ANY".equals(authority.getAuthority()));
     }
 }
+
 

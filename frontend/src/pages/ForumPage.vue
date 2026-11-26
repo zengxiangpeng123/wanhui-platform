@@ -1,7 +1,14 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { fetchCategories, fetchPosts, type PostCategory, type PostDetail, type PostPage } from '../api/forum';
+import {
+  fetchCategories,
+  fetchPosts,
+  searchPosts,
+  type PostCategory,
+  type PostDetail,
+  type PostPage
+} from '../api/forum';
 import AppShell from '../layouts/AppShell.vue';
 import PostCard from '../components/PostCard.vue';
 import PostEditorDialog from '../components/PostEditorDialog.vue';
@@ -16,9 +23,14 @@ const pageData = ref<PostPage>({ items: [], page: 1, size: 20, total: 0, totalPa
 const loading = ref(false);
 const error = ref<string | null>(null);
 const editorOpen = ref(false);
+const searchText = ref('');
 
 const activeCategory = computed(() => {
   const value = route.query.category;
+  return typeof value === 'string' ? value : '';
+});
+const activeKeyword = computed(() => {
+  const value = route.query.q;
   return typeof value === 'string' ? value : '';
 });
 const currentPage = computed(() => {
@@ -30,7 +42,9 @@ async function load() {
   loading.value = true;
   error.value = null;
   try {
-    pageData.value = await fetchPosts(activeCategory.value || undefined, currentPage.value, 20);
+    pageData.value = activeKeyword.value
+      ? await searchPosts(activeKeyword.value, currentPage.value, 20)
+      : await fetchPosts(activeCategory.value || undefined, currentPage.value, 20);
   } catch (requestError) {
     error.value = requestError instanceof Error ? requestError.message : '帖子加载失败';
     pageData.value = { ...pageData.value, items: [], total: 0, totalPages: 0 };
@@ -49,7 +63,17 @@ function updateQuery(patch: Record<string, string | undefined>) {
 }
 
 function selectCategory(code: string) {
-  updateQuery({ category: code || undefined });
+  updateQuery({ category: code || undefined, q: undefined });
+}
+
+function applySearch() {
+  const keyword = searchText.value.trim();
+  updateQuery({ q: keyword || undefined, category: undefined });
+}
+
+function clearSearch() {
+  searchText.value = '';
+  updateQuery({ q: undefined });
 }
 
 function changePage(page: number) {
@@ -77,9 +101,10 @@ function insertCreatedPost(post: PostDetail) {
   };
 }
 
-watch(() => [route.query.category, route.query.page], load, { immediate: true });
+watch(() => [route.query.category, route.query.page, route.query.q], load, { immediate: true });
 
 onMounted(async () => {
+  searchText.value = activeKeyword.value;
   if (!auth.initialized) await auth.loadMe();
   try {
     categories.value = await fetchCategories();
@@ -97,7 +122,7 @@ onMounted(async () => {
         <button
           type="button"
           class="category-item"
-          :class="{ active: !activeCategory }"
+          :class="{ active: !activeCategory && !activeKeyword }"
           data-testid="category-all"
           @click="selectCategory('')"
         >全部帖子</button>
@@ -123,8 +148,26 @@ onMounted(async () => {
         <button type="button" class="create-button" data-testid="open-editor" @click="openEditor">发布新帖</button>
       </header>
 
+      <form class="search-form" role="search" @submit.prevent="applySearch">
+        <input
+          v-model="searchText"
+          data-testid="forum-search"
+          type="search"
+          placeholder="搜索帖子标题、正文或标签"
+        />
+        <button type="submit" data-testid="forum-search-submit">搜索</button>
+        <button
+          v-if="activeKeyword"
+          type="button"
+          class="clear-button"
+          data-testid="forum-search-clear"
+          @click="clearSearch"
+        >清空</button>
+      </form>
+
       <div class="result-heading">
-        <h2>{{ activeCategory ? categories.find((item) => item.code === activeCategory)?.name || '帖子' : '全部帖子' }}</h2>
+        <h2 v-if="activeKeyword">搜索“{{ activeKeyword }}”</h2>
+        <h2 v-else>{{ activeCategory ? categories.find((item) => item.code === activeCategory)?.name || '帖子' : '全部帖子' }}</h2>
         <span class="result-count">共 {{ pageData.total }} 篇</span>
       </div>
 
@@ -132,6 +175,11 @@ onMounted(async () => {
       <div v-else-if="error" class="state-panel error-panel">
         <strong>{{ error }}</strong>
         <button type="button" data-testid="forum-retry" @click="load">重试</button>
+      </div>
+      <div v-else-if="pageData.items.length === 0 && activeKeyword" class="state-panel" data-testid="forum-empty">
+        <strong>没有找到相关帖子</strong>
+        <span>换个关键词试试，或清空搜索条件。</span>
+        <button type="button" @click="clearSearch">清空搜索</button>
       </div>
       <div v-else-if="pageData.items.length === 0" class="state-panel">
         <strong>还没有帖子</strong>
@@ -166,11 +214,15 @@ onMounted(async () => {
 .category-item:hover { background: #f4f6ff; color: #4056ed; }
 .category-item.active { color: #4056ed; background: #f1f3ff; font-weight: 700; }
 .forum-page { max-width: 980px; margin: 0 auto; padding: 34px clamp(18px, 4vw, 48px) 72px; }
-.forum-hero { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; padding: 24px 0 28px; border-bottom: 1px solid #edf0f8; }
+.forum-hero { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; padding: 24px 0 20px; border-bottom: 1px solid #edf0f8; }
 .eyebrow { margin: 0 0 8px; color: #4056ed; font-size: 12px; font-weight: 700; letter-spacing: .16em; }
 h1 { margin: 0; color: #172033; font-size: clamp(30px, 5vw, 46px); letter-spacing: -.04em; }
 .lead { margin: 12px 0 0; color: #667085; }
-.create-button, .state-panel button, .pagination button { padding: 11px 18px; border: 0; border-radius: 9px; color: #fff; background: #4056ed; font: inherit; font-weight: 700; cursor: pointer; }
+.create-button, .state-panel button, .pagination button, .search-form button { padding: 11px 18px; border: 0; border-radius: 9px; color: #fff; background: #4056ed; font: inherit; font-weight: 700; cursor: pointer; }
+.search-form { display: flex; gap: 10px; margin: 22px 0 0; }
+.search-form input { flex: 1; min-width: 0; padding: 11px 14px; border: 1px solid #d0d5dd; border-radius: 9px; font: inherit; }
+.search-form input:focus { border-color: #4056ed; outline: none; box-shadow: 0 0 0 3px rgba(64, 86, 237, .12); }
+.search-form .clear-button { border: 1px solid #d0d5dd; color: #475467; background: #fff; }
 .result-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 24px 0 16px; }
 h2 { margin: 0; color: #172033; font-size: 20px; }
 .result-count { color: #98a2b3; font-size: 13px; }
@@ -180,5 +232,5 @@ h2 { margin: 0; color: #172033; font-size: 20px; }
 .error-panel { border-color: #fecdca; background: #fffbfa; }
 .pagination { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 28px; color: #667085; }
 .pagination button:disabled { cursor: not-allowed; opacity: .45; }
-@media (max-width: 640px) { .forum-hero { align-items: flex-start; flex-direction: column; } }
+@media (max-width: 640px) { .forum-hero { align-items: flex-start; flex-direction: column; } .search-form { flex-wrap: wrap; } }
 </style>

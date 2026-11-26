@@ -3,7 +3,7 @@ import { createPinia } from 'pinia';
 import { createMemoryHistory, createRouter } from 'vue-router';
 import ElementPlus from 'element-plus';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { fetchCategories, fetchPosts, createPost } from '../api/forum';
+import { fetchCategories, fetchPosts, createPost, searchPosts } from '../api/forum';
 import ForumPage from './ForumPage.vue';
 
 vi.mock('../api/auth', () => ({
@@ -20,7 +20,9 @@ vi.mock('../api/forum', () => ({
   setPostLike: vi.fn(),
   setPostFavorite: vi.fn(),
   fetchComments: vi.fn(),
-  createComment: vi.fn()
+  createComment: vi.fn(),
+  setCommentLike: vi.fn(),
+  searchPosts: vi.fn()
 }));
 
 const categories = [
@@ -50,7 +52,7 @@ const posts = {
   totalPages: 1
 };
 
-async function mountPage() {
+async function mountPage(path = '/forum') {
   const router = createRouter({
     history: createMemoryHistory(),
     routes: [
@@ -60,7 +62,7 @@ async function mountPage() {
       { path: '/login', component: { template: '<div>login</div>' } }
     ]
   });
-  await router.push('/forum');
+  await router.push(path);
   await router.isReady();
   const root = document.createElement('div');
   document.body.appendChild(root);
@@ -75,9 +77,11 @@ describe('ForumPage', () => {
   beforeEach(() => {
     vi.mocked(fetchCategories).mockReset();
     vi.mocked(fetchPosts).mockReset();
+    vi.mocked(searchPosts).mockReset();
     vi.mocked(createPost).mockReset();
     vi.mocked(fetchCategories).mockResolvedValue(categories);
     vi.mocked(fetchPosts).mockResolvedValue(posts);
+    vi.mocked(searchPosts).mockResolvedValue(posts);
   });
 
   it('renders posts and category tiles', async () => {
@@ -128,5 +132,55 @@ describe('ForumPage', () => {
     app.unmount();
     root.remove();
   });
+it('submits keyword search and shows result heading', async () => {
+    const { app, root } = await mountPage();
+    await vi.waitFor(() => expect(fetchPosts).toHaveBeenCalled());
+
+    const input = root.querySelector('[data-testid="forum-search"]') as HTMLInputElement;
+    input.value = '文献';
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    await nextTick();
+    (root.querySelector('[data-testid="forum-search-submit"]') as HTMLButtonElement)
+      .dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+
+    await vi.waitFor(() => expect(searchPosts).toHaveBeenCalledWith('文献', 1, 20));
+    await vi.waitFor(() => expect(root.textContent).toContain('搜索“文献”'));
+    app.unmount();
+    root.remove();
+  });
+
+  it('clears search keyword and returns to full list', async () => {
+    vi.mocked(searchPosts).mockResolvedValue(posts);
+    const { app, root } = await mountPage('/forum?q=文献');
+    await vi.waitFor(() => expect(searchPosts).toHaveBeenCalledWith('文献', 1, 20));
+    await vi.waitFor(() => expect(root.querySelector('[data-testid="forum-search-clear"]')).toBeTruthy());
+
+    (root.querySelector('[data-testid="forum-search-clear"]') as HTMLButtonElement)
+      .dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+
+    await vi.waitFor(() => expect(fetchPosts).toHaveBeenCalled());
+    app.unmount();
+    root.remove();
+  });
+
+  it('shows empty state when search has no results', async () => {
+    vi.mocked(searchPosts).mockResolvedValue({ items: [], page: 1, size: 20, total: 0, totalPages: 0 });
+    const { app, root } = await mountPage('/forum?q=不存在');
+    await vi.waitFor(() => expect(root.textContent).toContain('没有找到相关帖子'));
+    app.unmount();
+    root.remove();
+  });
+
+  it('restores keyword from URL query on mount', async () => {
+    const { app, root } = await mountPage('/forum?q=Figma');
+    await vi.waitFor(() => expect(searchPosts).toHaveBeenCalledWith('Figma', 1, 20));
+    await vi.waitFor(() => {
+      const input = root.querySelector('[data-testid="forum-search"]') as HTMLInputElement;
+      expect(input.value).toBe('Figma');
+    });
+    app.unmount();
+    root.remove();
+  });
 });
+
 

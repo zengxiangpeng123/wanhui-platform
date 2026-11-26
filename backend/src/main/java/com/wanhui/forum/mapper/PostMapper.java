@@ -12,6 +12,38 @@ import java.util.List;
 @Mapper
 public interface PostMapper extends BaseMapper<Post> {
     @Select("""
+            SELECT DISTINCT p.* FROM posts p
+            LEFT JOIN post_tags pt ON pt.post_id = p.id
+            LEFT JOIN tags t ON t.id = pt.tag_id
+            WHERE p.status = 'PUBLISHED'
+              AND (
+                LOWER(p.title) LIKE CONCAT('%', LOWER(#{q}), '%')
+                OR LOWER(p.content) LIKE CONCAT('%', LOWER(#{q}), '%')
+                OR LOWER(t.name) LIKE CONCAT('%', LOWER(#{q}), '%')
+              )
+            ORDER BY p.created_at DESC, p.id DESC
+            LIMIT #{offset}, #{size}
+            """)
+    List<Post> selectSearch(
+            @Param("q") String q,
+            @Param("offset") int offset,
+            @Param("size") int size
+    );
+
+    @Select("""
+            SELECT COUNT(DISTINCT p.id) FROM posts p
+            LEFT JOIN post_tags pt ON pt.post_id = p.id
+            LEFT JOIN tags t ON t.id = pt.tag_id
+            WHERE p.status = 'PUBLISHED'
+              AND (
+                LOWER(p.title) LIKE CONCAT('%', LOWER(#{q}), '%')
+                OR LOWER(p.content) LIKE CONCAT('%', LOWER(#{q}), '%')
+                OR LOWER(t.name) LIKE CONCAT('%', LOWER(#{q}), '%')
+              )
+            """)
+    long countSearch(@Param("q") String q);
+
+    @Select("""
             SELECT p.* FROM posts p
             WHERE p.status = 'PUBLISHED'
               AND (#{categoryCode} IS NULL OR p.category_id = (
@@ -61,4 +93,5 @@ public interface PostMapper extends BaseMapper<Post> {
     @Update("UPDATE posts SET comment_count = comment_count + 1 WHERE id = #{postId}")
     int incrementCommentCount(@Param("postId") Long postId);
 }
+
 

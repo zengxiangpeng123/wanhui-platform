@@ -75,6 +75,12 @@ export async function fetchPosts(category: string | undefined, page: number, siz
   return response.data.data;
 }
 
+export async function searchPosts(q: string, page = 1, size = 20): Promise<PostPage> {
+  const response = await http.get<{ data: PostPage }>('/forum/posts/search', {
+    params: { q, page, size }
+  });
+  return response.data.data;
+}
 export async function fetchPostDetail(postId: string): Promise<PostDetail> {
   const response = await http.get<{ data: PostDetail }>(`/forum/posts/${postId}`);
   return response.data.data;
@@ -121,4 +127,5 @@ export async function createComment(postId: string, content: string): Promise<Co
   const response = await http.post<{ data: Comment }>(`/forum/posts/${postId}/comments`, { content });
   return response.data.data;
 }
+
 
