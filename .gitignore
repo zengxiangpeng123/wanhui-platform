@@ -2,6 +2,7 @@
 backend/target/
 *.class
 *.log
+*.err
 
 # Node
 frontend/node_modules/
@@ -12,6 +13,7 @@ frontend/coverage/
 .env
 .env.*
 !.env.example
+!deploy/.env.staging.example
 
 # IDE / OS
 .idea/
@@ -28,4 +30,11 @@ logs/
 # Playwright
 frontend/playwright-report/
 frontend/test-results/
+
+deploy/.env.staging
+deploy/backups/
+deploy/nginx/certs/*.crt
+deploy/nginx/certs/*.key
+
+
 
