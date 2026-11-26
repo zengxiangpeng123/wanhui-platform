@@ -1,13 +1,19 @@
 package com.wanhui.forum.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.wanhui.common.exception.BusinessException;
+import com.wanhui.forum.dto.CommentLikeState;
 import com.wanhui.forum.dto.CommentPage;
 import com.wanhui.forum.dto.CommentResponse;
 import com.wanhui.forum.dto.PostAuthorResponse;
 import com.wanhui.forum.dto.PostFavoriteState;
 import com.wanhui.forum.dto.PostLikeState;
 import com.wanhui.forum.entity.Comment;
+import com.wanhui.forum.entity.CommentLike;
 import com.wanhui.forum.entity.Post;
+import com.wanhui.forum.entity.PostFavorite;
+import com.wanhui.forum.entity.PostLike;
+import com.wanhui.forum.mapper.CommentLikeMapper;
 import com.wanhui.forum.mapper.CommentMapper;
 import com.wanhui.forum.mapper.PostFavoriteMapper;
 import com.wanhui.forum.mapper.PostLikeMapper;
@@ -31,6 +37,7 @@ public class InteractionService {
     private final PostLikeMapper postLikeMapper;
     private final PostFavoriteMapper postFavoriteMapper;
     private final CommentMapper commentMapper;
+    private final CommentLikeMapper commentLikeMapper;
     private final UserMapper userMapper;
 
     public InteractionService(
@@ -38,12 +45,14 @@ public class InteractionService {
             PostLikeMapper postLikeMapper,
             PostFavoriteMapper postFavoriteMapper,
             CommentMapper commentMapper,
+            CommentLikeMapper commentLikeMapper,
             UserMapper userMapper
     ) {
         this.postMapper = postMapper;
         this.postLikeMapper = postLikeMapper;
         this.postFavoriteMapper = postFavoriteMapper;
         this.commentMapper = commentMapper;
+        this.commentLikeMapper = commentLikeMapper;
         this.userMapper = userMapper;
     }
 
@@ -59,10 +68,9 @@ public class InteractionService {
     @Transactional
     public PostLikeState unlike(Long userId, Long postId) {
         requirePublishedPost(postId);
-        int removed = postLikeMapper.delete(
-                new com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper<com.wanhui.forum.entity.PostLike>()
-                        .eq(com.wanhui.forum.entity.PostLike::getPostId, postId)
-                        .eq(com.wanhui.forum.entity.PostLike::getUserId, userId));
+        int removed = postLikeMapper.delete(new LambdaQueryWrapper<PostLike>()
+                .eq(PostLike::getPostId, postId)
+                .eq(PostLike::getUserId, userId));
         if (removed > 0) {
             postMapper.decrementLikeCount(postId);
         }
@@ -81,24 +89,23 @@ public class InteractionService {
     @Transactional
     public PostFavoriteState unfavorite(Long userId, Long postId) {
         requirePublishedPost(postId);
-        int removed = postFavoriteMapper.delete(
-                new com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper<com.wanhui.forum.entity.PostFavorite>()
-                        .eq(com.wanhui.forum.entity.PostFavorite::getPostId, postId)
-                        .eq(com.wanhui.forum.entity.PostFavorite::getUserId, userId));
+        int removed = postFavoriteMapper.delete(new LambdaQueryWrapper<PostFavorite>()
+                .eq(PostFavorite::getPostId, postId)
+                .eq(PostFavorite::getUserId, userId));
         if (removed > 0) {
             postMapper.decrementFavoriteCount(postId);
         }
         return favoriteState(postId, false);
     }
 
-    public CommentPage listComments(Long postId, int page, int size) {
+    public CommentPage listComments(Long postId, int page, int size, Long viewerId) {
         requirePublishedPost(postId);
         int safePage = Math.max(page, 1);
         int safeSize = Math.min(Math.max(size, 1), MAX_PAGE_SIZE);
         long total = commentMapper.countPublishedByPost(postId);
         List<CommentResponse> items = commentMapper.selectPublishedByPost(postId, (safePage - 1) * safeSize, safeSize)
                 .stream()
-                .map(this::toResponse)
+                .map(comment -> toResponse(comment, viewerId))
                 .toList();
         int totalPages = total == 0 ? 0 : (int) Math.ceil((double) total / safeSize);
         return new CommentPage(items, safePage, safeSize, total, totalPages);
@@ -112,10 +119,32 @@ public class InteractionService {
         comment.setUserId(userId);
         comment.setContent(content.trim());
         comment.setStatus(PUBLISHED);
+        comment.setLikeCount(0L);
         comment.setCreatedAt(LocalDateTime.now());
         commentMapper.insert(comment);
         postMapper.incrementCommentCount(postId);
-        return toResponse(comment);
+        return toResponse(comment, userId);
+    }
+
+    @Transactional
+    public CommentLikeState likeComment(Long userId, Long commentId) {
+        Comment comment = requirePublishedComment(commentId);
+        if (commentLikeMapper.insertIgnore(commentId, userId) > 0) {
+            commentMapper.incrementLikeCount(commentId);
+        }
+        return commentLikeState(commentId, true);
+    }
+
+    @Transactional
+    public CommentLikeState unlikeComment(Long userId, Long commentId) {
+        requirePublishedComment(commentId);
+        int removed = commentLikeMapper.delete(new LambdaQueryWrapper<CommentLike>()
+                .eq(CommentLike::getCommentId, commentId)
+                .eq(CommentLike::getUserId, userId));
+        if (removed > 0) {
+            commentMapper.decrementLikeCount(commentId);
+        }
+        return commentLikeState(commentId, false);
     }
 
     private PostLikeState likeState(Long postId, boolean liked) {
@@ -126,6 +155,11 @@ public class InteractionService {
     private PostFavoriteState favoriteState(Long postId, boolean favorited) {
         Post post = postMapper.selectById(postId);
         return new PostFavoriteState(favorited, value(post == null ? null : post.getFavoriteCount()));
+    }
+
+    private CommentLikeState commentLikeState(Long commentId, boolean liked) {
+        Comment comment = commentMapper.selectById(commentId);
+        return new CommentLikeState(liked, value(comment == null ? null : comment.getLikeCount()));
     }
 
     private long value(Long value) {
@@ -140,12 +174,28 @@ public class InteractionService {
         }
     }
 
-    private CommentResponse toResponse(Comment comment) {
+    private Comment requirePublishedComment(Long commentId) {
+        Comment comment = commentMapper.selectById(commentId);
+        if (comment == null || !PUBLISHED.equals(comment.getStatus())) {
+            throw new BusinessException(HttpStatus.NOT_FOUND, "RESOURCE_NOT_FOUND", "评论不存在");
+        }
+        return comment;
+    }
+
+    private CommentResponse toResponse(Comment comment, Long viewerId) {
         User author = userMapper.selectById(comment.getUserId());
         PostAuthorResponse authorResponse = author == null
                 ? new PostAuthorResponse("0", "unknown", "未知用户")
                 : new PostAuthorResponse(String.valueOf(author.getId()), author.getUsername(), author.getNickname());
-        return new CommentResponse(String.valueOf(comment.getId()), comment.getContent(), authorResponse, comment.getCreatedAt());
+        boolean liked = viewerId != null
+                && commentLikeMapper.countByCommentAndUser(comment.getId(), viewerId) > 0;
+        return new CommentResponse(
+                String.valueOf(comment.getId()),
+                comment.getContent(),
+                authorResponse,
+                value(comment.getLikeCount()),
+                liked,
+                comment.getCreatedAt()
+        );
     }
 }
-

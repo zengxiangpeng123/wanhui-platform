@@ -13,6 +13,7 @@ public class Comment {
     private Long userId;
     private String content;
     private String status;
+    private Long likeCount;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
@@ -26,6 +27,8 @@ public class Comment {
     public void setContent(String content) { this.content = content; }
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
+    public Long getLikeCount() { return likeCount; }
+    public void setLikeCount(Long likeCount) { this.likeCount = likeCount; }
     public LocalDateTime getCreatedAt() { return createdAt; }
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
     public LocalDateTime getUpdatedAt() { return updatedAt; }

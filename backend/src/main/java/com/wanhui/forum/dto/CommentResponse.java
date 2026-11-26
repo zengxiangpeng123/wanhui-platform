@@ -6,6 +6,8 @@ public record CommentResponse(
         String id,
         String content,
         PostAuthorResponse author,
+        long likeCount,
+        boolean liked,
         LocalDateTime createdAt
 ) {
 }

@@ -4,6 +4,7 @@ import com.wanhui.admin.mapper.AuditLogMapper;
 import com.wanhui.identity.mapper.RoleMapper;
 import com.wanhui.identity.mapper.UserMapper;
 import com.wanhui.forum.mapper.PostCategoryMapper;
+import com.wanhui.forum.mapper.CommentLikeMapper;
 import com.wanhui.forum.mapper.CommentMapper;
 import com.wanhui.forum.mapper.PostFavoriteMapper;
 import com.wanhui.forum.mapper.PostLikeMapper;
@@ -56,6 +57,9 @@ class WanhuiApplicationTest {
     private CommentMapper commentMapper;
 
     @MockitoBean
+    private CommentLikeMapper commentLikeMapper;
+
+    @MockitoBean
     private PostLikeMapper postLikeMapper;
 
     @MockitoBean
@@ -65,5 +69,6 @@ class WanhuiApplicationTest {
     void contextLoads() {
     }
 }
+
 
 

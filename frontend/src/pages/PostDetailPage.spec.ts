@@ -29,7 +29,8 @@ vi.mock('../api/forum', () => ({
   setPostLike: vi.fn(),
   setPostFavorite: vi.fn(),
   fetchComments: vi.fn(),
-  createComment: vi.fn()
+  createComment: vi.fn(),
+  setCommentLike: vi.fn()
 }));
 
 const detail = {
@@ -54,6 +55,8 @@ const comments = {
       id: '10',
       content: '很有帮助',
       author: { id: '2', username: 'other', nickname: '其他用户' },
+      likeCount: 0,
+      liked: false,
       createdAt: '2026-11-24T11:00:00'
     }
   ],
@@ -129,6 +132,8 @@ describe('PostDetailPage', () => {
       id: '11',
       content: '补充一条评论',
       author: { id: '1', username: 'demo', nickname: '测试用户' },
+      likeCount: 0,
+      liked: false,
       createdAt: '2026-11-24T12:00:00'
     });
     const { app, root } = await mountPage();
@@ -167,4 +172,5 @@ describe('PostDetailPage', () => {
     root.remove();
   });
 });
+
 

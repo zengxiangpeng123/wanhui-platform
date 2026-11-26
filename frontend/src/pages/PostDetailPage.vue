@@ -222,7 +222,13 @@ onMounted(async () => {
             </div>
           </div>
 
-          <CommentList :comments="comments" :loading="commentsLoading" :error="commentsError" />
+          <CommentList
+            :comments="comments"
+            :loading="commentsLoading"
+            :error="commentsError"
+            @unauthorized="router.push({ path: '/login', query: { redirect: route.fullPath } })"
+            @like-error="error = $event"
+          />
         </section>
       </article>
     </section>
@@ -259,3 +265,5 @@ h1 { margin: 12px 0; color: #172033; font-size: clamp(26px, 4vw, 38px); line-hei
 .comment-actions button:disabled { opacity: .6; cursor: not-allowed; }
 .field-error { color: #d92d20; font-size: 12px; }
 </style>
+
+

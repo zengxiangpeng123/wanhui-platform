@@ -43,6 +43,8 @@ export interface Comment {
   id: string;
   content: string;
   author: PostAuthor;
+  likeCount: number;
+  liked: boolean;
   createdAt: string;
 }
 
@@ -109,7 +111,14 @@ export async function fetchComments(postId: string, page = 1, size = 20): Promis
   return response.data.data;
 }
 
+export async function setCommentLike(commentId: string, liked: boolean): Promise<InteractionState> {
+  const response = liked
+    ? await http.put<{ data: InteractionState }>(`/forum/comments/${commentId}/like`)
+    : await http.delete<{ data: InteractionState }>(`/forum/comments/${commentId}/like`);
+  return response.data.data;
+}
 export async function createComment(postId: string, content: string): Promise<Comment> {
   const response = await http.post<{ data: Comment }>(`/forum/posts/${postId}/comments`, { content });
   return response.data.data;
 }
+
