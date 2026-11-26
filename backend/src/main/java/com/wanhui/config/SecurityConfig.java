@@ -1,5 +1,7 @@
 package com.wanhui.config;
 
+import com.wanhui.security.rate.InMemoryRateLimiter;
+import com.wanhui.security.rate.RateLimitFilter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,9 +14,10 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
-import org.springframework.security.web.csrf.CsrfTokenRequestAttributeHandler;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
+import org.springframework.security.web.csrf.CsrfTokenRequestAttributeHandler;
 import org.springframework.session.web.http.CookieSerializer;
 import org.springframework.session.web.http.DefaultCookieSerializer;
 
@@ -46,10 +49,29 @@ public class SecurityConfig {
     }
 
     @Bean
+    public RateLimitFilter rateLimitFilter(
+            SecurityErrorWriter errorWriter,
+            @Value("${wanhui.security.rate-limit.enabled:true}") boolean enabled,
+            @Value("${wanhui.security.rate-limit.login-capacity:10}") int loginCapacity,
+            @Value("${wanhui.security.rate-limit.register-capacity:5}") int registerCapacity,
+            @Value("${wanhui.security.rate-limit.comment-capacity:20}") int commentCapacity,
+            @Value("${wanhui.security.rate-limit.window-millis:60000}") long windowMillis
+    ) {
+        return new RateLimitFilter(
+                enabled,
+                new InMemoryRateLimiter(loginCapacity, windowMillis),
+                new InMemoryRateLimiter(registerCapacity, windowMillis),
+                new InMemoryRateLimiter(commentCapacity, windowMillis),
+                errorWriter
+        );
+    }
+
+    @Bean
     public SecurityFilterChain securityFilterChain(
             HttpSecurity http,
             SecurityErrorWriter errorWriter,
-            CsrfTokenRepository csrfTokenRepository
+            CsrfTokenRepository csrfTokenRepository,
+            RateLimitFilter rateLimitFilter
     ) throws Exception {
         http
                 .csrf(csrf -> csrf
@@ -77,6 +99,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/v1/**").authenticated()
                         .anyRequest().permitAll()
                 )
+                .addFilterBefore(rateLimitFilter, UsernamePasswordAuthenticationFilter.class)
                 .formLogin(AbstractHttpConfigurer::disable)
                 .httpBasic(AbstractHttpConfigurer::disable)
                 .logout(AbstractHttpConfigurer::disable)
@@ -106,5 +129,3 @@ public class SecurityConfig {
         return http.build();
     }
 }
-
-

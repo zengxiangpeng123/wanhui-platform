@@ -33,3 +33,12 @@ mybatis-plus:
     map-underscore-to-camel-case: true
   global-config:
     banner: false
+wanhui:
+  security:
+    rate-limit:
+      enabled: true
+      login-capacity: 10
+      register-capacity: 5
+      comment-capacity: 20
+      window-millis: 60000
+
