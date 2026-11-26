@@ -12,6 +12,9 @@ import PostDetailPage from '../pages/PostDetailPage.vue';
 import UserProfilePage from '../pages/UserProfilePage.vue';
 import UserSettingsPage from '../pages/UserSettingsPage.vue';
 import AdminContentPage from '../pages/AdminContentPage.vue';
+import AboutPage from '../pages/AboutPage.vue';
+import PrivacyPage from '../pages/PrivacyPage.vue';
+import TermsPage from '../pages/TermsPage.vue';
 
 export const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,9 +31,13 @@ export const router = createRouter({
     { path: '/user/favorites', name: 'user-favorites', component: ResourceFavoritesPage, meta: { requiresAuth: true } },
     { path: '/user/recent-visits', name: 'user-recent-visits', component: RecentVisitsPage, meta: { requiresAuth: true } },
     { path: '/user/sites', name: 'user-sites', component: MySitesPage, meta: { requiresAuth: true } },
+    { path: '/about', name: 'about', component: AboutPage },
+    { path: '/privacy', name: 'privacy', component: PrivacyPage },
+    { path: '/terms', name: 'terms', component: TermsPage },
     { path: '/:pathMatch(.*)*', name: 'not-found', component: NotFoundPage }
   ]
 });
+
 
 
 
