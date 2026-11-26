@@ -89,3 +89,19 @@ docker compose --env-file .env.staging -f compose.staging.yml ps
 - 容器日志：docker compose --env-file .env.staging -f compose.staging.yml logs -f <service>
 - 请求追踪：错误响应携带 traceId，可在 app 日志中检索。
 - 监控与告警（Task 24）：错误率、P95 延迟、容器健康、磁盘与备份结果。
+## 9. 密钥轮换（Phase 2）
+
+1. 在 KMS 中创建新版本密钥（version = 当前版本 + 1），旧版本保留可读权限。
+2. 让应用同时可访问旧、新版本密钥，并将当前版本提升到新版本后重启。
+3. 此时新写入自动使用新版本，旧密文仍可解密。
+4. 触发历史数据迁移（FieldEncryptionMigrationService.migrate(batchSize)，通过运维任务或管理端触发）：
+   - 按 id 游标分批处理，幂等，可重复执行续跑；
+   - 单行失败记录 userId 与异常类型，不记录明文或密钥；
+   - 结束后核对 users 表 email_key_version、phone_key_version 是否均为最新版本。
+5. 确认无旧版本数据后，再在 KMS 中计划删除旧版本密钥。
+
+安全约束：
+
+- 应用不持久化密钥明文，密钥仅由 KMS/Secrets 管理器按版本提供。
+- 迁移日志禁止输出邮箱、手机号、密钥或明文样本。
+- 开发与测试使用独立静态密钥，不得复用生产密钥。

@@ -2,45 +2,41 @@ package com.wanhui.security.crypto;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-import java.util.Arrays;
+import java.util.Map;
 
 public final class KeyVersionProvider {
-    private static final int AES_KEY_BYTES = 32;
-    private static final int HMAC_KEY_BYTES = 32;
-    private final int currentVersion;
-    private final SecretKey encryptionKey;
-    private final SecretKey hmacKey;
+    private final KmsKeyProvider kmsKeyProvider;
 
+    public KeyVersionProvider(KmsKeyProvider kmsKeyProvider) {
+        if (kmsKeyProvider == null) {
+            throw new IllegalArgumentException("kmsKeyProvider must not be null");
+        }
+        this.kmsKeyProvider = kmsKeyProvider;
+    }
+
+    /**
+     * 兼容单版本配置的构造器。新代码应使用 KmsKeyProvider 注入多版本密钥。
+     */
     public KeyVersionProvider(int currentVersion, byte[] encryptionKey, byte[] hmacKey) {
-        if (currentVersion < 1) {
-            throw new IllegalArgumentException("currentVersion must be positive");
-        }
-        if (encryptionKey == null || encryptionKey.length != AES_KEY_BYTES) {
-            throw new IllegalArgumentException("AES-GCM key must be 32 bytes");
-        }
-        if (hmacKey == null || hmacKey.length != HMAC_KEY_BYTES) {
-            throw new IllegalArgumentException("HMAC key must be 32 bytes");
-        }
-        this.currentVersion = currentVersion;
-        this.encryptionKey = new SecretKeySpec(Arrays.copyOf(encryptionKey, encryptionKey.length), "AES");
-        this.hmacKey = new SecretKeySpec(Arrays.copyOf(hmacKey, hmacKey.length), "HmacSHA256");
+        this(new KmsKeyProvider(
+                currentVersion,
+                Map.of(currentVersion, new KmsKeyProvider.KeyMaterial(encryptionKey, hmacKey))
+        ));
     }
 
     public int currentVersion() {
-        return currentVersion;
+        return kmsKeyProvider.currentVersion();
+    }
+
+    public boolean supports(int version) {
+        return kmsKeyProvider.supports(version);
     }
 
     public SecretKey encryptionKey(int version) {
-        if (version != currentVersion) {
-            throw new CryptoException("Unsupported encryption key version: " + version);
-        }
-        return encryptionKey;
+        return new SecretKeySpec(kmsKeyProvider.keyMaterial(version).encryptionKey(), "AES");
     }
 
     public SecretKey hmacKey(int version) {
-        if (version != currentVersion) {
-            throw new CryptoException("Unsupported HMAC key version: " + version);
-        }
-        return hmacKey;
+        return new SecretKeySpec(kmsKeyProvider.keyMaterial(version).hmacKey(), "HmacSHA256");
     }
 }
