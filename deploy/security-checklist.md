@@ -53,7 +53,7 @@
 | 邮箱/手机号使用 AES-GCM 加密 + HMAC 索引 | ✅ 已完成 | `FieldEncryptionTest`、`EncryptedUserLookupTest` |
 | 接口不返回完整邮箱/手机号/密码哈希 | ✅ 已完成 | DTO 仅返回 `emailMasked`/`phoneMasked` |
 | 开发默认密钥不得用于生产 | ⬜ 待部署时替换 | 由 `FIELD_ENCRYPTION_KEY`/`FIELD_HMAC_KEY` 环境变量注入 |
-| 生产启用 KMS 与密钥轮换 | ⬜ Phase 2 | 对应 Task 22 |
+| 生产启用 KMS 与密钥轮换 | ✅ 已完成 | Task 22：KmsKeyProvider / KeyRotationService / FieldEncryptionMigrationService；证据 KeyRotationTest、FieldEncryptionMigrationTest |
 
 ## 6. 传输与部署
 
@@ -62,9 +62,14 @@
 | 生产强制 HTTPS | ⬜ 待部署 | 对应 Task 18 Nginx 配置 |
 | 安全响应头（HSTS、X-Content-Type-Options 等） | ⬜ 待部署 | 对应 Task 18 |
 | 数据库不暴露公网端口 | ⬜ 待部署 | 对应 Task 18 `compose.staging.yml` |
+| 登录/注册/评论限流返回 429 | ✅ 已完成 | Task 23：RateLimitTest（令牌桶 + HTTP 429 RATE_LIMITED） |
+| 结构化 JSON 日志与 traceId | ✅ 已完成 | Task 24：ECS JSON + traceId；证据 HealthEndpointTest |
+| 生产 Secrets 不入镜像 | ✅ 已完成 | Task 25：config-check.ps1 通过；.dockerignore 排除 .env* |
+| Actuator liveness/readiness/Prometheus | ✅ 已完成 | Task 24：HealthEndpointTest 3/3 通过 |
 | 日志不记录密码/Token/完整敏感字段 | ✅ 已完成 | `GlobalExceptionHandler` 仅记录 traceId 与异常 |
 
 ## 7. 结论
 
 - **MVP 代码级安全测试全部通过（11 个用例）**。
 - 待部署阶段完成的项目（HTTPS、安全头、生产密钥、KMS）已在第 5、6 节标注，对应 Task 18、22、25。
+
