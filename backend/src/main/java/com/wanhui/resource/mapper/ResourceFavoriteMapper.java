@@ -20,6 +20,9 @@ public interface ResourceFavoriteMapper {
     @Select("SELECT * FROM resource_favorites WHERE user_id = #{userId} ORDER BY created_at DESC LIMIT #{offset}, #{size}")
     List<ResourceFavorite> selectPage(@Param("userId") Long userId, @Param("offset") int offset, @Param("size") int size);
 
+    @Select("SELECT resource_key FROM resource_favorites WHERE user_id = #{userId}")
+    List<String> selectKeysByUser(@Param("userId") Long userId);
     @Select("SELECT COUNT(*) FROM resource_favorites WHERE user_id = #{userId}")
     long countByUser(@Param("userId") Long userId);
 }
+

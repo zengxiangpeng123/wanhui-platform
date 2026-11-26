@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { fetchResources, type CatalogPage } from '../api/resources';
+import { fetchResources, favoriteResource, unfavoriteResource, type CatalogPage, type CatalogResource } from '../api/resources';
 import AppShell from '../layouts/AppShell.vue';
 import AppSidebar, { type ResourceCategory } from '../components/AppSidebar.vue';
 import ResourceCard from '../components/ResourceCard.vue';
+import { useAuthStore } from '../stores/auth';
 
 const categories: ResourceCategory[] = [
   { value: '', label: '全部资源' },
@@ -16,9 +17,11 @@ const categories: ResourceCategory[] = [
 
 const route = useRoute();
 const router = useRouter();
+const auth = useAuthStore();
 const searchText = ref('');
 const loading = ref(false);
 const error = ref<string | null>(null);
+const favoritingKey = ref<string | null>(null);
 const pageData = ref<CatalogPage>({
   items: [],
   page: 1,
@@ -87,6 +90,25 @@ function changePage(page: number) {
   updateQuery({ page: String(page) });
 }
 
+async function toggleFavorite(resource: CatalogResource) {
+  if (!auth.isAuthenticated) {
+    router.push({ path: '/login', query: { redirect: route.fullPath } });
+    return;
+  }
+  favoritingKey.value = resource.key;
+  try {
+    if (resource.favorited) {
+      await unfavoriteResource(resource.key);
+    } else {
+      await favoriteResource(resource.key);
+    }
+    resource.favorited = !resource.favorited;
+  } catch (requestError) {
+    error.value = requestError instanceof Error ? requestError.message : '收藏操作失败';
+  } finally {
+    favoritingKey.value = null;
+  }
+}
 watch(() => [route.query.category, route.query.q, route.query.page], load, { immediate: true });
 
 onMounted(() => {
@@ -124,7 +146,7 @@ onMounted(() => {
         <button type="button" data-testid="clear-search" @click="clearSearch">清空搜索</button>
       </div>
       <div v-else class="resource-grid">
-        <ResourceCard v-for="resource in pageData.items" :key="resource.key" :resource="resource" />
+        <ResourceCard v-for="resource in pageData.items" :key="resource.key" :resource="resource" :favoriting="favoritingKey === resource.key" @toggle-favorite="toggleFavorite" />
       </div>
 
       <div v-if="!loading && pageData.totalPages > 1" class="pagination">
@@ -156,3 +178,5 @@ h2 { margin: 0; color: #172033; font-size: 22px; }
 .pagination button:disabled { cursor: not-allowed; opacity: .45; }
 @media (max-width: 560px) { .search-form { flex-direction: column; } .result-heading { align-items: flex-start; flex-direction: column; gap: 6px; } }
 </style>
+
+

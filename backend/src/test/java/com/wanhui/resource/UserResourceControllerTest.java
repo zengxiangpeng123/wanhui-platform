@@ -149,4 +149,26 @@ class UserResourceControllerTest extends com.wanhui.identity.IdentityDatabaseTes
         user.setCreatedAt(LocalDateTime.now());
         return user;
     }
+
+    @Test
+    void resourceDetailMarksFavoritedForCurrentViewer() throws Exception {
+        mockMvc.perform(get("/api/v1/resources/res-001"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.data.favorited").value(false));
+
+        mockMvc.perform(put("/api/v1/resources/res-001/favorite").with(user("1")).with(csrf()))
+                .andExpect(status().isNoContent());
+
+        mockMvc.perform(get("/api/v1/resources/res-001").with(user("1")))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.data.favorited").value(true));
+
+        mockMvc.perform(get("/api/v1/resources/res-001").with(user("2")))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.data.favorited").value(false));
+
+        mockMvc.perform(get("/api/v1/resources").param("category", "design").param("size", "24").with(user("1")))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.data.items[?(@.key == 'res-001')].favorited").value(true));
+    }
 }

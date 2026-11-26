@@ -10,6 +10,7 @@ export interface CatalogResource {
   url: string;
   icon: string;
   tags: string[];
+  favorited: boolean;
 }
 
 export interface CatalogPage {
@@ -31,4 +32,12 @@ export interface ResourceQuery {
 export async function fetchResources(query: ResourceQuery): Promise<CatalogPage> {
   const response = await http.get<ApiResponse<CatalogPage>>('/resources', { params: query });
   return response.data.data;
+}
+
+export async function favoriteResource(resourceKey: string): Promise<void> {
+  await http.put(`/resources/${resourceKey}/favorite`);
+}
+
+export async function unfavoriteResource(resourceKey: string): Promise<void> {
+  await http.delete(`/resources/${resourceKey}/favorite`);
 }

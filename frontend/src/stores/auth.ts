@@ -64,6 +64,8 @@ export const useAuthStore = defineStore('auth', () => {
   async function logout() {
     try {
       await logoutApi();
+    } catch {
+      // 退出接口失败也应清理本地会话，避免页面残留登录态。
     } finally {
       clear();
       initialized.value = true;
@@ -72,3 +74,4 @@ export const useAuthStore = defineStore('auth', () => {
 
   return { user, initialized, loading, error, isAuthenticated, loadMe, login, register, logout, clear };
 });
+

@@ -19,7 +19,8 @@ function asCard(item: FavoriteResource): CatalogResource {
     subcategory: item.subcategory,
     url: item.url,
     icon: item.icon,
-    tags: []
+    tags: [],
+    favorited: true
   };
 }
 
@@ -68,3 +69,5 @@ h1 { margin: 0 0 26px; color: #172033; font-size: clamp(34px, 6vw, 54px); }
 .unavailable-card { display: flex; min-height: 120px; align-items: center; justify-content: center; flex-direction: column; gap: 8px; border: 1px dashed #d0d5dd; border-radius: 14px; color: #98a2b3; background: #fbfcff; }
 .unavailable-card strong { color: #667085; }
 </style>
+
+

@@ -4,6 +4,7 @@ import com.wanhui.common.api.ApiResponse;
 import com.wanhui.resource.catalog.CatalogResource;
 import com.wanhui.resource.service.CatalogPage;
 import com.wanhui.resource.service.ResourceQueryService;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,13 +25,25 @@ public class ResourceController {
             @RequestParam(required = false) String category,
             @RequestParam(required = false) String q,
             @RequestParam(defaultValue = "1") int page,
-            @RequestParam(defaultValue = "20") int size
+            @RequestParam(defaultValue = "20") int size,
+            Authentication authentication
     ) {
-        return ApiResponse.success(queryService.query(category, q, page, size));
+        return ApiResponse.success(queryService.query(category, q, page, size, currentUserIdOrNull(authentication)));
     }
 
     @GetMapping("/{resourceKey}")
-    public ApiResponse<CatalogResource> detail(@PathVariable String resourceKey) {
-        return ApiResponse.success(queryService.findByKey(resourceKey));
+    public ApiResponse<CatalogResource> detail(@PathVariable String resourceKey, Authentication authentication) {
+        return ApiResponse.success(queryService.findByKey(resourceKey, currentUserIdOrNull(authentication)));
+    }
+
+    private Long currentUserIdOrNull(Authentication authentication) {
+        if (authentication == null || !authentication.isAuthenticated()) {
+            return null;
+        }
+        try {
+            return Long.valueOf(authentication.getName());
+        } catch (NumberFormatException exception) {
+            return null;
+        }
     }
 }

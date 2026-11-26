@@ -24,3 +24,8 @@ Thumbs.db
 uploads/
 logs/
 *.pid
+
+# Playwright
+frontend/playwright-report/
+frontend/test-results/
+

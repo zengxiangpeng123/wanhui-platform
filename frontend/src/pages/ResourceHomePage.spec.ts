@@ -15,7 +15,11 @@ vi.mock('../api/auth', () => ({
   register: vi.fn(),
   logout: vi.fn()
 }));
-vi.mock('../api/resources', () => ({ fetchResources: vi.fn() }));
+vi.mock('../api/resources', () => ({
+  fetchResources: vi.fn(),
+  favoriteResource: vi.fn().mockResolvedValue(undefined),
+  unfavoriteResource: vi.fn().mockResolvedValue(undefined)
+}));
 
 const designResource = {
   key: 'res-001',
@@ -25,7 +29,8 @@ const designResource = {
   subcategory: 'design-tools',
   url: 'https://www.figma.com/',
   icon: '',
-  tags: ['design', 'design-tools']
+  tags: ['design', 'design-tools'],
+  favorited: false
 };
 
 function pageWith(items: typeof designResource[]) {
@@ -97,3 +102,4 @@ describe('ResourceHomePage', () => {
     root.remove();
   });
 });
+

@@ -21,7 +21,7 @@ class ResourceControllerTest {
     @BeforeEach
     void setUp() {
         ResourceCatalogLoader loader = new ResourceCatalogLoader();
-        ResourceQueryService service = new ResourceQueryService(loader);
+        ResourceQueryService service = new ResourceQueryService(loader, null);
         mockMvc = MockMvcBuilders
                 .standaloneSetup(new ResourceController(service))
                 .setControllerAdvice(new GlobalExceptionHandler())
@@ -65,3 +65,4 @@ class ResourceControllerTest {
                 .andExpect(jsonPath("$.error.code").value("RESOURCE_NOT_FOUND"));
     }
 }
+

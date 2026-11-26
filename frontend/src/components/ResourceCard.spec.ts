@@ -15,7 +15,8 @@ describe('ResourceCard', () => {
         subcategory: 'design-tools',
         url: 'https://www.figma.com/',
         icon: 'https://example.com/figma.png',
-        tags: ['design', 'design-tools']
+        tags: ['design', 'design-tools'],
+        favorited: false
       }
     });
     app.mount(root);
@@ -35,3 +36,4 @@ describe('ResourceCard', () => {
     root.remove();
   });
 });
+

@@ -2,7 +2,8 @@
 import { ref } from 'vue';
 import type { CatalogResource } from '../api/resources';
 
-const props = defineProps<{ resource: CatalogResource }>();
+const props = defineProps<{ resource: CatalogResource; favoriting?: boolean }>();
+const emit = defineEmits<{ 'toggle-favorite': [resource: CatalogResource] }>();
 const iconFailed = ref(false);
 
 function markIconFailed() {
@@ -23,6 +24,14 @@ function markIconFailed() {
       </div>
       <p>{{ props.resource.description }}</p>
       <div class="resource-footer">
+        <button
+          type="button"
+          class="favorite-button"
+          :class="{ active: props.resource.favorited }"
+          :data-testid="`resource-favorite-${props.resource.key}`"
+          :disabled="props.favoriting"
+          @click="emit('toggle-favorite', props.resource)"
+        >{{ props.resource.favorited ? '已收藏' : '收藏' }}</button>
         <a class="visit-button" :href="props.resource.url" target="_blank" rel="noopener noreferrer" @click.stop>访问网站</a>
       </div>
     </div>
@@ -39,7 +48,11 @@ function markIconFailed() {
 h3 { margin: 0; color: #172033; font-size: 17px; }
 .resource-category { overflow: hidden; color: #98a2b3; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
 p { flex: 1; margin: 10px 0 14px; color: #667085; font-size: 14px; line-height: 1.65; }
-.resource-footer { display: flex; justify-content: flex-end; }
+.resource-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.favorite-button { padding: 5px 12px; border: 1px solid #d0d5dd; border-radius: 999px; color: #667085; background: #fff; font: inherit; font-size: 13px; cursor: pointer; }
+.favorite-button:hover { border-color: #c7d0ff; color: #4056ed; }
+.favorite-button.active { border-color: #4056ed; color: #4056ed; background: #f1f3ff; font-weight: 700; }
+.favorite-button:disabled { opacity: .6; cursor: not-allowed; }
 .visit-button { color: #4056ed; font-size: 14px; font-weight: 700; text-decoration: none; }
 .visit-button:hover { text-decoration: underline; }
 </style>
