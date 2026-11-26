@@ -49,7 +49,7 @@ services:
       mysql:
         condition: service_healthy
     healthcheck:
-      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:8080/api/v1/auth/csrf >/dev/null || exit 1"]
+      test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/8080'"]
       interval: 15s
       timeout: 5s
       retries: 10
@@ -87,4 +87,3 @@ networks:
 
 volumes:
   mysql_staging_data:
-

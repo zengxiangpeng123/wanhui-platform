@@ -27,6 +27,7 @@ export default defineConfig({
     {
       command: 'mvnw.cmd -B -q spring-boot:run',
       cwd: '../backend',
+      env: { ...process.env, WANHUI_SECURITY_RATE_LIMIT_ENABLED: 'false' },
       url: 'http://127.0.0.1:8080/api/v1/auth/csrf',
       reuseExistingServer: !process.env.CI,
       timeout: 180_000

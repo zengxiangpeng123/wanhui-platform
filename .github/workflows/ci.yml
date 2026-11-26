@@ -39,3 +39,11 @@ jobs:
       - name: Production build
         run: npm run build
 
+  containers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build frontend image
+        run: docker build --build-arg NPM_REGISTRY_URL=https://registry.npmjs.org -t wanhui-frontend:ci frontend
+      - name: Build backend image
+        run: docker build --build-arg MAVEN_MIRROR_URL=https://repo.maven.apache.org/maven2 -t wanhui-backend:ci backend
