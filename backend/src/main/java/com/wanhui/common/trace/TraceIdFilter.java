@@ -4,6 +4,8 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
@@ -16,6 +18,7 @@ import java.util.regex.Pattern;
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class TraceIdFilter extends OncePerRequestFilter {
+    private static final Logger log = LoggerFactory.getLogger(TraceIdFilter.class);
     public static final String REQUEST_HEADER = TraceContext.REQUEST_HEADER;
     public static final String RESPONSE_HEADER = TraceContext.RESPONSE_HEADER;
     public static final String MDC_KEY = TraceContext.MDC_KEY;
@@ -30,9 +33,14 @@ public class TraceIdFilter extends OncePerRequestFilter {
         String traceId = normalize(request.getHeader(REQUEST_HEADER));
         MDC.put(MDC_KEY, traceId);
         response.setHeader(RESPONSE_HEADER, traceId);
+        long startNanos = System.nanoTime();
         try {
             filterChain.doFilter(request, response);
         } finally {
+            long durationMs = (System.nanoTime() - startNanos) / 1_000_000L;
+            // 仅记录方法、路径、状态码与耗时；不记录查询参数、请求体或敏感字段。
+            log.info("http_request method={} path={} status={} durationMs={}",
+                    request.getMethod(), request.getRequestURI(), response.getStatus(), durationMs);
             MDC.remove(MDC_KEY);
         }
     }
