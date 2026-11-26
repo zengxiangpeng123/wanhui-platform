@@ -14,6 +14,7 @@ frontend/coverage/
 .env.*
 !.env.example
 !deploy/.env.staging.example
+!deploy/.env.prod.example
 
 # IDE / OS
 .idea/
@@ -36,5 +37,7 @@ deploy/backups/
 deploy/nginx/certs/*.crt
 deploy/nginx/certs/*.key
 
+deploy/.env.prod
+deploy/.release-state
 
 
