@@ -117,35 +117,40 @@ onMounted(async () => {
 <template>
   <AppShell>
     <template #sidebar>
-      <nav class="category-nav" aria-label="帖子分类">
-        <p class="nav-title">分类</p>
-        <button
-          type="button"
-          class="category-item"
-          :class="{ active: !activeCategory && !activeKeyword }"
-          data-testid="category-all"
-          @click="selectCategory('')"
-        >全部帖子</button>
-        <button
-          v-for="category in categories"
-          :key="category.code"
-          type="button"
-          class="category-item"
-          :class="{ active: activeCategory === category.code }"
-          :data-testid="`category-${category.code}`"
-          @click="selectCategory(category.code)"
-        >{{ category.name }}</button>
-      </nav>
+      <div class="forum-sidebar">
+        <nav class="category-nav" aria-label="帖子分类">
+          <p class="nav-title">论坛分类</p>
+          <button
+            type="button"
+            class="category-item"
+            :class="{ active: !activeCategory && !activeKeyword }"
+            data-testid="category-all"
+            @click="selectCategory('')"
+          >全部帖子</button>
+          <button
+            v-for="category in categories"
+            :key="category.code"
+            type="button"
+            class="category-item"
+            :class="{ active: activeCategory === category.code }"
+            :data-testid="`category-${category.code}`"
+            @click="selectCategory(category.code)"
+          >{{ category.name }}</button>
+        </nav>
+        <section class="community-tip">
+          <h2>社区提示</h2>
+          <p>发帖前请选择合适分类，避免重复发布相同主题。尊重原创内容，违规广告和引战内容会被处理。</p>
+        </section>
+      </div>
     </template>
 
     <section class="forum-page">
       <header class="forum-hero">
-        <div>
-          <p class="eyebrow">COMMUNITY</p>
-          <h1>万汇论坛</h1>
-          <p class="lead">分享资源使用经验，交流工具心得，提出你的问题。</p>
+        <div class="hero-inner">
+          <h1>万汇网社区论坛</h1>
+          <p>与同好分享资源、经验和问题，让好内容被更多人看见。</p>
+          <button type="button" class="create-button" data-testid="open-editor" @click="openEditor">＋ 发布新主题</button>
         </div>
-        <button type="button" class="create-button" data-testid="open-editor" @click="openEditor">发布新帖</button>
       </header>
 
       <form class="search-form" role="search" @submit.prevent="applySearch">
@@ -208,35 +213,56 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-.category-nav { display: flex; flex-direction: column; gap: 4px; padding: 28px 16px; }
-.nav-title { margin: 0 0 8px; padding-left: 10px; color: #98a2b3; font-size: 12px; font-weight: 700; letter-spacing: .12em; }
-.category-item { padding: 10px; border: 0; border-radius: 9px; color: #667085; background: transparent; font: inherit; text-align: left; cursor: pointer; }
-.category-item:hover { background: #f4f6ff; color: #4056ed; }
-.category-item.active { color: #4056ed; background: #f1f3ff; font-weight: 700; }
-.forum-page { max-width: 980px; margin: 0 auto; padding: 34px clamp(18px, 4vw, 48px) 72px; }
-.forum-hero { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; padding: 24px 0 20px; border-bottom: 1px solid #edf0f8; }
-.eyebrow { margin: 0 0 8px; color: #4056ed; font-size: 12px; font-weight: 700; letter-spacing: .16em; }
-h1 { margin: 0; color: #172033; font-size: clamp(30px, 5vw, 46px); letter-spacing: -.04em; }
-.lead { margin: 12px 0 0; color: #667085; }
-.create-button, .state-panel button, .pagination button, .search-form button { padding: 11px 18px; border: 0; border-radius: 9px; color: #fff; background: #4056ed; font: inherit; font-weight: 700; cursor: pointer; }
-.search-form { display: flex; gap: 10px; margin: 22px 0 0; }
-.search-form input { flex: 1; min-width: 0; padding: 11px 14px; border: 1px solid #d0d5dd; border-radius: 9px; font: inherit; }
-.search-form input:focus { border-color: #4056ed; outline: none; box-shadow: 0 0 0 3px rgba(64, 86, 237, .12); }
-.search-form .clear-button { border: 1px solid #d0d5dd; color: #475467; background: #fff; }
-.result-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 24px 0 16px; }
-h2 { margin: 0; color: #172033; font-size: 20px; }
-.result-count { color: #98a2b3; font-size: 13px; }
-.post-list { display: flex; flex-direction: column; gap: 14px; }
-.state-panel { display: flex; align-items: center; justify-content: center; min-height: 200px; flex-direction: column; gap: 10px; border: 1px dashed #d0d5dd; border-radius: 14px; color: #667085; background: #fbfcff; text-align: center; }
-.state-panel strong { color: #344054; font-size: 18px; }
-.error-panel { border-color: #fecdca; background: #fffbfa; }
-.pagination { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 28px; color: #667085; }
+.forum-sidebar { display: grid; gap: 15px; }
+.category-nav, .community-tip { padding: 18px; border: 1px solid #dfe6e1; border-radius: var(--radius); background: #fff; box-shadow: var(--shadow-sm); }
+.nav-title { margin: 0 0 11px; color: var(--ink); font-size: 14px; font-weight: 800; }
+.category-item { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 40px; padding: 8px 10px; border: 0; border-radius: 11px; color: #4b5651; background: transparent; text-align: left; }
+.category-item::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #c9d2cd; }
+.category-item:hover { color: var(--brand); background: #f0f5f1; }
+.category-item.active { color: var(--brand); background: #e7f1ed; box-shadow: inset 3px 0 0 var(--brand); font-weight: 700; }
+.category-item.active::before { background: var(--brand); }
+.community-tip h2 { margin: 0 0 8px; font-size: 14px; }
+.community-tip p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.forum-page { min-width: 0; }
+.forum-hero { position: relative; overflow: hidden; padding: 34px 28px; border-radius: 18px; color: #fff; background: #173f38; box-shadow: 0 16px 34px rgba(23, 63, 56, .15); text-align: center; }
+.forum-hero::before, .forum-hero::after { content: ""; position: absolute; border-radius: 50%; background: rgba(255, 255, 255, .055); }
+.forum-hero::before { top: -80px; right: -45px; width: 210px; height: 210px; }
+.forum-hero::after { right: 110px; bottom: -55px; width: 120px; height: 120px; }
+.hero-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+h1 { margin: 0; color: #fff; font-size: clamp(28px, 4vw, 34px); letter-spacing: -.02em; }
+.hero-inner p { margin: 9px 0 20px; color: rgba(255, 255, 255, .88); font-size: 14px; }
+.create-button { min-height: 44px; padding: 0 18px; border: 0; border-radius: 999px; color: var(--brand); background: #fff; box-shadow: 0 14px 26px rgba(21, 23, 63, .18); font-weight: 700; }
+.search-form { display: flex; gap: 10px; margin: 20px 0 0; padding: 10px; border: 1px solid #dfe6e1; border-radius: 14px; background: #fff; box-shadow: var(--shadow-sm); }
+.search-form input { flex: 1; min-width: 0; padding: 10px 12px; border: 1px solid #d5ded8; border-radius: 9px; outline: none; }
+.search-form input:focus { border-color: #75a99a; box-shadow: 0 0 0 4px rgba(23, 107, 91, .09); }
+.search-form button { padding: 9px 16px; border: 0; border-radius: 9px; color: #fff; background: var(--brand); font-weight: 650; }
+.search-form button:hover { background: var(--brand-dark); }
+.search-form .clear-button { border: 1px solid #d5ded8; color: #55615c; background: #fff; }
+.result-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 22px 0 14px; }
+h2 { margin: 0; color: var(--ink); font-size: 19px; }
+.result-count { color: #8a958f; font-size: 13px; }
+.post-list { display: grid; gap: 13px; }
+.state-panel { display: flex; align-items: center; justify-content: center; min-height: 220px; flex-direction: column; gap: 10px; padding: 24px; border: 1px dashed #cbd6d0; border-radius: 16px; color: var(--muted); background: rgba(255, 255, 255, .72); text-align: center; }
+.state-panel strong { color: var(--ink); font-size: 18px; }
+.state-panel button, .pagination button { padding: 9px 14px; border: 0; border-radius: 9px; color: #fff; background: var(--brand); font-weight: 650; }
+.error-panel { border-color: #f0c7c7; background: #fffafa; }
+.pagination { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 26px; color: var(--muted); font-size: 13px; }
 .pagination button:disabled { cursor: not-allowed; opacity: .45; }
-@media (max-width: 760px) {
-  .category-nav { flex-direction: row; gap: 8px; overflow-x: auto; padding: 12px 16px; scrollbar-width: none; }
-  .category-nav::-webkit-scrollbar { display: none; }
+@media (max-width: 820px) {
+  .forum-sidebar { display: block; }
+  .community-tip { display: none; }
+  .category-nav { padding: 12px 14px; }
   .nav-title { display: none; }
-  .category-item { flex: 0 0 auto; padding: 8px 14px; border-radius: 999px; white-space: nowrap; }
+  .category-item { display: inline-flex; width: auto; min-height: 36px; padding: 7px 12px; margin-right: 5px; border-radius: 999px; white-space: nowrap; }
+  .category-item.active { box-shadow: none; }
+  .category-nav { overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+  .category-nav::-webkit-scrollbar { display: none; }
 }
-@media (max-width: 640px) { .forum-hero { align-items: flex-start; flex-direction: column; } .search-form { flex-wrap: wrap; } }
+@media (max-width: 640px) {
+  .forum-hero { padding: 28px 18px; }
+  .hero-inner h1 { font-size: 27px; }
+  .search-form { flex-wrap: wrap; }
+  .search-form input { flex-basis: 100%; }
+  .result-heading { align-items: flex-start; flex-direction: column; gap: 4px; }
+}
 </style>

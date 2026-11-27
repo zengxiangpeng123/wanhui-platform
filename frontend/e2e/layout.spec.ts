@@ -19,7 +19,7 @@ test.describe('响应式布局', () => {
     await page.goto('/');
     const primaryNav = page.getByRole('navigation', { name: '主导航' });
 
-    await expect(primaryNav.getByRole('link', { name: '资源' })).toBeVisible();
+    await expect(page.getByRole('link', { name: '万汇网首页' })).toBeVisible();
     await expect(primaryNav.getByRole('link', { name: '论坛' })).toBeVisible();
     await expectNoHorizontalOverflow(page);
   });
@@ -53,6 +53,7 @@ test.describe('响应式布局', () => {
     await page.goto('/register');
     const username = page.locator('input[autocomplete="username"]');
 
-    await expect(username).toHaveAttribute('placeholder', /字母、数字、_ 或 -/);
+    await expect(username).toHaveAttribute('placeholder', '请输入用户名');
+    await expect(page.locator('.field-hint')).toHaveText('3～32 位字母、数字、_ 或 -');
   });
 });

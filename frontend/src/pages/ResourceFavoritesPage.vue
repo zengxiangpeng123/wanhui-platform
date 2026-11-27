@@ -61,13 +61,13 @@ onMounted(async () => {
 
 <style scoped>
 .user-page { max-width: 1120px; margin: 0 auto; padding: 42px clamp(18px, 4vw, 48px) 72px; }
-.back-link { color: #667085; font-size: 14px; text-decoration: none; }
-.eyebrow { margin: 26px 0 10px; color: #4056ed; font-size: 12px; font-weight: 700; letter-spacing: .16em; }
-h1 { margin: 0 0 26px; color: #172033; font-size: clamp(34px, 6vw, 54px); }
-.loading { color: #667085; }
+.back-link { color: var(--muted); font-size: 14px; text-decoration: none; }
+.eyebrow { margin: 26px 0 10px; color: var(--brand); font-size: 12px; font-weight: 700; letter-spacing: .16em; }
+h1 { margin: 0 0 26px; color: var(--ink); font-size: clamp(34px, 6vw, 54px); }
+.loading { color: var(--muted); }
 .favorite-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
-.unavailable-card { display: flex; min-height: 120px; align-items: center; justify-content: center; flex-direction: column; gap: 8px; border: 1px dashed #d0d5dd; border-radius: 14px; color: #98a2b3; background: #fbfcff; }
-.unavailable-card strong { color: #667085; }
+.unavailable-card { display: flex; min-height: 120px; align-items: center; justify-content: center; flex-direction: column; gap: 8px; border: 1px dashed #d5ded8; border-radius: 14px; color: #87928c; background: #f8faf8; }
+.unavailable-card strong { color: var(--muted); }
 </style>
 
 

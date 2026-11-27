@@ -77,6 +77,13 @@ onMounted(async () => {
         <p class="lead">审核并处理违规或过期的论坛帖子。</p>
       </header>
 
+      <div class="admin-stats">
+        <div class="stat"><small>正常帖子</small><strong>{{ pageData.total }}</strong></div>
+        <div class="stat"><small>当前页</small><strong>{{ pageData.items.length }}</strong></div>
+        <div class="stat"><small>审计写入</small><strong>启用</strong></div>
+        <div class="stat"><small>当前角色</small><strong>管理员</strong></div>
+      </div>
+
       <div v-if="loading" class="state-panel">正在加载内容…</div>
       <div v-else-if="error" class="state-panel error-panel">
         <strong>{{ error }}</strong>
@@ -120,30 +127,36 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-.admin-page { max-width: 1080px; margin: 0 auto; padding: 34px clamp(18px, 4vw, 48px) 72px; }
-.admin-hero { padding: 24px 0 28px; border-bottom: 1px solid #edf0f8; }
-.eyebrow { margin: 0 0 8px; color: #d92d20; font-size: 12px; font-weight: 700; letter-spacing: .16em; }
-h1 { margin: 0; color: #172033; font-size: clamp(28px, 5vw, 42px); letter-spacing: -.03em; }
-.lead { margin: 12px 0 0; color: #667085; }
-.state-panel { display: flex; align-items: center; justify-content: center; min-height: 220px; flex-direction: column; gap: 10px; border: 1px dashed #d0d5dd; border-radius: 14px; color: #667085; background: #fbfcff; }
-.state-panel strong { color: #344054; font-size: 18px; }
-.state-panel button { padding: 10px 16px; border: 0; border-radius: 9px; color: #fff; background: #4056ed; font: inherit; font-weight: 700; cursor: pointer; }
-.error-panel { border-color: #fecdca; background: #fffbfa; }
-.post-table { margin-top: 24px; overflow: hidden; border: 1px solid #edf0f8; border-radius: 14px; background: #fff; }
+.admin-page { min-width: 0; }
+.admin-hero { margin-bottom: 18px; }
+.eyebrow { display: inline-flex; margin-bottom: 9px; padding: 5px 10px; border-radius: 999px; color: var(--brand); background: #e7f1ed; font-size: 12px; font-weight: 700; }
+h1 { margin: 0; color: var(--ink); font-size: clamp(26px, 3vw, 32px); letter-spacing: -.025em; }
+.lead { margin: 9px 0 0; color: var(--muted); font-size: 14px; }
+.admin-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-bottom: 18px; }
+.stat { padding: 18px; border: 1px solid #dfe6e1; border-radius: 14px; background: #fff; box-shadow: var(--shadow-sm); }
+.stat small { display: block; color: var(--muted); font-size: 12px; }
+.stat strong { display: block; margin-top: 9px; color: var(--ink); font-size: 24px; }
+.state-panel { display: flex; align-items: center; justify-content: center; min-height: 220px; flex-direction: column; gap: 10px; border: 1px dashed #cbd6d0; border-radius: 16px; color: var(--muted); background: rgba(255, 255, 255, .72); }
+.state-panel strong { color: var(--ink); font-size: 18px; }
+.state-panel button { padding: 9px 14px; border: 0; border-radius: 9px; color: #fff; background: var(--brand); font-weight: 650; }
+.error-panel { border-color: #f0c7c7; background: #fffafa; }
+.post-table { margin-top: 20px; overflow: hidden; border: 1px solid #dfe6e1; border-radius: 14px; background: #fff; box-shadow: var(--shadow-sm); }
 .table-head, .table-row { display: grid; grid-template-columns: minmax(240px, 2fr) 1fr 1.3fr 90px; gap: 16px; align-items: center; padding: 14px 18px; }
-.table-head { color: #98a2b3; font-size: 12px; font-weight: 700; background: #f8faff; }
-.table-row { border-top: 1px solid #edf0f8; color: #475467; font-size: 14px; }
-.table-row:hover { background: #fbfcff; }
+.table-head { color: #77827d; background: #f4f6f3; font-size: 12px; font-weight: 700; }
+.table-row { border-top: 1px solid #e4ebe7; color: #4c5953; font-size: 14px; }
+.table-row:hover { background: #f8faf8; }
 .post-cell { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
-.post-cell a { overflow: hidden; color: #172033; font-weight: 700; text-decoration: none; text-overflow: ellipsis; white-space: nowrap; }
-.post-cell a:hover { color: #4056ed; }
-.category { color: #4056ed; font-size: 12px; }
-.delete-button { padding: 8px 14px; border: 1px solid #fecdca; border-radius: 8px; color: #d92d20; background: #fffbfa; font: inherit; font-weight: 700; cursor: pointer; }
+.post-cell a { overflow: hidden; color: var(--ink); font-weight: 700; text-decoration: none; text-overflow: ellipsis; white-space: nowrap; }
+.post-cell a:hover { color: var(--brand); }
+.category { color: var(--brand); font-size: 12px; }
+.delete-button { padding: 8px 12px; border: 1px solid #f1caca; border-radius: 8px; color: var(--danger); background: #fffafa; font-weight: 650; }
 .delete-button:disabled { opacity: .6; cursor: not-allowed; }
-.pagination { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 26px; color: #667085; }
-.pagination button { padding: 9px 14px; border: 0; border-radius: 9px; color: #fff; background: #4056ed; font: inherit; cursor: pointer; }
+.pagination { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 24px; color: var(--muted); font-size: 13px; }
+.pagination button { padding: 9px 14px; border: 0; border-radius: 9px; color: #fff; background: var(--brand); }
 .pagination button:disabled { cursor: not-allowed; opacity: .45; }
+@media (max-width: 980px) { .admin-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 720px) {
+  .admin-stats { grid-template-columns: 1fr 1fr; }
   .table-head { display: none; }
   .table-row { display: flex; flex-wrap: wrap; gap: 10px; padding: 16px; }
 }

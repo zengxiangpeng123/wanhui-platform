@@ -25,6 +25,8 @@ describe('ResourceCard', () => {
     expect(root.textContent).toContain('Figma');
     expect(root.textContent).toContain('协作设计工具');
     expect(root.textContent).toContain('访问网站');
+    const tags = [...root.querySelectorAll('.tag')].map((tag) => tag.textContent?.trim());
+    expect(tags).toEqual(['设计资源', '设计工具']);
     const image = root.querySelector('img');
     expect(image?.getAttribute('src')).toBe('https://example.com/figma.png');
     const link = root.querySelector('a');

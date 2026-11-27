@@ -82,16 +82,16 @@ import AppShell from '../layouts/AppShell.vue';
 </template>
 
 <style scoped>
-.site-page { max-width: 860px; margin: 0 auto; padding: 42px clamp(18px, 4vw, 48px) 72px; }
-.eyebrow { margin: 0 0 10px; color: #4056ed; font-size: 12px; font-weight: 700; letter-spacing: .16em; }
-h1 { margin: 0; color: #172033; font-size: clamp(32px, 6vw, 48px); letter-spacing: -.03em; }
-.updated { margin: 8px 0 0; color: #98a2b3; font-size: 13px; }
-.lead { margin: 16px 0 32px; color: #475467; font-size: 17px; line-height: 1.8; }
+.site-page { max-width: 900px; margin: 0 auto; padding: 32px; border: 1px solid #dfe6e1; border-radius: 16px; background: #fff; box-shadow: var(--shadow-sm); }
+.eyebrow { margin: 0 0 10px; color: var(--brand); font-size: 12px; font-weight: 700; letter-spacing: .16em; }
+h1 { margin: 0; color: var(--ink); font-size: clamp(32px, 6vw, 48px); letter-spacing: -.03em; }
+.updated { margin: 8px 0 0; color: #87928c; font-size: 13px; }
+.lead { margin: 16px 0 32px; color: #59655f; font-size: 17px; line-height: 1.8; }
 section { margin-bottom: 28px; }
-h2 { margin: 0 0 12px; color: #172033; font-size: 19px; }
-p { color: #475467; line-height: 1.75; }
-ul { margin: 0; padding-left: 20px; color: #475467; line-height: 1.9; }
-a { color: #4056ed; }
-.page-links { display: flex; gap: 14px; margin-top: 36px; padding-top: 20px; border-top: 1px solid #edf0f8; }
-.page-links a { padding: 9px 14px; border-radius: 9px; background: #f1f3ff; font-weight: 700; text-decoration: none; }
+h2 { margin: 0 0 12px; color: var(--ink); font-size: 19px; }
+p { color: #59655f; line-height: 1.75; }
+ul { margin: 0; padding-left: 20px; color: #59655f; line-height: 1.9; }
+a { color: var(--brand); }
+.page-links { display: flex; gap: 14px; margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--line); }
+.page-links a { padding: 9px 14px; border-radius: 9px; background: #e7f1ed; font-weight: 700; text-decoration: none; }
 </style>

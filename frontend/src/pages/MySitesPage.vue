@@ -130,22 +130,22 @@ onMounted(load);
 
 <style scoped>
 .user-page { max-width: 920px; margin: 0 auto; padding: 42px clamp(18px, 4vw, 48px) 72px; }
-.back-link { color: #667085; font-size: 14px; text-decoration: none; }
-.eyebrow { margin: 26px 0 10px; color: #4056ed; font-size: 12px; font-weight: 700; letter-spacing: .16em; }
-h1 { margin: 0 0 26px; color: #172033; font-size: clamp(34px, 6vw, 54px); }
-.site-form { margin-bottom: 28px; padding: 22px; border: 1px solid #e0e7ff; border-radius: 14px; background: #fbfcff; }
-h2 { margin: 0 0 16px; color: #344054; font-size: 18px; }
+.back-link { color: var(--muted); font-size: 14px; text-decoration: none; }
+.eyebrow { margin: 26px 0 10px; color: var(--brand); font-size: 12px; font-weight: 700; letter-spacing: .16em; }
+h1 { margin: 0 0 26px; color: var(--ink); font-size: clamp(34px, 6vw, 54px); }
+.site-form { margin-bottom: 28px; padding: 22px; border: 1px solid #e0e7ff; border-radius: 14px; background: #f8faf8; }
+h2 { margin: 0 0 16px; color: var(--ink-strong); font-size: 18px; }
 .form-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-label { display: flex; flex-direction: column; gap: 6px; color: #475467; font-size: 13px; font-weight: 700; }
-input { width: 100%; padding: 10px 12px; border: 1px solid #d0d5dd; border-radius: 8px; font: inherit; }
-small { color: #d92d20; font-weight: 400; }
-.site-form button { margin-top: 16px; padding: 10px 15px; border: 0; border-radius: 8px; color: #fff; background: #4056ed; font: inherit; font-weight: 700; cursor: pointer; }
-.loading { color: #667085; }
-.site-list { margin-top: 20px; border-top: 1px solid #edf0f8; }
-.site-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; border-bottom: 1px solid #edf0f8; }
+label { display: flex; flex-direction: column; gap: 6px; color: #59655f; font-size: 13px; font-weight: 700; }
+input { width: 100%; padding: 10px 12px; border: 1px solid #d5ded8; border-radius: 8px; font: inherit; }
+small { color: var(--danger); font-weight: 400; }
+.site-form button { margin-top: 16px; padding: 10px 15px; border: 0; border-radius: 8px; color: #fff; background: var(--brand); font: inherit; font-weight: 700; cursor: pointer; }
+.loading { color: var(--muted); }
+.site-list { margin-top: 20px; border-top: 1px solid var(--line); }
+.site-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
 .site-row div { display: flex; min-width: 0; flex-direction: column; gap: 5px; }
-.site-row strong { color: #344054; }
-.site-row a { overflow: hidden; color: #667085; font-size: 13px; text-overflow: ellipsis; white-space: nowrap; }
-.delete-button { padding: 8px 12px; border: 1px solid #fecdca; border-radius: 8px; color: #d92d20; background: #fff; font: inherit; cursor: pointer; }
+.site-row strong { color: var(--ink-strong); }
+.site-row a { overflow: hidden; color: var(--muted); font-size: 13px; text-overflow: ellipsis; white-space: nowrap; }
+.delete-button { padding: 8px 12px; border: 1px solid #fecdca; border-radius: 8px; color: var(--danger); background: #fff; font: inherit; cursor: pointer; }
 @media (max-width: 720px) { .form-grid { grid-template-columns: 1fr; } }
 </style>

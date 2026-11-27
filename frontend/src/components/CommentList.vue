@@ -76,16 +76,16 @@ async function toggleLike(comment: Comment) {
 
 <style scoped>
 .comment-list { margin-top: 18px; }
-.comment-state { padding: 24px; border: 1px dashed #d0d5dd; border-radius: 12px; color: #667085; text-align: center; background: #fbfcff; }
-.comment-state.error { color: #d92d20; border-color: #fecdca; background: #fffbfa; }
+.comment-state { padding: 24px; border: 1px dashed #d5ded8; border-radius: 12px; color: var(--muted); text-align: center; background: #f8faf8; }
+.comment-state.error { color: var(--danger); border-color: #fecdca; background: #fffbfa; }
 ul { display: flex; flex-direction: column; gap: 12px; margin: 0; padding: 0; list-style: none; }
-.comment-item { padding: 16px; border: 1px solid #edf0f8; border-radius: 12px; background: #fff; }
-.comment-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; color: #344054; }
-.comment-head time { color: #98a2b3; font-size: 12px; }
-.comment-item p { margin: 10px 0 0; color: #475467; line-height: 1.7; white-space: pre-wrap; }
+.comment-item { padding: 16px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+.comment-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; color: var(--ink-strong); }
+.comment-head time { color: #87928c; font-size: 12px; }
+.comment-item p { margin: 10px 0 0; color: #59655f; line-height: 1.7; white-space: pre-wrap; }
 .comment-actions { display: flex; justify-content: flex-end; margin-top: 10px; }
-.like-button { padding: 4px 12px; border: 1px solid #d0d5dd; border-radius: 999px; color: #667085; background: #fff; font: inherit; font-size: 13px; cursor: pointer; }
-.like-button:hover { border-color: #c7d0ff; color: #4056ed; }
-.like-button.active { border-color: #4056ed; color: #4056ed; background: #f1f3ff; font-weight: 700; }
+.like-button { padding: 4px 12px; border: 1px solid #d5ded8; border-radius: 999px; color: var(--muted); background: #fff; font: inherit; font-size: 13px; cursor: pointer; }
+.like-button:hover { border-color: #b7cec5; color: var(--brand); }
+.like-button.active { border-color: var(--brand); color: var(--brand); background: #e7f1ed; font-weight: 700; }
 .like-button:disabled { opacity: .6; cursor: not-allowed; }
 </style>

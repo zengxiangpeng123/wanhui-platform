@@ -131,15 +131,15 @@ async function submit() {
 <style scoped>
 .editor-form { display: flex; flex-direction: column; gap: 16px; }
 .field { display: flex; flex-direction: column; gap: 6px; }
-.field-label { color: #344054; font-size: 13px; font-weight: 600; }
-.field input, .field select, .field textarea { padding: 10px 12px; border: 1px solid #d0d5dd; border-radius: 9px; font: inherit; outline: none; }
-.field input:focus, .field select:focus, .field textarea:focus { border-color: #4056ed; box-shadow: 0 0 0 3px rgba(64, 86, 237, .12); }
+.field-label { color: var(--ink-strong); font-size: 13px; font-weight: 600; }
+.field input, .field select, .field textarea { padding: 10px 12px; border: 1px solid #d5ded8; border-radius: 9px; font: inherit; outline: none; }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(23, 107, 91, .09); }
 .field textarea { resize: vertical; line-height: 1.6; }
-.field-error { color: #d92d20; font-size: 12px; }
+.field-error { color: var(--danger); font-size: 12px; }
 .editor-actions { display: flex; justify-content: flex-end; gap: 10px; }
 .editor-actions button { padding: 10px 18px; border-radius: 9px; font: inherit; font-weight: 700; cursor: pointer; }
-.cancel { border: 1px solid #d0d5dd; color: #344054; background: #fff; }
-.submit { border: 0; color: #fff; background: #4056ed; }
+.cancel { border: 1px solid #d5ded8; color: var(--ink-strong); background: #fff; }
+.submit { border: 0; color: #fff; background: var(--brand); }
 .submit:disabled { opacity: .6; cursor: not-allowed; }
 </style>
 

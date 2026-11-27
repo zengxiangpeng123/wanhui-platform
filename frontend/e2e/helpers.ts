@@ -20,7 +20,8 @@ export async function registerUser(page: Page, user: TestUser): Promise<void> {
   await page.goto('/register');
   await page.locator('input[autocomplete="username"]').fill(user.username);
   await page.locator('input[autocomplete="email"]').fill(user.email);
-  await page.locator('input[autocomplete="new-password"]').fill(user.password);
+  await page.locator('input[autocomplete="new-password"]').nth(0).fill(user.password);
+  await page.getByTestId('register-confirm-password').fill(user.password);
   await page.getByTestId('register-submit').click();
   await expect(page).toHaveURL(/\/login/);
 }
