@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { fetchResources, favoriteResource, unfavoriteResource, type CatalogPage, type CatalogResource } from '../api/resources';
 import AppShell from '../layouts/AppShell.vue';
@@ -8,17 +8,16 @@ import ResourceCard from '../components/ResourceCard.vue';
 import { useAuthStore } from '../stores/auth';
 
 const categories: ResourceCategory[] = [
-  { value: '', label: '全部资源' },
-  { value: 'design', label: '设计资源' },
+  { value: '', label: '全部精选' },
+  { value: 'design', label: '设计工具' },
   { value: 'ai', label: 'AI 工具' },
   { value: 'academic', label: '学术资源' },
-  { value: 'media', label: '媒体资源' }
+  { value: 'media', label: '影视资源' }
 ];
 
 const route = useRoute();
 const router = useRouter();
 const auth = useAuthStore();
-const searchText = ref('');
 const loading = ref(false);
 const error = ref<string | null>(null);
 const favoritingKey = ref<string | null>(null);
@@ -32,6 +31,7 @@ const pageData = ref<CatalogPage>({
 });
 
 const activeCategory = computed(() => queryString('category'));
+const activeKeyword = computed(() => queryString('q'));
 const currentPage = computed(() => positiveNumber(queryString('page'), 1));
 
 function queryString(key: string) {
@@ -47,11 +47,10 @@ function positiveNumber(value: string, fallback: number) {
 async function load() {
   loading.value = true;
   error.value = null;
-  searchText.value = queryString('q');
   try {
     pageData.value = await fetchResources({
       category: activeCategory.value || undefined,
-      q: queryString('q') || undefined,
+      q: activeKeyword.value || undefined,
       page: currentPage.value,
       size: 24
     });
@@ -76,12 +75,7 @@ function selectCategory(category: string) {
   updateQuery({ category: category || undefined });
 }
 
-function applySearch() {
-  updateQuery({ q: searchText.value.trim() || undefined });
-}
-
 function clearSearch() {
-  searchText.value = '';
   updateQuery({ q: undefined });
 }
 
@@ -109,11 +103,8 @@ async function toggleFavorite(resource: CatalogResource) {
     favoritingKey.value = null;
   }
 }
-watch(() => [route.query.category, route.query.q, route.query.page], load, { immediate: true });
 
-onMounted(() => {
-  if (!route.query.q) searchText.value = '';
-});
+watch(() => [route.query.category, route.query.q, route.query.page], load, { immediate: true });
 </script>
 
 <template>
@@ -123,35 +114,40 @@ onMounted(() => {
     </template>
 
     <section class="resource-home">
-      <div class="resource-hero">
-        <p class="eyebrow">RESOURCE LIBRARY</p>
-        <h1>发现好资源</h1>
-        <p class="lead">按分类浏览，或搜索工具、资料和灵感。</p>
-        <form class="search-form" @submit.prevent="applySearch">
-          <input v-model="searchText" data-testid="resource-search" type="search" placeholder="搜索资源名称、简介或标签" />
-          <button type="submit" data-testid="resource-search-submit">搜索</button>
-        </form>
-      </div>
+      <header class="page-head">
+        <div>
+          <span class="eyebrow">✦ 202 个精选资源 · 每周更新</span>
+          <h1>{{ activeKeyword ? `搜索“${activeKeyword}”` : '发现值得收藏的好工具' }}</h1>
+          <p>按领域精选网站与工具，登录后即可收藏，并在不同设备继续使用。</p>
+        </div>
+        <router-link class="custom-site-link" to="/user/sites">自定义网站</router-link>
+      </header>
 
-      <div class="result-heading">
-        <h2>{{ activeCategory ? categories.find((item) => item.value === activeCategory)?.label : '全部资源' }}</h2>
-        <span class="result-count">共 {{ pageData.total }} 个资源</span>
+      <div class="result-toolbar">
+        <span>展示 {{ pageData.items.length }} / {{ pageData.total }} 个匹配资源</span>
+        <span>只读静态目录 · 官方维护</span>
       </div>
 
       <div v-if="loading" class="state-panel">正在加载资源…</div>
       <el-alert v-else-if="error" :title="error" type="error" :closable="false" show-icon />
       <div v-else-if="pageData.items.length === 0" class="state-panel empty-state">
-        <strong>没有找到匹配资源</strong>
-        <span>试试其他关键词，或清空搜索条件。</span>
-        <button type="button" data-testid="clear-search" @click="clearSearch">清空搜索</button>
+        <strong>{{ activeKeyword ? `未找到与“${activeKeyword}”相关的资源` : '当前分类暂无资源' }}</strong>
+        <span>试试其他关键词，或返回全部资源。</span>
+        <button type="button" data-testid="clear-search" @click="clearSearch">查看全部资源</button>
       </div>
       <div v-else class="resource-grid">
-        <ResourceCard v-for="resource in pageData.items" :key="resource.key" :resource="resource" :favoriting="favoritingKey === resource.key" @toggle-favorite="toggleFavorite" />
+        <ResourceCard
+          v-for="resource in pageData.items"
+          :key="resource.key"
+          :resource="resource"
+          :favoriting="favoritingKey === resource.key"
+          @toggle-favorite="toggleFavorite"
+        />
       </div>
 
       <div v-if="!loading && pageData.totalPages > 1" class="pagination">
         <button type="button" :disabled="currentPage <= 1" @click="changePage(currentPage - 1)">上一页</button>
-        <span>第 {{ currentPage }} / {{ pageData.totalPages }} 页</span>
+        <span>第 {{ currentPage }} / {{ pageData.totalPages }} 页 · 共 {{ pageData.total }} 个资源</span>
         <button type="button" :disabled="currentPage >= pageData.totalPages" @click="changePage(currentPage + 1)">下一页</button>
       </div>
     </section>
@@ -159,24 +155,26 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.resource-home { max-width: 1240px; margin: 0 auto; padding: 42px clamp(18px, 4vw, 48px) 72px; }
-.resource-hero { padding: 38px 0 30px; border-bottom: 1px solid #edf0f8; }
-.eyebrow { margin: 0 0 10px; color: #4056ed; font-size: 12px; font-weight: 700; letter-spacing: .16em; }
-h1 { margin: 0; color: #172033; font-size: clamp(38px, 6vw, 62px); letter-spacing: -.04em; }
-.lead { margin: 14px 0 24px; color: #667085; font-size: 17px; }
-.search-form { display: flex; max-width: 620px; gap: 10px; }
-.search-form input { flex: 1; min-width: 0; padding: 12px 14px; border: 1px solid #d0d5dd; border-radius: 9px; font: inherit; }
-.search-form button, .state-panel button, .pagination button { padding: 11px 16px; border: 0; border-radius: 9px; color: #fff; background: #4056ed; font: inherit; font-weight: 700; cursor: pointer; }
-.result-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 28px 0 18px; }
-h2 { margin: 0; color: #172033; font-size: 22px; }
-.result-count { color: #98a2b3; font-size: 14px; }
-.resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
-.state-panel { display: flex; align-items: center; justify-content: center; min-height: 180px; flex-direction: column; gap: 10px; color: #667085; border: 1px dashed #d0d5dd; border-radius: 14px; background: #fbfcff; }
-.empty-state strong { color: #344054; font-size: 18px; }
-.state-panel button { margin-top: 8px; }
-.pagination { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 28px; color: #667085; }
+.resource-home { min-width: 0; }
+.page-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 18px; margin-bottom: 16px; }
+.eyebrow { display: inline-flex; margin-bottom: 10px; padding: 5px 10px; border-radius: 999px; color: var(--brand); background: #e7f1ed; font-size: 12px; font-weight: 700; }
+h1 { margin: 0; color: var(--ink); font-size: clamp(26px, 3vw, 31px); line-height: 1.25; letter-spacing: -.025em; }
+.page-head p { margin: 9px 0 0; color: var(--muted); font-size: 14px; }
+.custom-site-link { display: inline-flex; flex: 0 0 auto; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid #d9e2dc; border-radius: 10px; color: var(--brand); background: #fff; box-shadow: var(--shadow-sm); font-size: 14px; font-weight: 650; text-decoration: none; }
+.result-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 18px 0 15px; color: #87928c; font-size: 13px; }
+.resource-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.state-panel { display: flex; align-items: center; justify-content: center; min-height: 220px; flex-direction: column; gap: 10px; padding: 24px; border: 1px dashed #cbd6d0; border-radius: 16px; color: var(--muted); background: rgba(255, 255, 255, .72); text-align: center; }
+.empty-state strong { color: var(--ink); font-size: 18px; }
+.state-panel button, .pagination button { padding: 9px 14px; border: 0; border-radius: 9px; color: #fff; background: var(--brand); font-weight: 650; }
+.state-panel button:hover, .pagination button:hover { background: var(--brand-dark); }
+.pagination { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 28px; color: var(--muted); font-size: 13px; }
 .pagination button:disabled { cursor: not-allowed; opacity: .45; }
-@media (max-width: 560px) { .search-form { flex-direction: column; } .result-heading { align-items: flex-start; flex-direction: column; gap: 6px; } }
+@media (max-width: 1180px) { .resource-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) {
+  .page-head { align-items: flex-start; flex-direction: column; }
+  .custom-site-link { width: 100%; justify-content: center; }
+  .result-toolbar { align-items: flex-start; flex-direction: column; gap: 4px; }
+  .resource-grid { grid-template-columns: 1fr; }
+  .pagination { flex-wrap: wrap; }
+}
 </style>
-
-

@@ -32,7 +32,11 @@ async function mountPage() {
       { path: '/', component: HomePage },
       { path: '/login', component: LoginPage },
       { path: '/register', component: { template: '<div>register</div>' } },
-      { path: '/user', component: { template: '<div>user</div>' } }
+      { path: '/user', component: { template: '<div>user</div>' } },
+      { path: '/forum', component: { template: '<div>forum</div>' } },
+      { path: '/about', component: { template: '<div>about</div>' } },
+      { path: '/privacy', component: { template: '<div>privacy</div>' } },
+      { path: '/terms', component: { template: '<div>terms</div>' } }
     ]
   });
   await router.push('/login?redirect=/user');
@@ -48,8 +52,8 @@ async function mountPage() {
   return { app, root, router };
 }
 
-function setInput(root: HTMLElement, index: number, value: string) {
-  const input = root.querySelectorAll('input')[index] as HTMLInputElement;
+function setInput(root: HTMLElement, testId: string, value: string) {
+  const input = root.querySelector(`[data-testid="${testId}"]`) as HTMLInputElement;
   input.value = value;
   input.dispatchEvent(new Event('input', { bubbles: true }));
 }
@@ -80,8 +84,8 @@ describe('LoginPage', () => {
     vi.mocked(login).mockResolvedValue(user);
     const { app, root, router } = await mountPage();
 
-    setInput(root, 0, 'demo_user');
-    setInput(root, 1, 'Passw0rd!');
+    setInput(root, 'login-account', 'demo_user');
+    setInput(root, 'login-password', 'Passw0rd!');
     clickButton(root);
     await nextTick();
     await Promise.resolve();

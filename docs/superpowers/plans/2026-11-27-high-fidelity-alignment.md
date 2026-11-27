@@ -1,6 +1,6 @@
 # 万汇网高保真视觉对齐实施计划
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** 按高保真原型重构万汇网前端视觉，同时保持现有业务功能。
 
@@ -36,12 +36,12 @@
 - Modify: `frontend/src/layouts/AppShell.vue`
 - Test: `frontend/e2e/design.spec.ts`
 
-- [ ] 写 Playwright 测试，验证主色、顶栏品牌标识、搜索框和登录按钮。
-- [ ] 运行定向 E2E，确认 RED。
-- [ ] 添加绿色设计令牌、Element Plus 覆盖和字体/背景。
-- [ ] 重构 AppHeader 为品牌 + 全局搜索 + 论坛 + 账户入口。
-- [ ] 调整 AppShell 最大宽度、侧栏和内容间距。
-- [ ] 运行定向 E2E，确认 GREEN。
+- [x] 写 Playwright 测试，验证主色、顶栏品牌标识、搜索框和登录按钮。
+- [x] 运行定向 E2E，确认 RED。
+- [x] 添加绿色设计令牌、Element Plus 覆盖和字体/背景。
+- [x] 重构 AppHeader 为品牌 + 全局搜索 + 论坛 + 账户入口。
+- [x] 调整 AppShell 最大宽度、侧栏和内容间距。
+- [x] 运行定向 E2E，确认 GREEN。
 
 ### Task 2: 资源首页与资源卡片
 
@@ -52,11 +52,11 @@
 - Test: `frontend/src/pages/ResourceHomePage.spec.ts`
 - Test: `frontend/e2e/design.spec.ts`
 
-- [ ] 写资源卡片主按钮、边框、圆角和首页网格测试，确认 RED。
-- [ ] 重构资源首页 Hero、工作台侧栏、分类和结果区。
-- [ ] 重构资源卡片图标、标签、访问按钮和收藏按钮。
-- [ ] 保留搜索、分页、收藏和空状态行为。
-- [ ] 运行单元测试和定向 E2E，确认 GREEN。
+- [x] 写资源卡片主按钮、边框、圆角和首页网格测试，确认 RED。
+- [x] 重构资源首页 Hero、工作台侧栏、分类和结果区。
+- [x] 重构资源卡片图标、标签、访问按钮和收藏按钮。
+- [x] 保留搜索、分页、收藏和空状态行为。
+- [x] 运行单元测试和定向 E2E，确认 GREEN。
 
 ### Task 3: 论坛与帖子详情
 
@@ -67,11 +67,11 @@
 - Test: `frontend/src/pages/ForumPage.spec.ts`
 - Test: `frontend/e2e/design.spec.ts`
 
-- [ ] 写论坛 Hero、帖子卡片和详情卡片的视觉测试，确认 RED。
-- [ ] 重构论坛深绿色 Hero、分类侧栏和帖子列表。
-- [ ] 重构帖子详情面包屑、作者行、互动区和评论区。
-- [ ] 保留发帖、搜索、分页、点赞、收藏和评论行为。
-- [ ] 运行定向测试，确认 GREEN。
+- [x] 写论坛 Hero、帖子卡片和详情卡片的视觉测试，确认 RED。
+- [x] 重构论坛深绿色 Hero、分类侧栏和帖子列表。
+- [x] 重构帖子详情面包屑、作者行、互动区和评论区。
+- [x] 保留发帖、搜索、分页、点赞、收藏和评论行为。
+- [x] 运行定向测试，确认 GREEN。
 
 ### Task 4: 登录、注册、个人中心和管理页
 
@@ -84,11 +84,11 @@
 - Test: `frontend/src/pages/LoginPage.spec.ts`
 - Test: `frontend/e2e/design.spec.ts`
 
-- [ ] 写登录分栏、用户侧栏和管理表格视觉测试，确认 RED。
-- [ ] 重构登录/注册为双栏布局并保留表单行为。
-- [ ] 调整个人中心侧栏、资料卡片和头像区域。
-- [ ] 调整管理页统计卡和表格样式。
-- [ ] 运行定向测试，确认 GREEN。
+- [x] 写登录分栏、用户侧栏和管理表格视觉测试，确认 RED。
+- [x] 重构登录/注册为双栏布局并保留表单行为。
+- [x] 调整个人中心侧栏、资料卡片和头像区域。
+- [x] 调整管理页统计卡和表格样式。
+- [x] 运行定向测试，确认 GREEN。
 
 ### Task 5: 全量回归与视觉验收
 
@@ -96,8 +96,8 @@
 - Create: `docs/acceptance/high-fidelity-alignment.md`
 - Modify: `docs/acceptance/README.md`
 
-- [ ] 运行 Vitest、生产构建和全量 E2E。
-- [ ] 用 1440×900 和 375×667 截图对照高保真原型。
-- [ ] 修复发现的关键视觉问题。
-- [ ] 清理本地 E2E 测试数据。
-- [ ] 提交分支并合并到 `main`。
+- [x] 运行 Vitest、生产构建和全量 E2E。
+- [x] 用 1440×900 和 375×667 截图对照高保真原型。
+- [x] 修复发现的关键视觉问题。
+- [x] 清理本地 E2E 测试数据。
+- [x] 提交分支并合并到 `main`。

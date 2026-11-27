@@ -116,7 +116,8 @@ describe('UserProfilePage', () => {
     await vi.waitFor(() => expect(updateProfile).toHaveBeenCalledWith({
       nickname: '新昵称',
       bio: '个人简介',
-      interest: '前端开发'
+      interest: '前端开发',
+      avatarKey: 'avatar_01'
     }));
     app.unmount();
     root.remove();

@@ -6,7 +6,9 @@
 | 验收 | [验收证据索引](./acceptance/README.md) |
 | 验收 | [MVP E2E 记录](./acceptance/2026-11-24-e2e-record.md) |
 | 验收 | [Phase 2 安全验收](./acceptance/phase2-security.md) |
-| 验收 | [性能验收](./acceptance/performance.md) |`n| 验收 | [Docker staging 部署验收](./acceptance/deployment.md) |
+| 验收 | [性能验收](./acceptance/performance.md) |
+| 验收 | [Docker staging 部署验收](./acceptance/deployment.md) |
+| 验收 | [高保真视觉对齐验收](./acceptance/high-fidelity-alignment.md) |
 | 运维 | [运维手册](./operations/runbook.md) |
 | 运维 | [生产发布检查表](./operations/production-checklist.md) |
 | 运维 | [发布检查表](./operations/release-checklist.md) |

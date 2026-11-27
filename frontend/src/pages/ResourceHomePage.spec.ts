@@ -51,7 +51,12 @@ async function mountPage(path = '/') {
       { path: '/', component: ResourceHomePage },
       { path: '/login', component: LoginPage },
       { path: '/register', component: RegisterPage },
-      { path: '/user', component: HomePage }
+      { path: '/user', component: HomePage },
+      { path: '/user/sites', component: { template: '<div>sites</div>' } },
+      { path: '/forum', component: { template: '<div>forum</div>' } },
+      { path: '/about', component: { template: '<div>about</div>' } },
+      { path: '/privacy', component: { template: '<div>privacy</div>' } },
+      { path: '/terms', component: { template: '<div>terms</div>' } }
     ]
   });
   await router.push(path);
@@ -93,7 +98,7 @@ describe('ResourceHomePage', () => {
   it('shows an empty state and clears the search query', async () => {
     vi.mocked(fetchResources).mockResolvedValue(pageWith([]));
     const { app, root, router } = await mountPage('/?q=missing');
-    await vi.waitFor(() => expect(root.textContent).toContain('没有找到匹配资源'));
+    await vi.waitFor(() => expect(root.textContent).toContain('未找到与“missing”相关的资源'));
 
     (root.querySelector('[data-testid="clear-search"]') as HTMLButtonElement).click();
     await vi.waitFor(() => expect(router.currentRoute.value.fullPath).toBe('/'));

@@ -10,7 +10,8 @@ const saving = ref(false);
 const error = ref<string | null>(null);
 const fieldErrors = reactive<{ nickname?: string; bio?: string }>({});
 
-const form = reactive({ nickname: '', bio: '', interest: '' });
+const avatarChoices = ['avatar_01', 'avatar_02', 'avatar_03', 'avatar_04', 'avatar_05', 'avatar_06'];
+const form = reactive({ nickname: '', bio: '', interest: '', avatarKey: 'avatar_01' });
 
 async function load() {
   loading.value = true;
@@ -20,6 +21,7 @@ async function load() {
     form.nickname = profile.value.nickname;
     form.bio = profile.value.bio || '';
     form.interest = profile.value.interest || '';
+    form.avatarKey = profile.value.avatarKey || 'avatar_01';
   } catch (requestError) {
     error.value = requestError instanceof Error ? requestError.message : '个人资料加载失败';
   } finally {
@@ -43,7 +45,8 @@ async function save() {
     profile.value = await updateProfile({
       nickname: form.nickname.trim(),
       bio: form.bio,
-      interest: form.interest
+      interest: form.interest,
+      avatarKey: form.avatarKey
     });
     ElMessage.success('个人资料已保存');
   } catch (requestError) {
@@ -68,6 +71,13 @@ onMounted(load);
       <div v-if="loading" class="state-panel">正在加载资料…</div>
       <el-alert v-else-if="error" :title="error" type="error" :closable="false" show-icon />
       <form v-else-if="profile" class="profile-form" @submit.prevent="save">
+        <div class="profile-summary">
+          <span class="profile-avatar">{{ (profile.nickname || profile.username).slice(0, 1) }}</span>
+          <div>
+            <h2>{{ profile.nickname || profile.username }}</h2>
+            <p>加入于 {{ new Date(profile.createdAt).toLocaleDateString('zh-CN') }} · 普通用户</p>
+          </div>
+        </div>
         <div class="readonly-grid">
           <label class="field">
             <span class="field-label">用户名</span>
@@ -82,6 +92,22 @@ onMounted(load);
             <input :value="profile.phoneMasked || '未绑定'" data-testid="profile-phone" readonly />
           </label>
         </div>
+
+        <section class="avatar-section">
+          <h3>选择预设头像</h3>
+          <div class="avatar-grid">
+            <button
+              v-for="(avatar, index) in avatarChoices"
+              :key="avatar"
+              type="button"
+              class="avatar-choice"
+              :class="{ active: form.avatarKey === avatar }"
+              :aria-label="`选择头像 ${index + 1}`"
+              :data-testid="`profile-avatar-${index + 1}`"
+              @click="form.avatarKey = avatar"
+            >{{ index + 1 }}</button>
+          </div>
+        </section>
 
         <label class="field">
           <span class="field-label">昵称</span>
@@ -111,21 +137,37 @@ onMounted(load);
 </template>
 
 <style scoped>
-.profile-page { max-width: 760px; margin: 0 auto; padding: 34px clamp(18px, 4vw, 48px) 72px; }
-.eyebrow { margin: 0 0 8px; color: #4056ed; font-size: 12px; font-weight: 700; letter-spacing: .16em; }
-h1 { margin: 0; color: #172033; font-size: clamp(28px, 5vw, 42px); }
-.lead { margin: 12px 0 26px; color: #667085; }
-.state-panel { display: flex; align-items: center; justify-content: center; min-height: 200px; border: 1px dashed #d0d5dd; border-radius: 14px; color: #667085; background: #fbfcff; }
-.profile-form { display: flex; flex-direction: column; gap: 18px; padding: 24px; border: 1px solid #edf0f8; border-radius: 14px; background: #fff; }
-.readonly-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; padding-bottom: 6px; }
+.profile-page { min-width: 0; }
+header { margin-bottom: 18px; }
+.eyebrow { display: inline-flex; margin-bottom: 9px; padding: 5px 10px; border-radius: 999px; color: var(--brand); background: #e7f1ed; font-size: 12px; font-weight: 700; }
+h1 { margin: 0; color: var(--ink); font-size: clamp(26px, 3vw, 32px); letter-spacing: -.025em; }
+.lead { margin: 9px 0 0; color: var(--muted); font-size: 14px; }
+.state-panel { display: flex; align-items: center; justify-content: center; min-height: 200px; border: 1px dashed #cbd6d0; border-radius: 16px; color: var(--muted); background: rgba(255, 255, 255, .72); }
+.profile-form { display: flex; flex-direction: column; gap: 18px; padding: 28px; border: 1px solid #dfe6e1; border-radius: 16px; background: #fff; box-shadow: var(--shadow-sm); }
+.profile-summary { display: flex; align-items: center; gap: 14px; padding-bottom: 20px; border-bottom: 1px solid #e4ebe7; }
+.profile-avatar { display: grid; width: 64px; height: 64px; place-items: center; border-radius: 16px; color: #173f38; background: #e7f1ed; font-size: 24px; font-weight: 800; }
+.profile-summary h2 { margin: 0; color: var(--ink); font-size: 20px; }
+.profile-summary p { margin: 5px 0 0; color: var(--muted); font-size: 13px; }
+.avatar-section h3 { margin: 0 0 10px; color: #3d4b45; font-size: 13px; }
+.avatar-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
+.avatar-choice { min-height: 82px; border: 1px solid #d9e3dd; border-radius: 14px; color: #fff; background: linear-gradient(145deg, #4b9b88, #176b5b); font-size: 28px; font-weight: 800; }
+.avatar-choice:hover { transform: translateY(-1px); }
+.avatar-choice.active { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(23, 107, 91, .12); }
+.readonly-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .field { display: flex; flex-direction: column; gap: 6px; }
-.field-label { color: #344054; font-size: 13px; font-weight: 600; }
-.field input, .field textarea { padding: 10px 12px; border: 1px solid #d0d5dd; border-radius: 9px; font: inherit; outline: none; }
-.field input[readonly] { color: #667085; background: #f8f9fc; cursor: not-allowed; }
-.field input:focus, .field textarea:focus { border-color: #4056ed; box-shadow: 0 0 0 3px rgba(64, 86, 237, .12); }
-.field textarea { resize: vertical; line-height: 1.6; }
-.field-error { color: #d92d20; font-size: 12px; }
+.field-label { color: #3d4b45; font-size: 13px; font-weight: 650; }
+.field input, .field textarea { width: 100%; padding: 10px 12px; border: 1px solid #d5ded8; border-radius: 9px; color: #33413c; background: #fff; outline: none; }
+.field input[readonly] { color: #6e7974; background: #f2f4f2; }
+.field input:focus, .field textarea:focus { border-color: #75a99a; box-shadow: 0 0 0 4px rgba(23, 107, 91, .09); }
+.field textarea { min-height: 128px; resize: vertical; }
+.field-error { color: var(--danger); font-size: 12px; }
 .actions { display: flex; justify-content: flex-end; }
-.actions button { padding: 11px 20px; border: 0; border-radius: 9px; color: #fff; background: #4056ed; font: inherit; font-weight: 700; cursor: pointer; }
+.actions button { padding: 10px 18px; border: 0; border-radius: 9px; color: #fff; background: var(--brand); font-weight: 700; }
+.actions button:hover { background: var(--brand-dark); }
 .actions button:disabled { opacity: .6; cursor: not-allowed; }
+@media (max-width: 760px) {
+  .readonly-grid { grid-template-columns: 1fr; }
+  .avatar-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .profile-form { padding: 20px; }
+}
 </style>

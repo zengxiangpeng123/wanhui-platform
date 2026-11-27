@@ -18,11 +18,11 @@ import AppShell from '../layouts/AppShell.vue';
 
 <style scoped>
 .page-card { max-width: 720px; margin: 0 auto; padding: 72px 24px; }
-.eyebrow { margin: 0 0 12px; color: #4056ed; font-size: 12px; font-weight: 700; letter-spacing: .16em; }
-h1 { margin: 0; color: #172033; font-size: clamp(42px, 8vw, 72px); line-height: 1; }
-.lead { margin: 22px 0 30px; color: #667085; font-size: 18px; }
+.eyebrow { margin: 0 0 12px; color: var(--brand); font-size: 12px; font-weight: 700; letter-spacing: .16em; }
+h1 { margin: 0; color: var(--ink); font-size: clamp(42px, 8vw, 72px); line-height: 1; }
+.lead { margin: 22px 0 30px; color: var(--muted); font-size: 18px; }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .primary-link, .secondary-link { padding: 12px 18px; border-radius: 10px; text-decoration: none; font-weight: 700; }
-.primary-link { color: #fff; background: #4056ed; }
-.secondary-link { color: #4056ed; background: #eef1ff; }
+.primary-link { color: #fff; background: var(--brand); }
+.secondary-link { color: var(--brand); background: #e7f1ed; }
 </style>

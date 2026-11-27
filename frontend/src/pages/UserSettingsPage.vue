@@ -80,16 +80,16 @@ async function submit() {
 
 <style scoped>
 .settings-page { max-width: 560px; margin: 0 auto; padding: 34px clamp(18px, 4vw, 48px) 72px; }
-.eyebrow { margin: 0 0 8px; color: #4056ed; font-size: 12px; font-weight: 700; letter-spacing: .16em; }
-h1 { margin: 0; color: #172033; font-size: clamp(28px, 5vw, 42px); }
-.lead { margin: 12px 0 26px; color: #667085; }
-.settings-form { display: flex; flex-direction: column; gap: 18px; padding: 24px; border: 1px solid #edf0f8; border-radius: 14px; background: #fff; }
+.eyebrow { margin: 0 0 8px; color: var(--brand); font-size: 12px; font-weight: 700; letter-spacing: .16em; }
+h1 { margin: 0; color: var(--ink); font-size: clamp(28px, 5vw, 42px); }
+.lead { margin: 12px 0 26px; color: var(--muted); }
+.settings-form { display: flex; flex-direction: column; gap: 18px; padding: 24px; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
 .field { display: flex; flex-direction: column; gap: 6px; }
-.field-label { color: #344054; font-size: 13px; font-weight: 600; }
-.field input { padding: 10px 12px; border: 1px solid #d0d5dd; border-radius: 9px; font: inherit; outline: none; }
-.field input:focus { border-color: #4056ed; box-shadow: 0 0 0 3px rgba(64, 86, 237, .12); }
-.field-error { color: #d92d20; font-size: 12px; }
+.field-label { color: var(--ink-strong); font-size: 13px; font-weight: 600; }
+.field input { padding: 10px 12px; border: 1px solid #d5ded8; border-radius: 9px; font: inherit; outline: none; }
+.field input:focus { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(23, 107, 91, .09); }
+.field-error { color: var(--danger); font-size: 12px; }
 .actions { display: flex; justify-content: flex-end; }
-.actions button { padding: 11px 20px; border: 0; border-radius: 9px; color: #fff; background: #4056ed; font: inherit; font-weight: 700; cursor: pointer; }
+.actions button { padding: 11px 20px; border: 0; border-radius: 9px; color: #fff; background: var(--brand); font: inherit; font-weight: 700; cursor: pointer; }
 .actions button:disabled { opacity: .6; cursor: not-allowed; }
 </style>

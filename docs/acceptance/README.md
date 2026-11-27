@@ -14,8 +14,11 @@
 |---|---|---|
 | 核心用户流程 | [MVP E2E 记录](./2026-11-24-e2e-record.md) | 最终全量 28/28 通过 |
 | 安全与合规 | [Phase 2 安全验收](./phase2-security.md) | 34 个安全用例通过；Cookie、密文、限流已实测 |
-| 性能 | [性能验收](./performance.md) | API P95 299.33 ms、错误率 0%；首页 LCP 最大 1,112 ms |`n| 响应式界面 | [响应式界面修复验收](./responsive-ui.md) | 桌面主体宽度、移动导航和横向侧栏通过 |
-| 部署 | [Docker staging 部署验收](./deployment.md) | 前后端镜像构建成功；三容器 healthy；HTTPS、V7、安全 Cookie 通过 |`n| 部署与恢复 | [备份恢复与回滚演练](../operations/drill-record-2026-11-26.md) | 备份 SHA256 与逐表计数一致；本地回滚产物可启动 |
+| 性能 | [性能验收](./performance.md) | API P95 299.33 ms、错误率 0%；首页 LCP 最大 1,112 ms |
+| 响应式界面 | [响应式界面修复验收](./responsive-ui.md) | 桌面主体宽度、移动导航和横向侧栏通过 |
+| 高保真视觉 | [高保真视觉对齐验收](./high-fidelity-alignment.md) | 深绿色品牌、顶栏、资源卡、论坛、认证和管理页完成对齐 |
+| 部署 | [Docker staging 部署验收](./deployment.md) | 前后端镜像构建成功；三容器 healthy；HTTPS、V7、安全 Cookie 通过 |
+| 部署与恢复 | [备份恢复与回滚演练](../operations/drill-record-2026-11-26.md) | 备份 SHA256 与逐表计数一致；本地回滚产物可启动 |
 | 生产检查 | [生产发布检查表](../operations/production-checklist.md) | 发布前、部署后、回滚与安全门禁 |
 | 发布检查 | [发布检查表](../operations/release-checklist.md) | staging 发布与回滚步骤 |
 | 安全检查 | [上线前安全检查表](../../deploy/security-checklist.md) | 认证、CSRF、权限、加密、传输和部署配置 |
@@ -28,9 +31,9 @@
 |---|---|---|
 | 后端 `mvnw clean test` | 96 通过，0 失败，1 跳过 | Testcontainers MySQL 从空库执行 Flyway V1-V7 |
 | 前端 `npm ci` | 通过 | 安装完成，0 个已知漏洞 |
-| 前端 `vitest run` | 45/45 通过 | 15 个测试文件 |
+| 前端 `vitest run` | 47/47 通过 | 16 个测试文件 |
 | 前端 `vite build` | 通过 | 1,137.67 kB 主 JS，gzip 367.82 kB；有待优化的大包警告 |
-| Playwright E2E | 28/28 通过 | 桌面 14 + 移动 14，2.0 分钟 |
+| Playwright E2E | 36/36 通过 | 桌面 18 + 移动 18，2.2 分钟 |
 | API 性能 | 通过 | 20 VU × 5 分钟，40,940 请求，P95 299.33 ms |
 | 首页性能 | 通过 | 20/5 Mbps、50 ms、禁用缓存，LCP 1,008-1,112 ms |
 | 生产配置检查 | 通过 | `CONFIG CHECK PASSED` |

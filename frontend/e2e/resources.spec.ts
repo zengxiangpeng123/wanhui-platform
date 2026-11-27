@@ -6,7 +6,7 @@ test.describe('资源浏览与收藏', () => {
     await registerAndLogin(page, 'res');
     await page.goto('/');
 
-    await page.getByRole('button', { name: '设计资源' }).click();
+    await page.getByRole('button', { name: '设计工具' }).click();
     await expect(page).toHaveURL(/category=design/);
 
     await page.getByTestId('resource-search').fill('Figma');

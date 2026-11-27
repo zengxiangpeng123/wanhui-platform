@@ -51,14 +51,14 @@ onMounted(load);
 
 <style scoped>
 .user-page { max-width: 900px; margin: 0 auto; padding: 42px clamp(18px, 4vw, 48px) 72px; }
-.back-link { color: #667085; font-size: 14px; text-decoration: none; }
+.back-link { color: var(--muted); font-size: 14px; text-decoration: none; }
 .page-heading { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-top: 26px; }
-.eyebrow { margin: 0 0 10px; color: #4056ed; font-size: 12px; font-weight: 700; letter-spacing: .16em; }
-h1 { margin: 0 0 26px; color: #172033; font-size: clamp(34px, 6vw, 54px); }
-.loading { color: #667085; }
-.clear-button { margin-bottom: 26px; padding: 9px 14px; border: 1px solid #d0d5dd; border-radius: 8px; color: #475467; background: #fff; font: inherit; cursor: pointer; }
-.visit-list { border-top: 1px solid #edf0f8; }
-.visit-row { display: grid; grid-template-columns: 1fr 140px 180px; gap: 16px; padding: 16px 0; border-bottom: 1px solid #edf0f8; color: #667085; }
-.visit-row strong { color: #344054; }
+.eyebrow { margin: 0 0 10px; color: var(--brand); font-size: 12px; font-weight: 700; letter-spacing: .16em; }
+h1 { margin: 0 0 26px; color: var(--ink); font-size: clamp(34px, 6vw, 54px); }
+.loading { color: var(--muted); }
+.clear-button { margin-bottom: 26px; padding: 9px 14px; border: 1px solid #d5ded8; border-radius: 8px; color: #59655f; background: #fff; font: inherit; cursor: pointer; }
+.visit-list { border-top: 1px solid var(--line); }
+.visit-row { display: grid; grid-template-columns: 1fr 140px 180px; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); color: var(--muted); }
+.visit-row strong { color: var(--ink-strong); }
 @media (max-width: 620px) { .visit-row { grid-template-columns: 1fr; gap: 5px; } }
 </style>
