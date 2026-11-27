@@ -35,4 +35,11 @@ nav { display: flex; flex-direction: column; gap: 4px; }
 nav a { padding: 10px; border-radius: 9px; color: #667085; text-decoration: none; }
 nav a:hover { color: #4056ed; background: #f4f6ff; }
 nav a.router-link-exact-active { color: #4056ed; background: #f1f3ff; font-weight: 700; }
+@media (max-width: 760px) {
+  .user-nav { display: flex; align-items: center; gap: 10px; overflow-x: auto; padding: 12px 16px; scrollbar-width: none; }
+  .user-nav::-webkit-scrollbar { display: none; }
+  .user-name { display: none; }
+  nav { flex-direction: row; gap: 4px; }
+  nav a { flex: 0 0 auto; padding: 8px 12px; white-space: nowrap; }
+}
 </style>

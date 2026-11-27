@@ -36,4 +36,10 @@ defineEmits<{
 .sidebar-title { margin: 0 10px 14px; color: #98a2b3; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
 .category-button { display: block; width: 100%; margin: 4px 0; padding: 10px 12px; border: 0; border-radius: 9px; color: #475467; background: transparent; font: inherit; text-align: left; cursor: pointer; }
 .category-button:hover, .category-button.active { color: #3444c8; background: #eef1ff; font-weight: 700; }
+@media (max-width: 760px) {
+  .resource-sidebar { display: flex; align-items: center; gap: 8px; overflow-x: auto; padding: 12px 16px; border-right: 0; scrollbar-width: none; }
+  .resource-sidebar::-webkit-scrollbar { display: none; }
+  .sidebar-title { display: none; }
+  .category-button { flex: 0 0 auto; width: auto; margin: 0; padding: 8px 14px; border-radius: 999px; text-align: center; white-space: nowrap; }
+}
 </style>

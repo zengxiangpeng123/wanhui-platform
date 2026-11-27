@@ -50,7 +50,16 @@ async function logout() {
 .account-name { color: #344054; font-weight: 600; }
 .text-button { padding: 0; border: 0; color: #667085; background: transparent; font: inherit; cursor: pointer; }
 .register-link { padding: 8px 14px; border-radius: 8px; color: #fff; background: #4056ed; text-decoration: none; }
-@media (max-width: 560px) { .app-header { gap: 12px; } .app-nav { display: none; } .account-name { display: none; } }
+@media (max-width: 560px) {
+  .app-header { flex-wrap: wrap; gap: 10px 14px; min-height: 0; padding: 12px 18px 0; }
+  .brand { font-size: 20px; }
+  .account-actions { gap: 10px; }
+  .account-name { display: none; }
+  .app-nav { order: 3; display: flex; width: 100%; gap: 4px; overflow-x: auto; padding: 2px 0 10px; scrollbar-width: none; }
+  .app-nav::-webkit-scrollbar { display: none; }
+  .app-nav a { flex: 0 0 auto; padding: 8px 10px; border-radius: 8px; white-space: nowrap; }
+  .app-nav a.router-link-active { background: #f1f3ff; }
+}
 </style>
 
 

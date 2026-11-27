@@ -57,7 +57,7 @@ async function submit() {
 
       <el-form class="auth-form" @submit.prevent="submit">
         <el-form-item label="用户名" :error="errors.username">
-          <el-input v-model="username" autocomplete="username" placeholder="3～32 位字符" data-testid="register-username" />
+          <el-input v-model="username" autocomplete="username" placeholder="3～32 位字母、数字、_ 或 -" data-testid="register-username" />
           <p v-if="errors.username" class="field-error">{{ errors.username }}</p>
         </el-form-item>
         <el-form-item label="邮箱" :error="errors.email">

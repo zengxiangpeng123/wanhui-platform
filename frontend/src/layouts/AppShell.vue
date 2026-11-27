@@ -5,7 +5,7 @@ import AppHeader from '../components/AppHeader.vue';
 <template>
   <div class="app-frame">
     <AppHeader />
-    <div class="app-body">
+    <div class="app-body" :class="$slots.sidebar ? 'app-body--with-sidebar' : 'app-body--full'">
       <aside v-if="$slots.sidebar" class="app-sidebar-slot">
         <slot name="sidebar" />
       </aside>
@@ -26,13 +26,15 @@ import AppHeader from '../components/AppHeader.vue';
 
 <style scoped>
 .app-frame { min-height: 100vh; background: linear-gradient(180deg, #f8faff 0%, #ffffff 44%); }
-.app-body { display: grid; grid-template-columns: 220px minmax(0, 1fr); min-height: calc(100vh - 76px); }
+.app-body { min-height: calc(100vh - 76px); }
+.app-body--with-sidebar { display: grid; grid-template-columns: 220px minmax(0, 1fr); }
+.app-body--full { display: block; }
 .app-sidebar-slot { min-width: 0; }
 .app-main { min-width: 0; }
 .site-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 22px clamp(18px, 4vw, 48px); border-top: 1px solid #edf0f8; color: #98a2b3; font-size: 13px; }
 .site-footer nav { display: flex; gap: 16px; }
 .site-footer a { color: #667085; text-decoration: none; }
 .site-footer a:hover { color: #4056ed; }
-@media (max-width: 760px) { .app-body { display: block; } .app-sidebar-slot { border-bottom: 1px solid #edf0f8; } }
+@media (max-width: 760px) { .app-body--with-sidebar { display: block; } .app-sidebar-slot { overflow-x: auto; border-bottom: 1px solid #edf0f8; } }
 </style>
 
