@@ -232,5 +232,11 @@ h2 { margin: 0; color: #172033; font-size: 20px; }
 .error-panel { border-color: #fecdca; background: #fffbfa; }
 .pagination { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 28px; color: #667085; }
 .pagination button:disabled { cursor: not-allowed; opacity: .45; }
+@media (max-width: 760px) {
+  .category-nav { flex-direction: row; gap: 8px; overflow-x: auto; padding: 12px 16px; scrollbar-width: none; }
+  .category-nav::-webkit-scrollbar { display: none; }
+  .nav-title { display: none; }
+  .category-item { flex: 0 0 auto; padding: 8px 14px; border-radius: 999px; white-space: nowrap; }
+}
 @media (max-width: 640px) { .forum-hero { align-items: flex-start; flex-direction: column; } .search-form { flex-wrap: wrap; } }
 </style>
